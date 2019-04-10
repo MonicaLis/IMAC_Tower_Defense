@@ -9,6 +9,16 @@ using namespace std;
 
 /**********************************STRUCTURES*********************************************/
 
+typedef struct Position{
+
+private:
+    int p_x, p_y;
+
+public:
+    Position();
+    Position(int x, int y);
+    ~Position();
+}Position;
 
 //we are using graphs to represent the paths and their nodes (i.e. adjacency list)
 typedef struct Node{
@@ -16,10 +26,11 @@ typedef struct Node{
 private:
     int index, nature, width, height, nb_successors;
     Node* linked_to;
+    Position coordinates;
 
 public:
     Node();
-    Node(int N_index, int N_nature, int N_width, int N_height, int N_nb_successors, Node* N_linked_to); //constructor
+    Node(Position coordinates, int N_index, int N_nature, int N_width, int N_height, int N_nb_successors, Node* N_linked_to); //constructor
     ~Node(); //destructor
     void set_successors(Node* successors);
 
@@ -41,6 +52,7 @@ public:
 /**********************************FUNCTIONS********************************************/
 
 bool load_map(const char* filename); //returns true if the map is valid
+bool verify_path (Graph graph);
 bool is_parameter_valid(string parameter);
 Graph create_graph();
 

@@ -14,6 +14,24 @@ using namespace std;
 
 /**********************************STRUCTURE METHODS*********************************************/
 
+Position::Position()
+{
+    p_x = 0;
+    p_y = 0;
+}
+
+Position::Position(int x, int y)
+{
+    p_x = x;
+    p_y = y;
+}
+
+Position::~Position()
+{
+    p_x = 0;
+    p_y = 0;
+}
+
 Node::Node()
 {
     index = 0;
@@ -24,7 +42,7 @@ Node::Node()
     linked_to = NULL;
 }
 
-Node::Node(int N_index, int N_nature, int N_width, int N_height, int N_nb_successors, Node* N_linked_to)
+Node::Node(Position N_coordinates, int N_index, int N_nature, int N_width, int N_height, int N_nb_successors, Node* N_linked_to)
 {
     index = N_index;
     nature = N_nature;
@@ -32,6 +50,7 @@ Node::Node(int N_index, int N_nature, int N_width, int N_height, int N_nb_succes
     width = N_width;
     nb_successors = N_nb_successors;
     linked_to = N_linked_to;
+    coordinates = N_coordinates;
 }
 
 Node::~Node()
@@ -42,6 +61,7 @@ Node::~Node()
     width = 0;
     nb_successors = 0;
     linked_to = NULL;
+    ~coordinates;
 }
 
 void Node::set_successors(Node* successors)
@@ -77,12 +97,18 @@ Graph create_graph()
     Node* succ_N2;
     Node* succ_N3;
     Node* succ_N4;
+    //created the positions quite randomly, making sure they respect the nodes' natures
+    Position P0(0,100);
+    Position P1(200,190);
+    Position P2(70,50);
+    Position P3(150,15);
+    Position P4(175,174);
     //first we create the nodes independently
-    Node N0(0,1,10,20,3,succ_N0);
-    Node N1(1,2,454,103,2,succ_N1);
-    Node N2(2,4,300,103,3,succ_N2);
-    Node N3(3,3,200,103,2,succ_N3);
-    Node N4(4,4,200,206,3,succ_N4);
+    Node N0(P0,0,1,10,20,3,succ_N0);
+    Node N1(P1,1,2,454,103,2,succ_N1);
+    Node N2(P2,2,4,300,103,3,succ_N2);
+    Node N3(P3,3,3,200,103,2,succ_N3);
+    Node N4(P4,4,4,200,206,3,succ_N4);
 
     //then we link them together
     //N0 has 3 successors:
@@ -258,26 +284,12 @@ bool load_map(const char* filename)
             && valid_noeud && valid_construct && valid_in && valid_out);
 }
 
-
-
-bool is_parameter_valid(string parameter)
+bool verify_path (Graph graph)
 {
-    char first_char = parameter.at(0);
-    //if the first character is a number then continue
-    if ( (first_char >= '0') && (first_char <= '9'))
-    {
-        //convert the string to an int
-        int parameter_int = stoi (parameter);
-        if ( (parameter_int >= 0) && (parameter_int <= 255)) return true; 
-    }
-    //if it's not a number or it's not between 0 and 255
-    return false;
+    //check that there's a path between an IN and an OUT zone: i.e. check that there are nodes of natures 3 and 4
+    bool is_there_a_path;
+    //check that the path isn't crossing anything else: i.e. Bressenham code
 }
-
-
-
-
-
 /*
 
 • Bonne validité des chemins : Le long d’un chemin entre 2 noeuds on doit rester sur le chemin (ne
@@ -305,6 +317,20 @@ procédure tracerSegment(entier x1, entier y1, entier x2, entier y2) est
   fin pour ;
 fin procédure ;
 */
+
+bool is_parameter_valid(string parameter)
+{
+    char first_char = parameter.at(0);
+    //if the first character is a number then continue
+    if ( (first_char >= '0') && (first_char <= '9'))
+    {
+        //convert the string to an int
+        int parameter_int = stoi (parameter);
+        if ( (parameter_int >= 0) && (parameter_int <= 255)) return true; 
+    }
+    //if it's not a number or it's not between 0 and 255
+    return false;
+}
 
 
 /**********************************FUNCTIONS FROM C PROJECT*********************************************/
