@@ -21,6 +21,7 @@ public:
     Node();
     Node(int N_index, int N_nature, int N_width, int N_height, int N_nb_successors, Node* N_linked_to); //constructor
     ~Node(); //destructor
+    void set_successors(Node* successors);
 
 }Node;
 

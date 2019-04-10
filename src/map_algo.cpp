@@ -44,6 +44,11 @@ Node::~Node()
     linked_to = NULL;
 }
 
+void Node::set_successors(Node* successors)
+{
+    linked_to = successors;
+}
+
 Graph::Graph(int G_nb_nodes)
 {
     nb_nodes = G_nb_nodes;
@@ -64,6 +69,64 @@ void Graph::add_node(Node N)
 
 
 /**********************************LOAD MAP*********************************************/
+
+Graph create_graph()
+{
+    Node* succ_N0;
+    Node* succ_N1;
+    Node* succ_N2;
+    Node* succ_N3;
+    Node* succ_N4;
+    //first we create the nodes independently
+    Node N0(0,1,10,20,3,succ_N0);
+    Node N1(1,2,454,103,2,succ_N1);
+    Node N2(2,4,300,103,3,succ_N2);
+    Node N3(3,3,200,103,2,succ_N3);
+    Node N4(4,4,200,206,3,succ_N4);
+
+    //then we link them together
+    //N0 has 3 successors:
+    succ_N0 = new Node[3]; 
+    succ_N0[0] = N3;
+    succ_N0[1] = N2;
+    succ_N0[2] = N4;
+    //N1 has 2 successors:
+    succ_N1 = new Node[2]; 
+    succ_N1[0] = N2;
+    succ_N1[1] = N4;
+    //N2 has 3 successors:
+    succ_N2 = new Node[3]; 
+    succ_N2[0] = N3;
+    succ_N2[1] = N1;
+    succ_N2[2] = N0;
+    //N3 has 2 successors:
+    succ_N3 = new Node[2]; 
+    succ_N3[0] = N0;
+    succ_N3[1] = N2;
+    //N4 has 3 successors:
+    succ_N4 = new Node[3]; 
+    succ_N4[0] = N0;
+    succ_N4[1] = N2;
+    succ_N4[2] = N1;
+
+    //reupdate successors
+    N0.set_successors(succ_N0);
+    N1.set_successors(succ_N1);
+    N2.set_successors(succ_N2);
+    N3.set_successors(succ_N3);
+    N4.set_successors(succ_N4);
+
+    //create main graph
+    Graph graph_game(5);
+    graph_game.add_node(N0);
+    graph_game.add_node(N1);
+    graph_game.add_node(N2);
+    graph_game.add_node(N3);
+    graph_game.add_node(N4);
+
+    return graph_game;
+}
+
 
 bool load_map(const char* filename)
 {
@@ -212,25 +275,6 @@ bool is_parameter_valid(string parameter)
 }
 
 
-Graph create_graph()
-{
-    Node* succ_N1,succ_N2,succ_N3,succ_N4,succ_N5;
-    Node N1(0,1,10,20,3,succ_N1);
-    Node N21 2 454 103
-}
-
-/* 5 //nombre de nœuds du graphe
-0 1 10 20 3 2 4 //chaque ligne décrit le noeud
-1 2 454 103 2 4
-2 4 300 103 3 1 0
-3 3 200 103 0 2
-4 4 200 206 0 2 1
- 
-Exemple : 0 1 10 20 3 2 4
-0 : indice du nœud
-1 : nature du nœud
-10  20 : largeur x hauteur (diamètre 30 pixels, what ??)
-3 2 4 : successeurs de ce nœud */
 
 
 
