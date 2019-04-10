@@ -1,0 +1,3 @@
+/home/monica/Documents/tower_defense/CMakeFiles/rebuild_cache.dir
+/home/monica/Documents/tower_defense/CMakeFiles/itd.dir
+/home/monica/Documents/tower_defense/CMakeFiles/edit_cache.dir
