@@ -214,8 +214,9 @@ bool is_parameter_valid(string parameter)
 
 Graph create_graph()
 {
-    Node* successeurs_N1;
-    Node N1(0,1,10,20,3,N1);
+    Node* succ_N1,succ_N2,succ_N3,succ_N4,succ_N5;
+    Node N1(0,1,10,20,3,succ_N1);
+    Node N21 2 454 103
 }
 
 /* 5 //nombre de nœuds du graphe
@@ -381,10 +382,6 @@ int save(Image* I, const char* filename)
     printf("image saved\n");
     return 0;
 }
-
-
-
-
 
 
 
