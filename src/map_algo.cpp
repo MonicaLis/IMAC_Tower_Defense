@@ -8,6 +8,7 @@
 #include <string.h>
 #include <iostream>
 #include <fstream>
+#include <list>
 
 using namespace std;
 
@@ -30,6 +31,16 @@ Position::~Position()
 {
     p_x = 0;
     p_y = 0;
+}
+
+int Position::get_p_x()
+{
+    return p_x;
+}
+
+int Position::get_p_y()
+{
+    return p_y;
 }
 
 Node::Node()
@@ -61,12 +72,26 @@ Node::~Node()
     width = 0;
     nb_successors = 0;
     linked_to = NULL;
-    ~coordinates;
 }
 
 void Node::set_successors(Node* successors)
 {
     linked_to = successors;
+}
+
+int Node::get_successors()
+{
+    return nb_successors;
+}
+
+Position Node::get_coordinates()
+{
+    return coordinates;
+}
+
+int Node::get_nature()
+{
+    return nature;
 }
 
 Graph::Graph(int G_nb_nodes)
@@ -78,13 +103,17 @@ Graph::Graph(int G_nb_nodes)
 Graph::~Graph()
 {
     nb_nodes = 0;
-    delete node_array;
 }
 
-void Graph::add_node(Node N)
+//careful: you can add nodes in an empty graph but not add a 6th node to a 5-node graph
+void Graph::add_node(Node N, int position)
 {
-    node_array[nb_nodes] = N;
-    nb_nodes++;
+    node_array[position] = N;
+}
+
+Node Graph::get_node(int i)
+{
+    return node_array[i];
 }
 
 
@@ -97,12 +126,13 @@ Graph create_graph()
     Node* succ_N2;
     Node* succ_N3;
     Node* succ_N4;
-    //created the positions quite randomly, making sure they respect the nodes' natures
-    Position P0(0,100);
-    Position P1(200,190);
-    Position P2(70,50);
-    Position P3(150,15);
-    Position P4(175,174);
+
+    Position P0(10,20);
+    Position P1(454,103);
+    Position P2(300,103);
+    Position P3(200,103);
+    Position P4(200,206);
+
     //first we create the nodes independently
     Node N0(P0,0,1,10,20,3,succ_N0);
     Node N1(P1,1,2,454,103,2,succ_N1);
@@ -144,11 +174,11 @@ Graph create_graph()
 
     //create main graph
     Graph graph_game(5);
-    graph_game.add_node(N0);
-    graph_game.add_node(N1);
-    graph_game.add_node(N2);
-    graph_game.add_node(N3);
-    graph_game.add_node(N4);
+    graph_game.add_node(N0,0);
+    graph_game.add_node(N1,1);
+    graph_game.add_node(N2,2);
+    graph_game.add_node(N3,3);
+    graph_game.add_node(N4,4);
 
     return graph_game;
 }
@@ -286,36 +316,40 @@ bool load_map(const char* filename)
 
 bool verify_path (Graph graph)
 {
-    //check that there's a path between an IN and an OUT zone: i.e. check that there are nodes of natures 3 and 4
+    /*
+    //check that there's at least one path between an IN and an OUT zone
+    //i.e. check that there are nodes of natures 3 and 4 between nodes 1 and 2
     bool is_there_a_path;
-    //check that the path isn't crossing anything else: i.e. Bressenham code
-}
-/*
 
-• Bonne validité des chemins : Le long d’un chemin entre 2 noeuds on doit rester sur le chemin (ne
-pas croiser d’autre pixel que des pixels de type chemin). Pour ce faire, utilisez l’algorithme
-de parcours de segment de Bressenham.
-• Existence d’au moins un chemin entre la zone d’entrée et de sortie : c’est un parcours en
-profondeur simple du graphe des chemin*/
+    //check that the path isn't crossing anything else: i.e. Djikstra code
+    list<Node> visited_nodes;
+    list<Node> list_nodes;
+    list<Node> predecessors;
+    list<int> distances; //minimum distances starting from first_node
+    int i;
+    for (i=0; i<5; i++) 
+    {
+        Node N = graph.get_node(i);
+        list_nodes.push_back(N);
+    }
+    Node first_node = list_nodes.front();
+
+    while (S != NULL)
+    {
+        visited_nodes.push_back(S);
+        for (i=0; i<S.get_successors(); i++) //for each segment/edge of the node
+        {
+
+        }
+    }
+*/
+
+    //delete all tabs
+    return true;
+}
 
 /* ALGO BRESSENHAM EN PSEUDO CODE
-procédure tracerSegment(entier x1, entier y1, entier x2, entier y2) est
-  déclarer entier x, y, dx, dy ;
-  déclarer rationnel e, e(1,0), e(0,1) ;  // valeur d’erreur et incréments
-  dy ← y2 - y1 ;
-  dx ← x2 - x1 ;
-  y ← y1 ;  // rangée initiale
-  e ← 0,0 ;  // valeur d’erreur initiale
-  e(1,0) ← dy / dx ;
-  e(0,1) ← -1.0 ;
-  pour x variant de x1 jusqu’à x2 par incrément de 1 faire
-    tracerPixel(x, y) ;
-    si (e ←  e + e(1,0)) ≥ 0,5 alors  // erreur pour le pixel suivant de même rangée
-      y ←  y + 1 ;  // choisir plutôt le pixel suivant dans la rangée supérieure
-      e ←  e + e(0,1) ;  // ajuste l’erreur commise dans cette nouvelle rangée
-    fin si ;
-  fin pour ;
-fin procédure ;
+
 */
 
 bool is_parameter_valid(string parameter)
@@ -331,199 +365,3 @@ bool is_parameter_valid(string parameter)
     //if it's not a number or it's not between 0 and 255
     return false;
 }
-
-
-/**********************************FUNCTIONS FROM C PROJECT*********************************************/
-
-Image* load(const char* filename)
-{
-    char buff[16];
-    Image *img;
-    FILE *fp;
-    int c, rgb_comp_color;
-    //open PPM file for reading
-    fp = fopen(filename, "rb");
-    if (!fp) {
-        fprintf(stderr, "Unable to open file '%s'\n", filename);
-        exit(1);
-    }
-    
-    //read image format
-    if (!fgets(buff, sizeof(buff), fp)) {
-        perror(filename);
-        exit(1);
-    }
-    
-    //check the image format
-    if (buff[0] != 'P' || buff[1] != '6') {
-        fprintf(stderr, "Invalid image format (must be 'P6')\n");
-        exit(1);
-    }
-    
-    //alloc memory form image
-    img = (Image *)malloc(sizeof(Image));
-    if (!img) {
-        fprintf(stderr, "Unable to allocate memory\n");
-        exit(1);
-    }
-    
-    //check for comments
-    c = getc(fp);
-    while (c == '#') {
-        while (getc(fp) != '\n') ;
-        c = getc(fp);
-    }
-    
-    ungetc(c, fp);
-    //read image size information
-    if (fscanf(fp, "%d %d", &img->width, &img->height) != 2) {
-        fprintf(stderr, "Invalid image size (error loading '%s')\n", filename);
-        exit(1);
-    }
-    
-    //read rgb component
-    if (fscanf(fp, "%d", &rgb_comp_color) != 1) {
-        fprintf(stderr, "Invalid rgb component (error loading '%s')\n", filename);
-        exit(1);
-    }
-    
-    //check rgb component depth
-    if (rgb_comp_color!= 255) {
-        fprintf(stderr, "'%s' does not have 8-bits components\n", filename);
-        exit(1);
-    }
-    
-    while (fgetc(fp) != '\n') ;
-    //memory allocation for pixel data
-    img->data = (Pixel*)malloc(img->width * img->height * 3 * sizeof(unsigned char));
-    
-    if (!img) {
-        fprintf(stderr, "Unable to allocate memory\n");
-        exit(1);
-    }
-    
-    //read pixel data from file
-    if (fread(img->data, 3 * img->width, img->height, fp) != img->height) {
-        fprintf(stderr, "Error loading image '%s'\n", filename);
-        exit(1);
-    }
-    
-    fclose(fp);
-    return img;
-}
-    
-
-
-
-
-
-/*this function opens a file, prints:
-    P6
-    x y
-    max
- and then all the other pixel information from image I into the file.
- */
-int save(Image* I, const char* filename)
-{
-    FILE* fp = fopen(filename, "wb"); //write, binary
-    if (!fp)
-    {
-        printf("failed to save image\n");
-        return -1;
-    }
-    
-    //write the header file
-    //image format
-    fprintf(fp, "P6\n");
-    
-    //comments
-    //fprintf(fp, "# Created by an IMAC1 student\n");
-    
-    //image size
-    fprintf(fp, "%d %d\n",I->width,I->height);
-    
-    // rgb component depth
-    fprintf(fp, "255\n");
-    
-    //pixel data
-    fwrite(I->data, 3 * I->width, I->height, fp);
-    
-    fclose(fp);
-    printf("image saved\n");
-    return 0;
-}
-
-
-
-/* _____________________________________________WE PROBABLY DON'T NEED THIS____
-Image* create_image(int w, int h)
-{
-    Image* I = new Image;
-    if (!I)
-    {
-        printf("allocation of memory for the image failed\n");
-    }
-    I->width = w;
-    I->height = h;
-    //3 times unsigned char because 3 RGB components per pixel
-    I->data = (Pixel*)malloc(I->width * I->height * 3 * sizeof(unsigned char));
-    if (!I->data)
-    {
-        printf("allocation of memory for image->data failed\n");
-    }
-    return I;
-}
-
-
-void delete_image(Image* I)
-{
-    if (I)
-    {
-        free(I->data);
-        free(I);
-        printf("image deleted\n");
-    }
-}
-
-Pixel get_pixel(int x, int y, Image* I)
-{
-    return I->data[I->width*y+x]; //because we count pixels from the left to the right, and from the top to bottom
-}
-
-
-void set_pixel(Image* I, Pixel p, int i, int j)
-{
-    I->data[I->width*j+i].red= p.red;
-    I->data[I->width*j+i].green= p.green;
-    I->data[I->width*j+i].blue= p.blue;
-}
-
-
-void fill_image(Image* I, unsigned char r, unsigned char g, unsigned char b)
-{
-    int i,j;
-    Pixel p = create_pixel(r,g,b);
-    for (j=0; j<I->height; j++)
-    {
-        for (i=0; i<I->width; i++)
-        {
-            set_pixel(I,p,i,j);
-        }
-    }
-}
-
-Pixel create_pixel(unsigned char r, unsigned char g, unsigned char b)
-{
-    Pixel p;
-    p.red = r;
-    p.green = g;
-    p.blue = b;
-    return p;
-}
-
-
-void display_pixel(Pixel p)
-{
-    printf("red: %u green: %u blue: %u\n", p.red, p.green, p.blue);
-}
-*/

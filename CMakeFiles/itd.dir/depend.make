@@ -9,11 +9,13 @@ CMakeFiles/itd.dir/src/buildings_graphic.cpp.o: include/buildings_graphic.h
 
 CMakeFiles/itd.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/itd.dir/src/main.cpp.o: include/map_algo.h
+CMakeFiles/itd.dir/src/main.cpp.o: include/map_graphic.h
 
 CMakeFiles/itd.dir/src/map_algo.cpp.o: src/map_algo.cpp
 CMakeFiles/itd.dir/src/map_algo.cpp.o: include/map_algo.h
 
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: src/map_graphic.cpp
+CMakeFiles/itd.dir/src/map_graphic.cpp.o: include/map_algo.h
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: include/map_graphic.h
 
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: src/monsters_algo.cpp

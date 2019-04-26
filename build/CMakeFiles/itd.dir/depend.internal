@@ -3,28 +3,30 @@
 
 CMakeFiles/itd.dir/src/buildings_algo.cpp.o
  ../include/buildings_algo.h
- /home/monica/Documents/tower_defense/src/buildings_algo.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
  ../include/buildings_graphic.h
- /home/monica/Documents/tower_defense/src/buildings_graphic.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp
 CMakeFiles/itd.dir/src/main.cpp.o
  ../include/map_algo.h
- /home/monica/Documents/tower_defense/src/main.cpp
+ ../include/map_graphic.h
+ /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
 CMakeFiles/itd.dir/src/map_algo.cpp.o
  ../include/map_algo.h
- /home/monica/Documents/tower_defense/src/map_algo.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
 CMakeFiles/itd.dir/src/map_graphic.cpp.o
+ ../include/map_algo.h
  ../include/map_graphic.h
- /home/monica/Documents/tower_defense/src/map_graphic.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o
  ../include/monsters_algo.h
- /home/monica/Documents/tower_defense/src/monsters_algo.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.o
  ../include/monsters_graphic.h
- /home/monica/Documents/tower_defense/src/monsters_graphic.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp
 CMakeFiles/itd.dir/src/towers_algo.cpp.o
  ../include/towers_algo.h
- /home/monica/Documents/tower_defense/src/towers_algo.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o
  ../include/towers_graphic.h
- /home/monica/Documents/tower_defense/src/towers_graphic.cpp
+ /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp

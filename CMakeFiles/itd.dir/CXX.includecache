@@ -29,6 +29,8 @@ GL/glu.h
 -
 map_algo.h
 /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.h
+map_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
 
 /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
 map_algo.h
@@ -49,10 +51,30 @@ iostream
 -
 fstream
 -
+list
+-
 
 /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp
 map_graphic.h
 /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
+SDL2/SDL.h
+-
+GL/gl.h
+-
+GL/glu.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+iostream
+-
+fstream
+-
+list
+-
 
 /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp
 monsters_algo.h
@@ -81,6 +103,8 @@ iostream
 -
 
 include/map_graphic.h
+map_algo.h
+include/map_algo.h
 
 include/monsters_algo.h
 

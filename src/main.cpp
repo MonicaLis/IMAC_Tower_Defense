@@ -8,6 +8,8 @@ using namespace std;
 #include <GL/glu.h>
 
 #include "map_algo.h"
+#include "map_graphic.h"
+
 
 const int WINDOW_HEIGHT = 800;
 const int WINDOW_WIDTH = 1000;
@@ -17,6 +19,9 @@ int main(int argc, char ** argv)
 {
     bool mum = load_map("data/carte.itd");
     cout<<mum<<endl;
+
+    Graph map = create_graph();
+    create_map_ppm(map);
 
     /*
     bool quit = false;

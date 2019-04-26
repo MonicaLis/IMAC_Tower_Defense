@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/monica/Documents/tower_defense/src/buildings_algo.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/buildings_algo.cpp.o"
-  "/home/monica/Documents/tower_defense/src/buildings_graphic.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/buildings_graphic.cpp.o"
-  "/home/monica/Documents/tower_defense/src/main.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/main.cpp.o"
-  "/home/monica/Documents/tower_defense/src/map_algo.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/map_algo.cpp.o"
-  "/home/monica/Documents/tower_defense/src/map_graphic.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/map_graphic.cpp.o"
-  "/home/monica/Documents/tower_defense/src/monsters_algo.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/monsters_algo.cpp.o"
-  "/home/monica/Documents/tower_defense/src/monsters_graphic.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/monsters_graphic.cpp.o"
-  "/home/monica/Documents/tower_defense/src/towers_algo.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/towers_algo.cpp.o"
-  "/home/monica/Documents/tower_defense/src/towers_graphic.cpp" "/home/monica/Documents/tower_defense/build/CMakeFiles/itd.dir/src/towers_graphic.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/buildings_algo.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/buildings_graphic.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/main.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/main.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/map_algo.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/map_graphic.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/monsters_algo.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/monsters_graphic.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/towers_algo.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/itd.dir/src/towers_graphic.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -10,11 +10,13 @@ CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
 CMakeFiles/itd.dir/src/main.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
  include/map_algo.h
+ include/map_graphic.h
 CMakeFiles/itd.dir/src/map_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
  include/map_algo.h
 CMakeFiles/itd.dir/src/map_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp
+ include/map_algo.h
  include/map_graphic.h
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp

@@ -17,6 +17,8 @@ iostream
 -
 
 ../include/map_graphic.h
+map_algo.h
+../include/map_algo.h
 
 ../include/monsters_algo.h
 
@@ -26,15 +28,15 @@ iostream
 
 ../include/towers_graphic.h
 
-/home/monica/Documents/tower_defense/src/buildings_algo.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp
 buildings_algo.h
-/home/monica/Documents/tower_defense/src/buildings_algo.h
+/home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.h
 
-/home/monica/Documents/tower_defense/src/buildings_graphic.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp
 buildings_graphic.h
-/home/monica/Documents/tower_defense/src/buildings_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.h
 
-/home/monica/Documents/tower_defense/src/main.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
 stdlib.h
 -
 stdio.h
@@ -48,11 +50,13 @@ GL/gl.h
 GL/glu.h
 -
 map_algo.h
-/home/monica/Documents/tower_defense/src/map_algo.h
+/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.h
+map_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
 
-/home/monica/Documents/tower_defense/src/map_algo.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
 map_algo.h
-/home/monica/Documents/tower_defense/src/map_algo.h
+/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.h
 SDL2/SDL.h
 -
 GL/gl.h
@@ -69,24 +73,44 @@ iostream
 -
 fstream
 -
+list
+-
 
-/home/monica/Documents/tower_defense/src/map_graphic.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp
 map_graphic.h
-/home/monica/Documents/tower_defense/src/map_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
+SDL2/SDL.h
+-
+GL/gl.h
+-
+GL/glu.h
+-
+stdio.h
+-
+stdlib.h
+-
+string.h
+-
+iostream
+-
+fstream
+-
+list
+-
 
-/home/monica/Documents/tower_defense/src/monsters_algo.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp
 monsters_algo.h
-/home/monica/Documents/tower_defense/src/monsters_algo.h
+/home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.h
 
-/home/monica/Documents/tower_defense/src/monsters_graphic.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp
 monsters_graphic.h
-/home/monica/Documents/tower_defense/src/monsters_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.h
 
-/home/monica/Documents/tower_defense/src/towers_algo.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp
 towers_algo.h
-/home/monica/Documents/tower_defense/src/towers_algo.h
+/home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.h
 
-/home/monica/Documents/tower_defense/src/towers_graphic.cpp
+/home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp
 towers_graphic.h
-/home/monica/Documents/tower_defense/src/towers_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.h
 
