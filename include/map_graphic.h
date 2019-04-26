@@ -3,8 +3,6 @@
 
 #include "map_algo.h"
 
-void create_map_ppm(Graph graph);
-void drawline(int x0, int y0, int x1, int y1, Image* I);
 
 /*******************************FROM C PROJECT**********************************/
 
@@ -34,5 +32,11 @@ void set_pixel(Image* I, Pixel p, int i, int j);
 void fill_image(Image* I, unsigned char r, unsigned char g, unsigned char b);
 void display_pixel(Pixel p);
 Pixel create_pixel(unsigned char r, unsigned char g, unsigned char b);  
+
+
+/*******************************NEW FUNCTIONS**********************************/
+
+void create_map_ppm(Graph graph);
+void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I);
 
 #endif 

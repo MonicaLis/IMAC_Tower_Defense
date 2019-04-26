@@ -316,11 +316,16 @@ bool load_map(const char* filename)
 
 bool verify_path (Graph graph)
 {
-    /*
-    //check that there's at least one path between an IN and an OUT zone
-    //i.e. check that there are nodes of natures 3 and 4 between nodes 1 and 2
-    bool is_there_a_path;
+    //check that there's at least one path 
+    //i.e. check that there are nodes of natures 3 or 4 
+    bool is_there_a_path = false;
+    int i;
+    for (i=0; i<5; i++) //because 5 nodes
+    {
+        if ((graph.get_node(0).get_nature() == 3) || (graph.get_node(0).get_nature() == 4)) is_there_a_path = true;
+    }
 
+    /*
     //check that the path isn't crossing anything else: i.e. Djikstra code
     list<Node> visited_nodes;
     list<Node> list_nodes;
@@ -345,12 +350,10 @@ bool verify_path (Graph graph)
 */
 
     //delete all tabs
-    return true;
+
+    return is_there_a_path;
 }
 
-/* ALGO BRESSENHAM EN PSEUDO CODE
-
-*/
 
 bool is_parameter_valid(string parameter)
 {
