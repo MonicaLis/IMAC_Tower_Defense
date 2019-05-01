@@ -32,6 +32,7 @@ void set_pixel(Image* I, Pixel p, int i, int j);
 void fill_image(Image* I, unsigned char r, unsigned char g, unsigned char b);
 void display_pixel(Pixel p);
 Pixel create_pixel(unsigned char r, unsigned char g, unsigned char b);  
+bool are_they_equal(Pixel pi1, Pixel pi2);
 
 
 /*******************************NEW FUNCTIONS**********************************/

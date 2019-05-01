@@ -300,6 +300,7 @@ itd: CMakeFiles/itd.dir/src/towers_graphic.cpp.o
 itd: CMakeFiles/itd.dir/build.make
 itd: /usr/lib/x86_64-linux-gnu/libGL.so
 itd: /usr/lib/x86_64-linux-gnu/libGLU.so
+itd: /usr/local/lib/libSDL2_image.so
 itd: CMakeFiles/itd.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable itd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/itd.dir/link.txt --verbose=$(VERBOSE)

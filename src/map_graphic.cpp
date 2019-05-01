@@ -53,8 +53,8 @@ void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I)
 
 void create_map_ppm(Graph graph)
 {
-    //we create a 500x250 image of color (120,180,180)
-    Image* img_map = create_image(500,250);
+    //we create a 500x600 image of color (120,180,180)
+    Image* img_map = create_image(500,600);
     fill_image(img_map, 120, 180, 180);
 
     int i,j,k;
@@ -321,4 +321,13 @@ Pixel create_pixel(unsigned char r, unsigned char g, unsigned char b)
 void display_pixel(Pixel p)
 {
     printf("red: %u green: %u blue: %u\n", p.red, p.green, p.blue);
+}
+
+bool are_they_equal(Pixel pi1, Pixel pi2)
+{
+    if ( (pi1.red == pi2.red) && (pi1.green == pi2.green) && (pi1.blue == pi2.blue) )
+    {
+        return true;
+    }
+    else return false;
 }

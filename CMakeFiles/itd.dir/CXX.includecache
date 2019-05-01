@@ -23,6 +23,8 @@ iostream
 -
 SDL2/SDL.h
 -
+SDL2/SDL_image.h
+-
 GL/gl.h
 -
 GL/glu.h
