@@ -13,6 +13,8 @@ using namespace std;
 #include "towers_algo.h"
 #include "towers_graphic.h"
 
+/* Nombre minimal de millisecondes separant le rendu de deux images */
+static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
 int main(int argc, char ** argv)
 {
@@ -63,60 +65,74 @@ int main(int argc, char ** argv)
             }
         }
     }
-    int x=0;
-    int y=0;
+
+        
     while (!quit)
     {
-        //Uint32 startTime = SDL_GetTicks();
+     
+        Uint32 startTime = SDL_GetTicks();
         //glClear(GL_COLOR_BUFFER_BIT);
         glMatrixMode(GL_MODELVIEW); //transformations s'appliqunt sur la bonne matrice
         glLoadIdentity(); //remet en etat initial 
-
-        SDL_WaitEvent(&event);
- 
-        switch (event.type)
-        {
-            case SDL_QUIT:
-                quit = true;
-                break;
-        }
-        
+         
         SDL_RenderPresent(renderer);
         SDL_GL_SwapWindow(window);
+      
+         //  SDL_WaitEvent(&event);
+       
 
-        //Uint32 elapsedTime = SDL_GetTicks() - startTime;
-
+        
         /* Evenements utilisateurs */
-        SDL_Event e;
-        while (SDL_PollEvent(&e)) {
+       
+        while (SDL_PollEvent(&event)) {
             
-            switch(e.type) 
+            switch(event.type) 
             {
+                case SDL_QUIT:
+                    quit = true;
+                    break;
                 /* Clic souris */
                 case SDL_MOUSEBUTTONUP:
-                  //  Tower tower=new Tower;
-
-                    glPushMatrix();
-                    glColor3f(150,25,160);
-                        glTranslated(e.button.x,e.button.y,0);
-                        glScalef(20,20,20);
-                        drawTower(1);
-                    glPopMatrix();
-
-                   
-                    cout << "clic en "<< e.button.x<< " " << e.button.y<< endl;
+                {
+                    Pixel whiteTower = create_pixel(255,255,255);
+                    SDL_Surface * tower;
+                    SDL_Texture * texture_tower;
+                    SDL_Rect size_tower;
+                    Pixel currentTower = get_pixel(event.button.x,event.button.y,map_image);
+                    //if the pixel is white then it's the path and we can't creat a tower
+                    if (!are_they_equal( currentTower, whiteTower ))
+                    {
+                        tower = IMG_Load("images/tower.ppm");
+                        if(!tower) cout << "IMG_Load error: "<<IMG_GetError()<<endl;
+                        texture_tower = SDL_CreateTextureFromSurface(renderer, tower);
+                        size_tower = { event.button.x-25, event.button.y-25, 50,50 }; //location, width, height
+                        SDL_RenderCopy(renderer, texture_tower, NULL, &size_tower);
+                    }
+                    Tower newTower;
+               
+                    cout << "clic en "<< event.button.x<< " " << event.button.y<< endl;}
                     break;
                 
                 /* Touche clavier */
                 case SDL_KEYDOWN:
-                     cout << "touche "<< e.key.keysym.sym<< endl;
+                     cout << "touche "<< event.key.keysym.sym<< endl;
                     break;
                     
                 default:
                     break;
             }
         }
+        /* Calcul du temps ecoule */
+        Uint32 elapsedTime = SDL_GetTicks() - startTime;
+        /* Si trop peu de temps s'est ecoule, on met en pause le programme */
+        if(elapsedTime < FRAMERATE_MILLISECONDS) 
+        {
+            SDL_Delay(FRAMERATE_MILLISECONDS - elapsedTime);
+        }
+       
     }
+
+     
  
     SDL_DestroyTexture(texture);
     SDL_DestroyTexture(texture_brick);
