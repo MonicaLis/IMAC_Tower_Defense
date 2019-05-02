@@ -4,12 +4,14 @@
 using namespace std;
 
 #include <SDL2/SDL.h>
-#include <SDL2//SDL_image.h>
+#include <SDL2/SDL_image.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 
 #include "map_algo.h"
 #include "map_graphic.h"
+#include "towers_algo.h"
+#include "towers_graphic.h"
 
 
 int main(int argc, char ** argv)
@@ -61,7 +63,8 @@ int main(int argc, char ** argv)
             }
         }
     }
- 
+    int x=0;
+    int y=0;
     while (!quit)
     {
         //Uint32 startTime = SDL_GetTicks();
@@ -82,6 +85,37 @@ int main(int argc, char ** argv)
         SDL_GL_SwapWindow(window);
 
         //Uint32 elapsedTime = SDL_GetTicks() - startTime;
+
+        /* Evenements utilisateurs */
+        SDL_Event e;
+        while (SDL_PollEvent(&e)) {
+            
+            switch(e.type) 
+            {
+                /* Clic souris */
+                case SDL_MOUSEBUTTONUP:
+                  //  Tower tower=new Tower;
+
+                    glPushMatrix();
+                    glColor3f(150,25,160);
+                        glTranslated(e.button.x,e.button.y,0);
+                        glScalef(20,20,20);
+                        drawTower(1);
+                    glPopMatrix();
+
+                   
+                    cout << "clic en "<< e.button.x<< " " << e.button.y<< endl;
+                    break;
+                
+                /* Touche clavier */
+                case SDL_KEYDOWN:
+                     cout << "touche "<< e.key.keysym.sym<< endl;
+                    break;
+                    
+                default:
+                    break;
+            }
+        }
     }
  
     SDL_DestroyTexture(texture);
