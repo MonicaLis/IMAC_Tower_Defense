@@ -5,6 +5,7 @@ using namespace std;
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+//#include <SDL2/SDL_ttf.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
 
@@ -12,12 +13,15 @@ using namespace std;
 #include "map_graphic.h"
 #include "towers_algo.h"
 #include "towers_graphic.h"
+#include "player.h"
 
 /* Nombre minimal de millisecondes separant le rendu de deux images */
 static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
 int main(int argc, char ** argv)
 {
+   // TTF_Init();
+   
     //loading and verifying the map
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
@@ -66,7 +70,25 @@ int main(int argc, char ** argv)
         }
     }
 
-        
+
+    /*==============PLAYER INIT==========================================*/
+    Player player;
+    int money = player.get_money();
+    cout << "Argent disponbile : "<<money<<endl;
+    
+    /*==============TEXT INIT==========================================*/
+
+   // TTF_Font *font; 
+   //font = TTF_OpenFont( "font/roboto.ttf", 28 );
+   // SDL_Surface *screen;
+   // SDL_Color color={255,0,0};
+   // SDL_Surface *text_surface;
+  
+  //if(!font){
+   //  cout << "Font error: "<<TTF_GetError()<<endl;
+ // } 
+ //   text_surface=TTF_RenderText_Solid(font,"helloworld",color);
+  
     while (!quit)
     {
      
@@ -78,9 +100,7 @@ int main(int argc, char ** argv)
         SDL_RenderPresent(renderer);
         SDL_GL_SwapWindow(window);
       
-         //  SDL_WaitEvent(&event);
-       
-
+        //  SDL_WaitEvent(&event);
         
         /* Evenements utilisateurs */
        
@@ -94,23 +114,34 @@ int main(int argc, char ** argv)
                 /* Clic souris */
                 case SDL_MOUSEBUTTONUP:
                 {
-                    Pixel whiteTower = create_pixel(255,255,255);
-                    SDL_Surface * tower;
-                    SDL_Texture * texture_tower;
-                    SDL_Rect size_tower;
-                    Pixel currentTower = get_pixel(event.button.x,event.button.y,map_image);
-                    //if the pixel is white then it's the path and we can't creat a tower
-                    if (!are_they_equal( currentTower, whiteTower ))
-                    {
-                        tower = IMG_Load("images/tower.ppm");
-                        if(!tower) cout << "IMG_Load error: "<<IMG_GetError()<<endl;
-                        texture_tower = SDL_CreateTextureFromSurface(renderer, tower);
-                        size_tower = { event.button.x-25, event.button.y-25, 50,50 }; //location, width, height
-                        SDL_RenderCopy(renderer, texture_tower, NULL, &size_tower);
+                    if(money>0){
+                        //CONTRUCT TOWER
+                        Tower newTower;
+
+                        Pixel whiteTower = create_pixel(255,255,255);
+                        SDL_Surface * tower;
+                        SDL_Texture * texture_tower;
+                        SDL_Rect size_tower;
+                        Pixel currentTower = get_pixel(event.button.x,event.button.y,map_image);
+                        //if the pixel is white then it's the path and we can't creat a tower
+                        if (!are_they_equal( currentTower, whiteTower ))
+                        {
+                            tower = IMG_Load("images/tower.ppm");
+                            if(!tower) cout << "IMG_Load error: "<<IMG_GetError()<<endl;
+                            texture_tower = SDL_CreateTextureFromSurface(renderer, tower);
+                            size_tower = { event.button.x-25, event.button.y-25, 50,50 }; //location, width, height
+                            SDL_RenderCopy(renderer, texture_tower, NULL, &size_tower);
+                        }
+                        
+                        money=player.get_money()-newTower.get_cost();
+                        player.set_money(money);
+                        cout << "Argent disponbile : "<<money<<endl;
                     }
-                    Tower newTower;
-               
-                    cout << "clic en "<< event.button.x<< " " << event.button.y<< endl;}
+                    else{
+                        cout << "Pas d'argent disponible"<<endl;
+                    }
+                }
+                   // cout << "clic en "<< event.button.x<< " " << event.button.y<< endl;}
                     break;
                 
                 /* Touche clavier */
@@ -121,7 +152,10 @@ int main(int argc, char ** argv)
                 default:
                     break;
             }
+
         }
+        
+     
         /* Calcul du temps ecoule */
         Uint32 elapsedTime = SDL_GetTicks() - startTime;
         /* Si trop peu de temps s'est ecoule, on met en pause le programme */
@@ -132,15 +166,18 @@ int main(int argc, char ** argv)
        
     }
 
-     
- 
+    /*==============CLOSE WINDOW==========================================*/
+
     SDL_DestroyTexture(texture);
     SDL_DestroyTexture(texture_brick);
     SDL_FreeSurface(image);
     SDL_FreeSurface(brick);
+  //  SDL_FreeSurface(text_surface);
+  //  SDL_FreeSurface(screen);
     SDL_DestroyRenderer(renderer);
     SDL_DestroyWindow(window);
- 
+  //  TTF_CloseFont(font);
+  //  TTF_Quit();
     SDL_Quit();
  
     return 0;
