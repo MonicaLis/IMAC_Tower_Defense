@@ -6,10 +6,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/buildings_algo.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/buildings_graphic.cpp.o"
-  "/home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/imgui.cpp.o"
-  "/home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/imgui_demo.cpp.o"
-  "/home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/imgui_draw.cpp.o"
-  "/home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/imgui_widgets.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/main.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/main.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/map_algo.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/map_graphic.cpp.o"

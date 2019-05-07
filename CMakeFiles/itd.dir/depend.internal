@@ -7,30 +7,6 @@ CMakeFiles/itd.dir/src/buildings_algo.cpp.o
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp
  include/buildings_graphic.h
-CMakeFiles/itd.dir/src/imgui.cpp.o
- /home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp
- include/imconfig.h
- include/imgui.h
- include/imgui_internal.h
- include/imstb_textedit.h
-CMakeFiles/itd.dir/src/imgui_demo.cpp.o
- /home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp
- include/imconfig.h
- include/imgui.h
-CMakeFiles/itd.dir/src/imgui_draw.cpp.o
- /home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp
- include/imconfig.h
- include/imgui.h
- include/imgui_internal.h
- include/imstb_rectpack.h
- include/imstb_textedit.h
- include/imstb_truetype.h
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.o
- /home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp
- include/imconfig.h
- include/imgui.h
- include/imgui_internal.h
- include/imstb_textedit.h
 CMakeFiles/itd.dir/src/main.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
  include/init.h

@@ -15,46 +15,56 @@ using namespace std;
 
 void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I)
 {
-    int dx, dy, p, x, y, k;
+    int dx, dy; //width and height of bounding box
+    int x, y; //current point
+    int sx, sy; //-1 or 1
+    int err, e2; //loop-carried value and temporary variable
+    int right, down; //bool
     Pixel white = create_pixel(255,255,255);
- 
-	dx=x1-x0;
-	dy=y1-y0;
- 
-	x=x0;
-	y=y0;
- 
-	p=2*dy-dx;
- 
-	while(x<x1)
-	{
-		if(p>=0)
-		{
-            //so the paths have a width of 30px
-            for (k=-14; k<=14; k++)
-            {
-                set_pixel(I, white, x+k, y+k);
-            }
-			y=y+1;
-			p=p+2*dy-2*dx;
-		}
-		else
-		{
-			for (k=-14; k<=14; k++)
-            {
-                set_pixel(I, white, x+k, y+k);
-            }
-			p=p+2*dy;
-		}
-		x=x+1;
-	}
+    int k;
+
+    dx = x1 - x0;
+    right = dx > 0;
+    if (!right) dx = -dx;
+    dy = y1 - y0;
+    down = dy > 0;
+    if (down) dy = -dy;
+    err = dx + dy;
+    x = x0;
+    y = y0;
+
+    for (;;)
+    {
+        cout << " look here "<<y<<endl;
+        //create a larger path
+        for (k=-12; k<=12; k++)
+        {
+            set_pixel(I, white, x+k, y+k);
+            set_pixel(I, white, x-k, y+k);
+            set_pixel(I, white, x+k, y-k);
+        }
+        if ((x == x1) && (y == y1)) break; //reached the end
+        e2 = err << 1; //err*2
+        if (e2 > dy)
+        {
+            err += dy;
+            if (right) x++;
+            else x--;
+        }
+        if (e2 < dx)
+        {
+            err += dx;
+            if (down) y++;
+            else y--;
+        }
+    }
 }
 
 
 void create_map_ppm(Graph graph)
 {
-    //we create a 500x600 image of color (120,180,180)
-    Image* img_map = create_image(500,600);
+    //we create a 500x300 image of color (120,180,180)
+    Image* img_map = create_image(500,300);
     fill_image(img_map, 120, 180, 180);
 
     int i,j,k;
@@ -67,7 +77,7 @@ void create_map_ppm(Graph graph)
 
     //PATHS
 
-     //from N0 to N3: (10,20) to (200,103)
+    //from N0 to N3: (10,20) to (200,103)
     draw_line_ppm(graph.get_node(0).get_coordinates().get_p_x(), 
                     graph.get_node(0).get_coordinates().get_p_y(),
                     graph.get_node(3).get_coordinates().get_p_x(), 
@@ -85,17 +95,17 @@ void create_map_ppm(Graph graph)
                     graph.get_node(1).get_coordinates().get_p_x(), 
                     graph.get_node(1).get_coordinates().get_p_y(), img_map);
 
+    //from N0 to N4: (10,20) to (200,206)
+    draw_line_ppm(graph.get_node(0).get_coordinates().get_p_x(), 
+                    graph.get_node(0).get_coordinates().get_p_y(),
+                    graph.get_node(4).get_coordinates().get_p_x(), 
+                    graph.get_node(4).get_coordinates().get_p_y(), img_map);
+
     //from N4 to N2: (200,206) to (300,103)
-    //draw_line_ppm doesn't work here so I did something else
-    j = 206;
-    for (i=200; i<300; i++)
-    {
-        for (k=-10; k<=10; k++)
-        {
-            set_pixel(img_map, white, i + k, j + k);
-        }
-        j--;
-    }
+    draw_line_ppm(graph.get_node(4).get_coordinates().get_p_x(), 
+                    graph.get_node(4).get_coordinates().get_p_y(),
+                    graph.get_node(2).get_coordinates().get_p_x(), 
+                    graph.get_node(2).get_coordinates().get_p_y(), img_map);
 
     //NODES
     for (j=0; j<5; j++)
