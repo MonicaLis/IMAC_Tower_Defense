@@ -16,26 +16,6 @@
 },
 {
   "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/imgui.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp"
-},
-{
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/imgui_demo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp"
-},
-{
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/imgui_draw.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp"
-},
-{
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/imgui_widgets.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp"
-},
-{
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
   "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/main.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp",
   "file": "/home/monica/Documents/IMAC_Tower_Defense/src/main.cpp"
 },

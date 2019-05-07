@@ -12,49 +12,69 @@
 
 using namespace std;
 
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <stb_image/stb_image.h>
 
+const int X_DIMENSION_IMG_MAP = 500;
+const int Y_DIMENSION_IMG_MAP = 300;
+
+
+/**********************************FUNCTIONS TO CREATE PPM MAP*********************************************/
+
+//DJIKSTRA
 void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I)
 {
-    int dx, dy, p, x, y, k;
+    int dx, dy; //width and height of bounding box
+    int x, y; //current point
+    int sx, sy; //-1 or 1
+    int err, e2; //loop-carried value and temporary variable
+    int right, down; //bool
     Pixel white = create_pixel(255,255,255);
- 
-	dx=x1-x0;
-	dy=y1-y0;
- 
-	x=x0;
-	y=y0;
- 
-	p=2*dy-dx;
- 
-	while(x<x1)
-	{
-		if(p>=0)
-		{
-            //so the paths have a width of 30px
-            for (k=-14; k<=14; k++)
+    int k, j;
+
+    dx = x1 - x0;
+    right = dx > 0;
+    if (!right) dx = -dx;
+    dy = y1 - y0;
+    down = dy > 0;
+    if (down) dy = -dy;
+    err = dx + dy;
+    x = x0;
+    y = y0;
+
+    for (;;) //loops forever
+    {
+        //create a larger path
+        for (k=-12; k<=12; k++)
+        {
+            for (j=-12; j<=12; j++)
             {
-                set_pixel(I, white, x+k, y+k);
+                set_pixel(I, white, x+k, y+j);
             }
-			y=y+1;
-			p=p+2*dy-2*dx;
-		}
-		else
-		{
-			for (k=-14; k<=14; k++)
-            {
-                set_pixel(I, white, x+k, y+k);
-            }
-			p=p+2*dy;
-		}
-		x=x+1;
-	}
+        }
+        if ((x == x1) && (y == y1)) break; //reached the end
+        e2 = err << 1; //err*2
+        if (e2 > dy)
+        {
+            err += dy;
+            if (right) x++;
+            else x--;
+        }
+        if (e2 < dx)
+        {
+            err += dx;
+            if (down) y++;
+            else y--;
+        }
+    }
 }
 
 
-void create_map_ppm(Graph graph)
+Image* create_map_ppm(Graph graph)
 {
-    //we create a 500x600 image of color (120,180,180)
-    Image* img_map = create_image(500,600);
+    //we create a 500x300 image of color (120,180,180)
+    Image* img_map = create_image(X_DIMENSION_IMG_MAP, Y_DIMENSION_IMG_MAP);
     fill_image(img_map, 120, 180, 180);
 
     int i,j,k;
@@ -67,7 +87,7 @@ void create_map_ppm(Graph graph)
 
     //PATHS
 
-     //from N0 to N3: (10,20) to (200,103)
+    //from N0 to N3: (10,20) to (200,103)
     draw_line_ppm(graph.get_node(0).get_coordinates().get_p_x(), 
                     graph.get_node(0).get_coordinates().get_p_y(),
                     graph.get_node(3).get_coordinates().get_p_x(), 
@@ -85,17 +105,17 @@ void create_map_ppm(Graph graph)
                     graph.get_node(1).get_coordinates().get_p_x(), 
                     graph.get_node(1).get_coordinates().get_p_y(), img_map);
 
-    //from N4 to N2: (200,206) to (300,103)
-    //draw_line_ppm doesn't work here so I did something else
-    j = 206;
-    for (i=200; i<300; i++)
-    {
-        for (k=-10; k<=10; k++)
-        {
-            set_pixel(img_map, white, i + k, j + k);
-        }
-        j--;
-    }
+    //from N0 to N4: (10,20) to (200,280)
+    draw_line_ppm(graph.get_node(0).get_coordinates().get_p_x(), 
+                    graph.get_node(0).get_coordinates().get_p_y(),
+                    graph.get_node(4).get_coordinates().get_p_x(), 
+                    graph.get_node(4).get_coordinates().get_p_y(), img_map);
+
+    //from N4 to N2: (200,280) to (300,103)
+    draw_line_ppm(graph.get_node(4).get_coordinates().get_p_x(), 
+                    graph.get_node(4).get_coordinates().get_p_y(),
+                    graph.get_node(2).get_coordinates().get_p_x(), 
+                    graph.get_node(2).get_coordinates().get_p_y(), img_map);
 
     //NODES
     for (j=0; j<5; j++)
@@ -130,6 +150,82 @@ void create_map_ppm(Graph graph)
     } 
     
     save(img_map, "doc/MAP.ppm");
+    return img_map;
+}
+
+/**********************************FUNCTIONS TO DISPLAY PATH IN WINDOW****************************************/
+
+//if 2: path zone, if 1: constructible zone, if 0: non constructible zone (nodes)
+int type_position(int x, int y, Image* I)
+{
+    Pixel color_construct = create_pixel(120, 180, 180);
+    Pixel color_path = create_pixel(255, 255, 255);
+    if ( are_they_equal( get_pixel(x, y, I), color_construct) ) return 1;
+    else if ( are_they_equal( get_pixel(x, y, I), color_path) ) return 2;
+    else return 0;
+}
+
+
+GLuint initTexturePath(){
+    /* Chargement de l'image */
+    const char image_path[] = "images/brick.png";
+    int imgWidth, imgHeight, imgChannels;
+    unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
+  
+    // Autorisation de l'affichage des textures
+    glEnable(GL_TEXTURE_2D);
+
+    /* Initialisation de la texture */
+    GLuint texture_id;
+    glGenTextures(1, &texture_id);
+    glBindTexture(GL_TEXTURE_2D, texture_id);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+    glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, imgWidth, imgHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+    glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+    return texture_id;
+}
+
+void drawPath(){
+    /*create the graph out of the given nodes and therefore the map*/
+    Graph map = create_graph();
+    Image* img_map = create_map_ppm(map);
+
+    int i, j;
+    for (i=0; i<X_DIMENSION_IMG_MAP; i=i+15)
+    {
+        for (j=0; j<Y_DIMENSION_IMG_MAP; j=j+15)
+        {
+            //if the pixel is white, it's the path, draw it
+            if( type_position(i, j, img_map) == 2)
+            {
+                GLuint texturePath = initTexturePath();
+                glBindTexture(GL_TEXTURE_2D, texturePath);
+                glPushMatrix();
+                    glLoadIdentity();
+                    //we do *1.4 to scale to space image
+                    // + so it's centered
+                    glTranslated(i*1.4 + 40,j*1.4 + 100,0); 
+                    glScalef(20,20,0);
+                    glBegin(GL_QUADS);
+                        glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
+                        glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
+                        glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
+                        glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
+                    glEnd();
+                glPopMatrix();
+
+                // Unbind texture
+                glBindTexture(GL_TEXTURE_2D, 0); 
+            }
+        }
+    }
 }
 
 /**********************************FUNCTIONS FROM C PROJECT*********************************************/

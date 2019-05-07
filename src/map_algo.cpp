@@ -131,14 +131,14 @@ Graph create_graph()
     Position P1(454,103);
     Position P2(300,103);
     Position P3(200,103);
-    Position P4(200,206);
+    Position P4(200,280);
 
     //first we create the nodes independently
     Node N0(P0,0,1,10,20,3,succ_N0);
     Node N1(P1,1,2,454,103,2,succ_N1);
     Node N2(P2,2,4,300,103,3,succ_N2);
     Node N3(P3,3,3,200,103,2,succ_N3);
-    Node N4(P4,4,4,200,206,3,succ_N4);
+    Node N4(P4,4,4,200,280,3,succ_N4);
 
     //then we link them together
     //N0 has 3 successors:
@@ -368,3 +368,4 @@ bool is_parameter_valid(string parameter)
     //if it's not a number or it's not between 0 and 255
     return false;
 }
+

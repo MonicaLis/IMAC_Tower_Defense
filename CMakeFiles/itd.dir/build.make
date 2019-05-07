@@ -105,105 +105,9 @@ CMakeFiles/itd.dir/src/buildings_graphic.cpp.o.provides: CMakeFiles/itd.dir/src/
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o.provides.build: CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
 
 
-CMakeFiles/itd.dir/src/imgui.cpp.o: CMakeFiles/itd.dir/flags.make
-CMakeFiles/itd.dir/src/imgui.cpp.o: src/imgui.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/itd.dir/src/imgui.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/imgui.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp
-
-CMakeFiles/itd.dir/src/imgui.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/itd.dir/src/imgui.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp > CMakeFiles/itd.dir/src/imgui.cpp.i
-
-CMakeFiles/itd.dir/src/imgui.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/itd.dir/src/imgui.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp -o CMakeFiles/itd.dir/src/imgui.cpp.s
-
-CMakeFiles/itd.dir/src/imgui.cpp.o.requires:
-
-.PHONY : CMakeFiles/itd.dir/src/imgui.cpp.o.requires
-
-CMakeFiles/itd.dir/src/imgui.cpp.o.provides: CMakeFiles/itd.dir/src/imgui.cpp.o.requires
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.o.provides.build
-.PHONY : CMakeFiles/itd.dir/src/imgui.cpp.o.provides
-
-CMakeFiles/itd.dir/src/imgui.cpp.o.provides.build: CMakeFiles/itd.dir/src/imgui.cpp.o
-
-
-CMakeFiles/itd.dir/src/imgui_demo.cpp.o: CMakeFiles/itd.dir/flags.make
-CMakeFiles/itd.dir/src/imgui_demo.cpp.o: src/imgui_demo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/itd.dir/src/imgui_demo.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/imgui_demo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp
-
-CMakeFiles/itd.dir/src/imgui_demo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/itd.dir/src/imgui_demo.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp > CMakeFiles/itd.dir/src/imgui_demo.cpp.i
-
-CMakeFiles/itd.dir/src/imgui_demo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/itd.dir/src/imgui_demo.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp -o CMakeFiles/itd.dir/src/imgui_demo.cpp.s
-
-CMakeFiles/itd.dir/src/imgui_demo.cpp.o.requires:
-
-.PHONY : CMakeFiles/itd.dir/src/imgui_demo.cpp.o.requires
-
-CMakeFiles/itd.dir/src/imgui_demo.cpp.o.provides: CMakeFiles/itd.dir/src/imgui_demo.cpp.o.requires
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.o.provides.build
-.PHONY : CMakeFiles/itd.dir/src/imgui_demo.cpp.o.provides
-
-CMakeFiles/itd.dir/src/imgui_demo.cpp.o.provides.build: CMakeFiles/itd.dir/src/imgui_demo.cpp.o
-
-
-CMakeFiles/itd.dir/src/imgui_draw.cpp.o: CMakeFiles/itd.dir/flags.make
-CMakeFiles/itd.dir/src/imgui_draw.cpp.o: src/imgui_draw.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/itd.dir/src/imgui_draw.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/imgui_draw.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp
-
-CMakeFiles/itd.dir/src/imgui_draw.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/itd.dir/src/imgui_draw.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp > CMakeFiles/itd.dir/src/imgui_draw.cpp.i
-
-CMakeFiles/itd.dir/src/imgui_draw.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/itd.dir/src/imgui_draw.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp -o CMakeFiles/itd.dir/src/imgui_draw.cpp.s
-
-CMakeFiles/itd.dir/src/imgui_draw.cpp.o.requires:
-
-.PHONY : CMakeFiles/itd.dir/src/imgui_draw.cpp.o.requires
-
-CMakeFiles/itd.dir/src/imgui_draw.cpp.o.provides: CMakeFiles/itd.dir/src/imgui_draw.cpp.o.requires
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.o.provides.build
-.PHONY : CMakeFiles/itd.dir/src/imgui_draw.cpp.o.provides
-
-CMakeFiles/itd.dir/src/imgui_draw.cpp.o.provides.build: CMakeFiles/itd.dir/src/imgui_draw.cpp.o
-
-
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: CMakeFiles/itd.dir/flags.make
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: src/imgui_widgets.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/itd.dir/src/imgui_widgets.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/imgui_widgets.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp
-
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/itd.dir/src/imgui_widgets.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp > CMakeFiles/itd.dir/src/imgui_widgets.cpp.i
-
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/itd.dir/src/imgui_widgets.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp -o CMakeFiles/itd.dir/src/imgui_widgets.cpp.s
-
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.requires:
-
-.PHONY : CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.requires
-
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.provides: CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.requires
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.provides.build
-.PHONY : CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.provides
-
-CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.provides.build: CMakeFiles/itd.dir/src/imgui_widgets.cpp.o
-
-
 CMakeFiles/itd.dir/src/main.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/main.cpp.o: src/main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/itd.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/itd.dir/src/main.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/main.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
 
 CMakeFiles/itd.dir/src/main.cpp.i: cmake_force
@@ -227,7 +131,7 @@ CMakeFiles/itd.dir/src/main.cpp.o.provides.build: CMakeFiles/itd.dir/src/main.cp
 
 CMakeFiles/itd.dir/src/map_algo.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/map_algo.cpp.o: src/map_algo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/itd.dir/src/map_algo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/itd.dir/src/map_algo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/map_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
 
 CMakeFiles/itd.dir/src/map_algo.cpp.i: cmake_force
@@ -251,7 +155,7 @@ CMakeFiles/itd.dir/src/map_algo.cpp.o.provides.build: CMakeFiles/itd.dir/src/map
 
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: src/map_graphic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/itd.dir/src/map_graphic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/itd.dir/src/map_graphic.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/map_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp
 
 CMakeFiles/itd.dir/src/map_graphic.cpp.i: cmake_force
@@ -275,7 +179,7 @@ CMakeFiles/itd.dir/src/map_graphic.cpp.o.provides.build: CMakeFiles/itd.dir/src/
 
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: src/monsters_algo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/itd.dir/src/monsters_algo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/itd.dir/src/monsters_algo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/monsters_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp
 
 CMakeFiles/itd.dir/src/monsters_algo.cpp.i: cmake_force
@@ -299,7 +203,7 @@ CMakeFiles/itd.dir/src/monsters_algo.cpp.o.provides.build: CMakeFiles/itd.dir/sr
 
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: src/monsters_graphic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/itd.dir/src/monsters_graphic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/itd.dir/src/monsters_graphic.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/monsters_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp
 
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.i: cmake_force
@@ -323,7 +227,7 @@ CMakeFiles/itd.dir/src/monsters_graphic.cpp.o.provides.build: CMakeFiles/itd.dir
 
 CMakeFiles/itd.dir/src/player.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/player.cpp.o: src/player.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/itd.dir/src/player.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/itd.dir/src/player.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/player.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/player.cpp
 
 CMakeFiles/itd.dir/src/player.cpp.i: cmake_force
@@ -347,7 +251,7 @@ CMakeFiles/itd.dir/src/player.cpp.o.provides.build: CMakeFiles/itd.dir/src/playe
 
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: src/towers_algo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/itd.dir/src/towers_algo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/itd.dir/src/towers_algo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/towers_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp
 
 CMakeFiles/itd.dir/src/towers_algo.cpp.i: cmake_force
@@ -371,7 +275,7 @@ CMakeFiles/itd.dir/src/towers_algo.cpp.o.provides.build: CMakeFiles/itd.dir/src/
 
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: CMakeFiles/itd.dir/flags.make
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: src/towers_graphic.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/itd.dir/src/towers_graphic.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/itd.dir/src/towers_graphic.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/itd.dir/src/towers_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp
 
 CMakeFiles/itd.dir/src/towers_graphic.cpp.i: cmake_force
@@ -397,10 +301,6 @@ CMakeFiles/itd.dir/src/towers_graphic.cpp.o.provides.build: CMakeFiles/itd.dir/s
 itd_OBJECTS = \
 "CMakeFiles/itd.dir/src/buildings_algo.cpp.o" \
 "CMakeFiles/itd.dir/src/buildings_graphic.cpp.o" \
-"CMakeFiles/itd.dir/src/imgui.cpp.o" \
-"CMakeFiles/itd.dir/src/imgui_demo.cpp.o" \
-"CMakeFiles/itd.dir/src/imgui_draw.cpp.o" \
-"CMakeFiles/itd.dir/src/imgui_widgets.cpp.o" \
 "CMakeFiles/itd.dir/src/main.cpp.o" \
 "CMakeFiles/itd.dir/src/map_algo.cpp.o" \
 "CMakeFiles/itd.dir/src/map_graphic.cpp.o" \
@@ -415,10 +315,6 @@ itd_EXTERNAL_OBJECTS =
 
 itd: CMakeFiles/itd.dir/src/buildings_algo.cpp.o
 itd: CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
-itd: CMakeFiles/itd.dir/src/imgui.cpp.o
-itd: CMakeFiles/itd.dir/src/imgui_demo.cpp.o
-itd: CMakeFiles/itd.dir/src/imgui_draw.cpp.o
-itd: CMakeFiles/itd.dir/src/imgui_widgets.cpp.o
 itd: CMakeFiles/itd.dir/src/main.cpp.o
 itd: CMakeFiles/itd.dir/src/map_algo.cpp.o
 itd: CMakeFiles/itd.dir/src/map_graphic.cpp.o
@@ -432,7 +328,7 @@ itd: /usr/lib/x86_64-linux-gnu/libGL.so
 itd: /usr/lib/x86_64-linux-gnu/libGLU.so
 itd: libSTB_IMAGE.a
 itd: CMakeFiles/itd.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX executable itd"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable itd"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/itd.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -442,10 +338,6 @@ CMakeFiles/itd.dir/build: itd
 
 CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/buildings_algo.cpp.o.requires
 CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/buildings_graphic.cpp.o.requires
-CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/imgui.cpp.o.requires
-CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/imgui_demo.cpp.o.requires
-CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/imgui_draw.cpp.o.requires
-CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/imgui_widgets.cpp.o.requires
 CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/main.cpp.o.requires
 CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/map_algo.cpp.o.requires
 CMakeFiles/itd.dir/requires: CMakeFiles/itd.dir/src/map_graphic.cpp.o.requires

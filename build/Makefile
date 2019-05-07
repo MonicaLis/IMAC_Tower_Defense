@@ -217,114 +217,6 @@ src/buildings_graphic.cpp.s:
 	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/buildings_graphic.cpp.s
 .PHONY : src/buildings_graphic.cpp.s
 
-src/imgui.o: src/imgui.cpp.o
-
-.PHONY : src/imgui.o
-
-# target to build an object file
-src/imgui.cpp.o:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.o
-.PHONY : src/imgui.cpp.o
-
-src/imgui.i: src/imgui.cpp.i
-
-.PHONY : src/imgui.i
-
-# target to preprocess a source file
-src/imgui.cpp.i:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.i
-.PHONY : src/imgui.cpp.i
-
-src/imgui.s: src/imgui.cpp.s
-
-.PHONY : src/imgui.s
-
-# target to generate assembly for a file
-src/imgui.cpp.s:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.s
-.PHONY : src/imgui.cpp.s
-
-src/imgui_demo.o: src/imgui_demo.cpp.o
-
-.PHONY : src/imgui_demo.o
-
-# target to build an object file
-src/imgui_demo.cpp.o:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.o
-.PHONY : src/imgui_demo.cpp.o
-
-src/imgui_demo.i: src/imgui_demo.cpp.i
-
-.PHONY : src/imgui_demo.i
-
-# target to preprocess a source file
-src/imgui_demo.cpp.i:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.i
-.PHONY : src/imgui_demo.cpp.i
-
-src/imgui_demo.s: src/imgui_demo.cpp.s
-
-.PHONY : src/imgui_demo.s
-
-# target to generate assembly for a file
-src/imgui_demo.cpp.s:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.s
-.PHONY : src/imgui_demo.cpp.s
-
-src/imgui_draw.o: src/imgui_draw.cpp.o
-
-.PHONY : src/imgui_draw.o
-
-# target to build an object file
-src/imgui_draw.cpp.o:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.o
-.PHONY : src/imgui_draw.cpp.o
-
-src/imgui_draw.i: src/imgui_draw.cpp.i
-
-.PHONY : src/imgui_draw.i
-
-# target to preprocess a source file
-src/imgui_draw.cpp.i:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.i
-.PHONY : src/imgui_draw.cpp.i
-
-src/imgui_draw.s: src/imgui_draw.cpp.s
-
-.PHONY : src/imgui_draw.s
-
-# target to generate assembly for a file
-src/imgui_draw.cpp.s:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.s
-.PHONY : src/imgui_draw.cpp.s
-
-src/imgui_widgets.o: src/imgui_widgets.cpp.o
-
-.PHONY : src/imgui_widgets.o
-
-# target to build an object file
-src/imgui_widgets.cpp.o:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.o
-.PHONY : src/imgui_widgets.cpp.o
-
-src/imgui_widgets.i: src/imgui_widgets.cpp.i
-
-.PHONY : src/imgui_widgets.i
-
-# target to preprocess a source file
-src/imgui_widgets.cpp.i:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.i
-.PHONY : src/imgui_widgets.cpp.i
-
-src/imgui_widgets.s: src/imgui_widgets.cpp.s
-
-.PHONY : src/imgui_widgets.s
-
-# target to generate assembly for a file
-src/imgui_widgets.cpp.s:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.s
-.PHONY : src/imgui_widgets.cpp.s
-
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -560,18 +452,6 @@ help:
 	@echo "... src/buildings_graphic.o"
 	@echo "... src/buildings_graphic.i"
 	@echo "... src/buildings_graphic.s"
-	@echo "... src/imgui.o"
-	@echo "... src/imgui.i"
-	@echo "... src/imgui.s"
-	@echo "... src/imgui_demo.o"
-	@echo "... src/imgui_demo.i"
-	@echo "... src/imgui_demo.s"
-	@echo "... src/imgui_draw.o"
-	@echo "... src/imgui_draw.i"
-	@echo "... src/imgui_draw.s"
-	@echo "... src/imgui_widgets.o"
-	@echo "... src/imgui_widgets.i"
-	@echo "... src/imgui_widgets.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

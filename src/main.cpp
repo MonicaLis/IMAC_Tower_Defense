@@ -36,11 +36,6 @@ int main(int argc, char **argv) {
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
 
-    /*create the graph out of the given nodes and therefore the map*/
-    Graph map = create_graph();
-    create_map_ppm(map);
-    Image* map_image = load("doc/MAP.ppm");
-
      /* Chargement de l'image */
     const char image_path[] = "images/space.ppm";
     int imgWidth, imgHeight, imgChannels;
@@ -66,6 +61,9 @@ int main(int argc, char **argv) {
     glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
+
+    //display path
+    GLuint texturePath=initTexturePath();
 
     /*==============PLAYER INIT==========================================*/
     Player player;
@@ -104,6 +102,7 @@ int main(int argc, char **argv) {
         glPopMatrix();
         // Unbind texture
         glBindTexture(GL_TEXTURE_2D, 0); 
+
 
          /* Update des entités */
         for (Tower* tower : towers) {
@@ -165,9 +164,7 @@ int main(int argc, char **argv) {
             cout << "Monstre tué" <<endl;
             }
         }
-
-       
-         
+        drawPath();
    
         /* Echange du front et du back buffer : mise a jour de la fenetre */
         SDL_GL_SwapWindow(window);
