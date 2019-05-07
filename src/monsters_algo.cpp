@@ -15,7 +15,7 @@ using namespace std;
 
 Monster::Monster(int Cx, int Cy,GLuint newTexture)
 {
-    life_points = 2;
+    life_points =20;
     resistance = 1;
     speed = 1;
     dead = false;
