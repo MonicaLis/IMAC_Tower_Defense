@@ -12,7 +12,6 @@ add_library(STB_IMAGE STATIC "lib/stb_image/stb_image.c")
 
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
-find_package(SDL2_image REQUIRED)
 
 
 if (SDL2_LIBRARIES)
@@ -25,7 +24,6 @@ endif()
 # include
 include_directories(
 	${SDL2_INCLUDE_DIRS}
-	${SDL2_IMAGE_INCLUDE_DIRS}
 	${SDL_TTF_INCLUDE_DIRS}
 	${OPENGL_INCLUDE_DIRS}
 	include
@@ -38,5 +36,5 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${SDL2_LIBRARIES} ${SDL2_IMAGE_LIBRARIES} ${SDL_TTF_LIBRARIES} STB_IMAGE -ldl)
+target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${SDL2_LIBRARIES} ${SDL_TTF_LIBRARIES} STB_IMAGE -ldl)
 

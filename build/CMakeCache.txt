@@ -210,11 +210,8 @@ OPENGL_xmesa_INCLUDE_DIR:PATH=OPENGL_xmesa_INCLUDE_DIR-NOTFOUND
 //The directory containing a CMake configuration file for SDL2.
 SDL2_DIR:PATH=/usr/local/lib/cmake/SDL2
 
-//Path to a file.
-SDL2_IMAGE_INCLUDE_DIR:PATH=/usr/local/include/SDL2
-
-//Path to a library.
-SDL2_IMAGE_LIBRARY:FILEPATH=/usr/local/lib/libSDL2_image.so
+//Dependencies for target
+STB_IMAGE_LIB_DEPENDS:STATIC=
 
 //Value Computed by CMake
 itd_BINARY_DIR:STATIC=/home/monica/Documents/IMAC_Tower_Defense/build
@@ -366,8 +363,6 @@ CMAKE_UNAME:INTERNAL=/bin/uname
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding OpenGL
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/usr/lib/x86_64-linux-gnu/libOpenGL.so][/usr/lib/x86_64-linux-gnu/libGLX.so][/usr/include][c ][v()]
-//Details about finding SDL2_image
-FIND_PACKAGE_MESSAGE_DETAILS_SDL2_image:INTERNAL=[/usr/local/lib/libSDL2_image.so][/usr/local/include/SDL2][v()]
 //ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
 OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLX_INCLUDE_DIR
@@ -386,8 +381,4 @@ OPENGL_glx_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_opengl_LIBRARY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_xmesa_INCLUDE_DIR
 OPENGL_xmesa_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: SDL2_IMAGE_INCLUDE_DIR
-SDL2_IMAGE_INCLUDE_DIR-ADVANCED:INTERNAL=1
-//ADVANCED property for variable: SDL2_IMAGE_LIBRARY
-SDL2_IMAGE_LIBRARY-ADVANCED:INTERNAL=1
 

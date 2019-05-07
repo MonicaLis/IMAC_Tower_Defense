@@ -217,6 +217,12 @@ SDL2_IMAGE_INCLUDE_DIR:PATH=/usr/local/include/SDL2
 //Path to a library.
 SDL2_IMAGE_LIBRARY:FILEPATH=/usr/local/lib/libSDL2_image.so
 
+//The directory containing a CMake configuration file for SDL2_image.
+SDL2_image_DIR:PATH=SDL2_image_DIR-NOTFOUND
+
+//Dependencies for target
+STB_IMAGE_LIB_DEPENDS:STATIC=
+
 //Value Computed by CMake
 itd_BINARY_DIR:STATIC=/home/monica/Documents/IMAC_Tower_Defense
 

@@ -7,10 +7,41 @@ CMakeFiles/itd.dir/src/buildings_algo.cpp.o
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp
  include/buildings_graphic.h
+CMakeFiles/itd.dir/src/imgui.cpp.o
+ /home/monica/Documents/IMAC_Tower_Defense/src/imgui.cpp
+ include/imconfig.h
+ include/imgui.h
+ include/imgui_internal.h
+ include/imstb_textedit.h
+CMakeFiles/itd.dir/src/imgui_demo.cpp.o
+ /home/monica/Documents/IMAC_Tower_Defense/src/imgui_demo.cpp
+ include/imconfig.h
+ include/imgui.h
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o
+ /home/monica/Documents/IMAC_Tower_Defense/src/imgui_draw.cpp
+ include/imconfig.h
+ include/imgui.h
+ include/imgui_internal.h
+ include/imstb_rectpack.h
+ include/imstb_textedit.h
+ include/imstb_truetype.h
+CMakeFiles/itd.dir/src/imgui_widgets.cpp.o
+ /home/monica/Documents/IMAC_Tower_Defense/src/imgui_widgets.cpp
+ include/imconfig.h
+ include/imgui.h
+ include/imgui_internal.h
+ include/imstb_textedit.h
 CMakeFiles/itd.dir/src/main.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
+ include/init.h
  include/map_algo.h
  include/map_graphic.h
+ include/monsters_algo.h
+ include/monsters_graphic.h
+ include/player.h
+ include/towers_algo.h
+ include/towers_graphic.h
+ lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/map_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
  include/map_algo.h
@@ -21,12 +52,28 @@ CMakeFiles/itd.dir/src/map_graphic.cpp.o
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp
  include/monsters_algo.h
+ lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp
+ include/map_algo.h
+ include/map_graphic.h
+ include/monsters_algo.h
  include/monsters_graphic.h
+ include/player.h
+ lib/stb_image/stb_image.h
+CMakeFiles/itd.dir/src/player.cpp.o
+ /home/monica/Documents/IMAC_Tower_Defense/src/player.cpp
+ include/player.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp
  include/towers_algo.h
+ include/towers_graphic.h
+ lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp
+ include/map_algo.h
+ include/map_graphic.h
+ include/player.h
+ include/towers_algo.h
  include/towers_graphic.h
+ lib/stb_image/stb_image.h

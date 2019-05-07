@@ -1,3 +1,4 @@
-/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/rebuild_cache.dir
-/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir
 /home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/edit_cache.dir
+/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/rebuild_cache.dir
+/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/STB_IMAGE.dir
+/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir

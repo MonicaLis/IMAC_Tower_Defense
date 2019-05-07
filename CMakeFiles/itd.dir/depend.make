@@ -7,9 +7,40 @@ CMakeFiles/itd.dir/src/buildings_algo.cpp.o: include/buildings_algo.h
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o: src/buildings_graphic.cpp
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o: include/buildings_graphic.h
 
+CMakeFiles/itd.dir/src/imgui.cpp.o: src/imgui.cpp
+CMakeFiles/itd.dir/src/imgui.cpp.o: include/imconfig.h
+CMakeFiles/itd.dir/src/imgui.cpp.o: include/imgui.h
+CMakeFiles/itd.dir/src/imgui.cpp.o: include/imgui_internal.h
+CMakeFiles/itd.dir/src/imgui.cpp.o: include/imstb_textedit.h
+
+CMakeFiles/itd.dir/src/imgui_demo.cpp.o: src/imgui_demo.cpp
+CMakeFiles/itd.dir/src/imgui_demo.cpp.o: include/imconfig.h
+CMakeFiles/itd.dir/src/imgui_demo.cpp.o: include/imgui.h
+
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: src/imgui_draw.cpp
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: include/imconfig.h
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: include/imgui.h
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: include/imgui_internal.h
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: include/imstb_rectpack.h
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: include/imstb_textedit.h
+CMakeFiles/itd.dir/src/imgui_draw.cpp.o: include/imstb_truetype.h
+
+CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: src/imgui_widgets.cpp
+CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: include/imconfig.h
+CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: include/imgui.h
+CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: include/imgui_internal.h
+CMakeFiles/itd.dir/src/imgui_widgets.cpp.o: include/imstb_textedit.h
+
 CMakeFiles/itd.dir/src/main.cpp.o: src/main.cpp
+CMakeFiles/itd.dir/src/main.cpp.o: include/init.h
 CMakeFiles/itd.dir/src/main.cpp.o: include/map_algo.h
 CMakeFiles/itd.dir/src/main.cpp.o: include/map_graphic.h
+CMakeFiles/itd.dir/src/main.cpp.o: include/monsters_algo.h
+CMakeFiles/itd.dir/src/main.cpp.o: include/monsters_graphic.h
+CMakeFiles/itd.dir/src/main.cpp.o: include/player.h
+CMakeFiles/itd.dir/src/main.cpp.o: include/towers_algo.h
+CMakeFiles/itd.dir/src/main.cpp.o: include/towers_graphic.h
+CMakeFiles/itd.dir/src/main.cpp.o: lib/stb_image/stb_image.h
 
 CMakeFiles/itd.dir/src/map_algo.cpp.o: src/map_algo.cpp
 CMakeFiles/itd.dir/src/map_algo.cpp.o: include/map_algo.h
@@ -20,13 +51,29 @@ CMakeFiles/itd.dir/src/map_graphic.cpp.o: include/map_graphic.h
 
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: src/monsters_algo.cpp
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: include/monsters_algo.h
+CMakeFiles/itd.dir/src/monsters_algo.cpp.o: lib/stb_image/stb_image.h
 
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: src/monsters_graphic.cpp
+CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: include/map_algo.h
+CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: include/map_graphic.h
+CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: include/monsters_algo.h
 CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: include/monsters_graphic.h
+CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: include/player.h
+CMakeFiles/itd.dir/src/monsters_graphic.cpp.o: lib/stb_image/stb_image.h
+
+CMakeFiles/itd.dir/src/player.cpp.o: src/player.cpp
+CMakeFiles/itd.dir/src/player.cpp.o: include/player.h
 
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: src/towers_algo.cpp
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/towers_algo.h
+CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/towers_graphic.h
+CMakeFiles/itd.dir/src/towers_algo.cpp.o: lib/stb_image/stb_image.h
 
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: src/towers_graphic.cpp
+CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/map_algo.h
+CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/map_graphic.h
+CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/player.h
+CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/towers_algo.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/towers_graphic.h
+CMakeFiles/itd.dir/src/towers_graphic.cpp.o: lib/stb_image/stb_image.h
 

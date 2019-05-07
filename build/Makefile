@@ -56,17 +56,6 @@ CMAKE_BINARY_DIR = /home/monica/Documents/IMAC_Tower_Defense/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target rebuild_cache
-rebuild_cache:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
-.PHONY : rebuild_cache
-
-# Special rule for the target rebuild_cache
-rebuild_cache/fast: rebuild_cache
-
-.PHONY : rebuild_cache/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
@@ -77,6 +66,17 @@ edit_cache:
 edit_cache/fast: edit_cache
 
 .PHONY : edit_cache/fast
+
+# Special rule for the target rebuild_cache
+rebuild_cache:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	/usr/bin/cmake -H$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+.PHONY : rebuild_cache
+
+# Special rule for the target rebuild_cache
+rebuild_cache/fast: rebuild_cache
+
+.PHONY : rebuild_cache/fast
 
 # The main all target
 all: cmake_check_build_system
@@ -111,6 +111,19 @@ depend:
 .PHONY : depend
 
 #=============================================================================
+# Target rules for targets named STB_IMAGE
+
+# Build rule for target.
+STB_IMAGE: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 STB_IMAGE
+.PHONY : STB_IMAGE
+
+# fast build rule for target.
+STB_IMAGE/fast:
+	$(MAKE) -f CMakeFiles/STB_IMAGE.dir/build.make CMakeFiles/STB_IMAGE.dir/build
+.PHONY : STB_IMAGE/fast
+
+#=============================================================================
 # Target rules for targets named itd
 
 # Build rule for target.
@@ -122,6 +135,33 @@ itd: cmake_check_build_system
 itd/fast:
 	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/build
 .PHONY : itd/fast
+
+lib/stb_image/stb_image.o: lib/stb_image/stb_image.c.o
+
+.PHONY : lib/stb_image/stb_image.o
+
+# target to build an object file
+lib/stb_image/stb_image.c.o:
+	$(MAKE) -f CMakeFiles/STB_IMAGE.dir/build.make CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o
+.PHONY : lib/stb_image/stb_image.c.o
+
+lib/stb_image/stb_image.i: lib/stb_image/stb_image.c.i
+
+.PHONY : lib/stb_image/stb_image.i
+
+# target to preprocess a source file
+lib/stb_image/stb_image.c.i:
+	$(MAKE) -f CMakeFiles/STB_IMAGE.dir/build.make CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.i
+.PHONY : lib/stb_image/stb_image.c.i
+
+lib/stb_image/stb_image.s: lib/stb_image/stb_image.c.s
+
+.PHONY : lib/stb_image/stb_image.s
+
+# target to generate assembly for a file
+lib/stb_image/stb_image.c.s:
+	$(MAKE) -f CMakeFiles/STB_IMAGE.dir/build.make CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.s
+.PHONY : lib/stb_image/stb_image.c.s
 
 src/buildings_algo.o: src/buildings_algo.cpp.o
 
@@ -176,6 +216,114 @@ src/buildings_graphic.s: src/buildings_graphic.cpp.s
 src/buildings_graphic.cpp.s:
 	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/buildings_graphic.cpp.s
 .PHONY : src/buildings_graphic.cpp.s
+
+src/imgui.o: src/imgui.cpp.o
+
+.PHONY : src/imgui.o
+
+# target to build an object file
+src/imgui.cpp.o:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.o
+.PHONY : src/imgui.cpp.o
+
+src/imgui.i: src/imgui.cpp.i
+
+.PHONY : src/imgui.i
+
+# target to preprocess a source file
+src/imgui.cpp.i:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.i
+.PHONY : src/imgui.cpp.i
+
+src/imgui.s: src/imgui.cpp.s
+
+.PHONY : src/imgui.s
+
+# target to generate assembly for a file
+src/imgui.cpp.s:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui.cpp.s
+.PHONY : src/imgui.cpp.s
+
+src/imgui_demo.o: src/imgui_demo.cpp.o
+
+.PHONY : src/imgui_demo.o
+
+# target to build an object file
+src/imgui_demo.cpp.o:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.o
+.PHONY : src/imgui_demo.cpp.o
+
+src/imgui_demo.i: src/imgui_demo.cpp.i
+
+.PHONY : src/imgui_demo.i
+
+# target to preprocess a source file
+src/imgui_demo.cpp.i:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.i
+.PHONY : src/imgui_demo.cpp.i
+
+src/imgui_demo.s: src/imgui_demo.cpp.s
+
+.PHONY : src/imgui_demo.s
+
+# target to generate assembly for a file
+src/imgui_demo.cpp.s:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_demo.cpp.s
+.PHONY : src/imgui_demo.cpp.s
+
+src/imgui_draw.o: src/imgui_draw.cpp.o
+
+.PHONY : src/imgui_draw.o
+
+# target to build an object file
+src/imgui_draw.cpp.o:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.o
+.PHONY : src/imgui_draw.cpp.o
+
+src/imgui_draw.i: src/imgui_draw.cpp.i
+
+.PHONY : src/imgui_draw.i
+
+# target to preprocess a source file
+src/imgui_draw.cpp.i:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.i
+.PHONY : src/imgui_draw.cpp.i
+
+src/imgui_draw.s: src/imgui_draw.cpp.s
+
+.PHONY : src/imgui_draw.s
+
+# target to generate assembly for a file
+src/imgui_draw.cpp.s:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_draw.cpp.s
+.PHONY : src/imgui_draw.cpp.s
+
+src/imgui_widgets.o: src/imgui_widgets.cpp.o
+
+.PHONY : src/imgui_widgets.o
+
+# target to build an object file
+src/imgui_widgets.cpp.o:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.o
+.PHONY : src/imgui_widgets.cpp.o
+
+src/imgui_widgets.i: src/imgui_widgets.cpp.i
+
+.PHONY : src/imgui_widgets.i
+
+# target to preprocess a source file
+src/imgui_widgets.cpp.i:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.i
+.PHONY : src/imgui_widgets.cpp.i
+
+src/imgui_widgets.s: src/imgui_widgets.cpp.s
+
+.PHONY : src/imgui_widgets.s
+
+# target to generate assembly for a file
+src/imgui_widgets.cpp.s:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/imgui_widgets.cpp.s
+.PHONY : src/imgui_widgets.cpp.s
 
 src/main.o: src/main.cpp.o
 
@@ -312,6 +460,33 @@ src/monsters_graphic.cpp.s:
 	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/monsters_graphic.cpp.s
 .PHONY : src/monsters_graphic.cpp.s
 
+src/player.o: src/player.cpp.o
+
+.PHONY : src/player.o
+
+# target to build an object file
+src/player.cpp.o:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/player.cpp.o
+.PHONY : src/player.cpp.o
+
+src/player.i: src/player.cpp.i
+
+.PHONY : src/player.i
+
+# target to preprocess a source file
+src/player.cpp.i:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/player.cpp.i
+.PHONY : src/player.cpp.i
+
+src/player.s: src/player.cpp.s
+
+.PHONY : src/player.s
+
+# target to generate assembly for a file
+src/player.cpp.s:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/player.cpp.s
+.PHONY : src/player.cpp.s
+
 src/towers_algo.o: src/towers_algo.cpp.o
 
 .PHONY : src/towers_algo.o
@@ -372,15 +547,31 @@ help:
 	@echo "... all (the default if no target is provided)"
 	@echo "... clean"
 	@echo "... depend"
-	@echo "... rebuild_cache"
-	@echo "... itd"
 	@echo "... edit_cache"
+	@echo "... rebuild_cache"
+	@echo "... STB_IMAGE"
+	@echo "... itd"
+	@echo "... lib/stb_image/stb_image.o"
+	@echo "... lib/stb_image/stb_image.i"
+	@echo "... lib/stb_image/stb_image.s"
 	@echo "... src/buildings_algo.o"
 	@echo "... src/buildings_algo.i"
 	@echo "... src/buildings_algo.s"
 	@echo "... src/buildings_graphic.o"
 	@echo "... src/buildings_graphic.i"
 	@echo "... src/buildings_graphic.s"
+	@echo "... src/imgui.o"
+	@echo "... src/imgui.i"
+	@echo "... src/imgui.s"
+	@echo "... src/imgui_demo.o"
+	@echo "... src/imgui_demo.i"
+	@echo "... src/imgui_demo.s"
+	@echo "... src/imgui_draw.o"
+	@echo "... src/imgui_draw.i"
+	@echo "... src/imgui_draw.s"
+	@echo "... src/imgui_widgets.o"
+	@echo "... src/imgui_widgets.i"
+	@echo "... src/imgui_widgets.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
@@ -396,6 +587,9 @@ help:
 	@echo "... src/monsters_graphic.o"
 	@echo "... src/monsters_graphic.i"
 	@echo "... src/monsters_graphic.s"
+	@echo "... src/player.o"
+	@echo "... src/player.i"
+	@echo "... src/player.s"
 	@echo "... src/towers_algo.o"
 	@echo "... src/towers_algo.i"
 	@echo "... src/towers_algo.s"
