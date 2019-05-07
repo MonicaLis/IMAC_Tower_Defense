@@ -95,6 +95,12 @@ fstream
 -
 list
 -
+GL/gl.h
+-
+GL/glu.h
+-
+stb_image/stb_image.h
+-
 
 /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp
 monsters_algo.h
@@ -120,8 +126,6 @@ stdlib.h
 stdio.h
 -
 iostream
--
-SDL2/SDL_image.h
 -
 GL/gl.h
 -
@@ -175,8 +179,6 @@ stdio.h
 -
 iostream
 -
-SDL2/SDL_image.h
--
 GL/gl.h
 -
 GL/glu.h
@@ -221,6 +223,12 @@ iostream
 include/map_graphic.h
 map_algo.h
 include/map_algo.h
+GL/gl.h
+-
+GL/glu.h
+-
+stb_image/stb_image.h
+-
 
 include/monsters_algo.h
 stdlib.h

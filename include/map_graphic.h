@@ -3,6 +3,10 @@
 
 #include "map_algo.h"
 
+#include <GL/gl.h>
+#include <GL/glu.h>
+#include <stb_image/stb_image.h>
+
 
 /*******************************FROM C PROJECT**********************************/
 
@@ -37,7 +41,10 @@ bool are_they_equal(Pixel pi1, Pixel pi2);
 
 /*******************************NEW FUNCTIONS**********************************/
 
-void create_map_ppm(Graph graph);
+Image* create_map_ppm(Graph graph);
 void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I);
+int type_position(int x, int y, Image* I);
+GLuint initTexturePath();
+void drawPath();
 
 #endif 

@@ -24,6 +24,7 @@ CMakeFiles/itd.dir/src/map_algo.cpp.o: include/map_algo.h
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: src/map_graphic.cpp
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: include/map_algo.h
 CMakeFiles/itd.dir/src/map_graphic.cpp.o: include/map_graphic.h
+CMakeFiles/itd.dir/src/map_graphic.cpp.o: lib/stb_image/stb_image.h
 
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: src/monsters_algo.cpp
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o: include/monsters_algo.h
