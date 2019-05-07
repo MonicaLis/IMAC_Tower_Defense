@@ -1,184 +1,205 @@
+#ifdef _WIN32
+    #include <windows.h>
+#endif
+#define _USE_MATH_DEFINES
+#include <cmath>
+#include <SDL2/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
 using namespace std;
-
-#include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
-//#include <SDL2/SDL_ttf.h>
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <stb_image/stb_image.h>
+#include <vector>
 
+#include "init.h"
 #include "map_algo.h"
 #include "map_graphic.h"
 #include "towers_algo.h"
 #include "towers_graphic.h"
+#include "monsters_algo.h"
+#include "monsters_graphic.h"
 #include "player.h"
 
 /* Nombre minimal de millisecondes separant le rendu de deux images */
 static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
-int main(int argc, char ** argv)
-{
-   // TTF_Init();
-   
-    //loading and verifying the map
+int main(int argc, char **argv) {
+    /* Init SDL, OpenGL, Debug and Glad */
+    SDL_Window* window = init();
+    if (window == nullptr) {
+        cout << "Error window init" << endl;
+    }
+
+    /*loading and verifying the map*/
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
 
-    //create the graph out of the given nodes and therefore the map
+    /*create the graph out of the given nodes and therefore the map*/
     Graph map = create_graph();
     create_map_ppm(map);
     Image* map_image = load("doc/MAP.ppm");
 
-    bool quit = false;
-    SDL_Event event;
-
-    SDL_Init(SDL_INIT_VIDEO);
- 
-    SDL_Window * window = SDL_CreateWindow("IMAC TOWER DEFENSE",
-        SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 1200, 800, 0);
- 
-    /*==============LOAD MAP BACKGROUND=================================*/
-    SDL_Renderer * renderer = SDL_CreateRenderer(window, -1, 0);
-    SDL_Surface * image = IMG_Load("images/space.ppm");
-    if(!image) cout << "IMG_Load error: "<<IMG_GetError()<<endl;
-    SDL_Texture * texture = SDL_CreateTextureFromSurface(renderer, image);
-    SDL_Rect dstrect = { 100, 100, 600, 600 };
-    SDL_RenderCopy(renderer, texture, NULL, &dstrect);
-
-    /*==============DRAW PATH==========================================*/
-    int i,j;
-    Pixel white = create_pixel(255,255,255);
-    SDL_Surface * brick;
-    SDL_Texture * texture_brick;
-    SDL_Rect size_brick;
-    for (i=0; i<500; i++)
+     /* Chargement de l'image */
+    const char image_path[] = "images/space.ppm";
+    int imgWidth, imgHeight, imgChannels;
+    unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
+    if (nullptr == image)
     {
-        for (j=0; j<600; j++)
-        {
-            Pixel current = get_pixel(i,j,map_image);
-            //if the pixel is white then it's the path and we need to create it on the image map
-            if (are_they_equal( current, white ))
-            {
-                brick = IMG_Load("images/brick.ppm");
-                if(!brick) cout << "IMG_Load error: "<<IMG_GetError()<<endl;
-                texture_brick = SDL_CreateTextureFromSurface(renderer, brick);
-                size_brick = { i+100, j+100, 10, 10 }; //location, width, height
-                SDL_RenderCopy(renderer, texture_brick, NULL, &size_brick);
-            }
-        }
+        return (EXIT_FAILURE);
     }
+    // Autorisation de l'affichage des textures
+    glEnable(GL_TEXTURE_2D);
 
+    /* Initialisation de la texture */
+    GLuint texture_id;
+    glGenTextures(1, &texture_id);
+    glBindTexture(GL_TEXTURE_2D, texture_id);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, imgWidth, imgHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+    glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
 
     /*==============PLAYER INIT==========================================*/
     Player player;
     int money = player.get_money();
     cout << "Argent disponbile : "<<money<<endl;
-    
-    /*==============TEXT INIT==========================================*/
 
-   // TTF_Font *font; 
-   //font = TTF_OpenFont( "font/roboto.ttf", 28 );
-   // SDL_Surface *screen;
-   // SDL_Color color={255,0,0};
-   // SDL_Surface *text_surface;
-  
-  //if(!font){
-   //  cout << "Font error: "<<TTF_GetError()<<endl;
- // } 
- //   text_surface=TTF_RenderText_Solid(font,"helloworld",color);
-  
-    while (!quit)
-    {
-     
+    GLuint textureTower=initTextureTower();
+    GLuint textureMonster=initTextureMonster();
+
+    std::vector<Tower*> towers;
+    std::vector<Monster*> monsters;
+
+
+    /* Boucle d'affichage */
+    bool loop = true;
+    bool wave=false;
+    int numberWave=0;
+    
+    while (loop) {
+        /* Recuperation du temps au debut de la boucle */
         Uint32 startTime = SDL_GetTicks();
-        //glClear(GL_COLOR_BUFFER_BIT);
-        glMatrixMode(GL_MODELVIEW); //transformations s'appliqunt sur la bonne matrice
-        glLoadIdentity(); //remet en etat initial 
-         
-        SDL_RenderPresent(renderer);
-        SDL_GL_SwapWindow(window);
-      
-        //  SDL_WaitEvent(&event);
-        
-        /* Evenements utilisateurs */
+
+        /* Placer ici le code de dessin */
+        glClear(GL_COLOR_BUFFER_BIT);
+
+        glBindTexture(GL_TEXTURE_2D, texture_id);
+        glPushMatrix();
+            glTranslated(350,350,0);
+            glScalef(600,600,0);
+            glBegin(GL_QUADS);
+                glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
+                glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
+                glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
+                glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
+            glEnd();
+        glPopMatrix();
+        // Unbind texture
+        glBindTexture(GL_TEXTURE_2D, 0); 
+
+         /* Update des entités */
+        for (Tower* tower : towers) {
+            tower->drawTower();
+        }
+        for (Monster* monster : monsters) {
+            monster->drawMonster();
+            if (monsters.size() > 0){
+                int numberX = rand() % 5;   
+                int numberY = rand() % 5;      // v1 in the range 0 to 99
+                int Posx=monster->get_x()+numberX;
+                int Posy=monster->get_y()+numberY;
+                monster->set_x(Posx);
+                monster->set_y(Posy);
+         }
+
+        }
+
        
-        while (SDL_PollEvent(&event)) {
-            
-            switch(event.type) 
+         
+   
+        /* Echange du front et du back buffer : mise a jour de la fenetre */
+        SDL_GL_SwapWindow(window);
+
+        /* Boucle traitant les evenements */
+        SDL_Event e;
+        while (SDL_PollEvent(&e)) {
+            /* L'utilisateur ferme la fenetre : */
+            if (e.type == SDL_QUIT)
             {
-                case SDL_QUIT:
-                    quit = true;
-                    break;
+                loop = false;
+                break;
+            }
+
+            /* Quelques exemples de traitement d'evenements : */
+            switch (e.type)
+            {
                 /* Clic souris */
                 case SDL_MOUSEBUTTONUP:
                 {
                     if(money>0){
                         //CONTRUCT TOWER
-                        Tower newTower;
+                        Tower* newTower= new Tower(e.button.x,e.button.y, textureTower);
+                        towers.push_back(newTower);
 
-                        Pixel whiteTower = create_pixel(255,255,255);
-                        SDL_Surface * tower;
-                        SDL_Texture * texture_tower;
-                        SDL_Rect size_tower;
-                        Pixel currentTower = get_pixel(event.button.x,event.button.y,map_image);
-                        //if the pixel is white then it's the path and we can't creat a tower
-                        if (!are_they_equal( currentTower, whiteTower ))
-                        {
-                            tower = IMG_Load("images/tower.ppm");
-                            if(!tower) cout << "IMG_Load error: "<<IMG_GetError()<<endl;
-                            texture_tower = SDL_CreateTextureFromSurface(renderer, tower);
-                            size_tower = { event.button.x-25, event.button.y-25, 50,50 }; //location, width, height
-                            SDL_RenderCopy(renderer, texture_tower, NULL, &size_tower);
-                        }
-                        
-                        money=player.get_money()-newTower.get_cost();
+                        money=player.get_money()-newTower->get_cost();
                         player.set_money(money);
                         cout << "Argent disponbile : "<<money<<endl;
                     }
                     else{
                         cout << "Pas d'argent disponible"<<endl;
                     }
-                }
-                   // cout << "clic en "<< event.button.x<< " " << event.button.y<< endl;}
-                    break;
                 
+                    cout << "clic en "<< e.button.x<< " " << e.button.y<< endl;
+                }
+                    break;
+
                 /* Touche clavier */
                 case SDL_KEYDOWN:
-                     cout << "touche "<< event.key.keysym.sym<< endl;
+                    if (e.key.keysym.sym == 'w') {
+                        printf("New wave\n");
+                        wave = true;
+                        
+                        numberWave+=1;
+                        
+                        for(int i=1; i<=numberWave; i++){
+                            Monster* newMonster= new Monster(0,0, textureMonster);
+                            monsters.push_back(newMonster);
+                        }
+                        wave=false;
+
+                    }
+                    printf("touche pressee (code = %d)\n", e.key.keysym.sym);
                     break;
-                    
+
                 default:
                     break;
             }
-
         }
-        
-     
+
+
         /* Calcul du temps ecoule */
         Uint32 elapsedTime = SDL_GetTicks() - startTime;
         /* Si trop peu de temps s'est ecoule, on met en pause le programme */
-        if(elapsedTime < FRAMERATE_MILLISECONDS) 
-        {
+        if (elapsedTime < FRAMERATE_MILLISECONDS) {
             SDL_Delay(FRAMERATE_MILLISECONDS - elapsedTime);
         }
-       
     }
 
-    /*==============CLOSE WINDOW==========================================*/
-
-    SDL_DestroyTexture(texture);
-    SDL_DestroyTexture(texture_brick);
-    SDL_FreeSurface(image);
-    SDL_FreeSurface(brick);
-  //  SDL_FreeSurface(text_surface);
-  //  SDL_FreeSurface(screen);
-    SDL_DestroyRenderer(renderer);
+    /* Liberation des ressources associees a la SDL */
     SDL_DestroyWindow(window);
-  //  TTF_CloseFont(font);
-  //  TTF_Quit();
     SDL_Quit();
- 
-    return 0;
+    for (Tower* tower : towers) {
+        delete tower;
+    }
+
+    return EXIT_SUCCESS;
 }

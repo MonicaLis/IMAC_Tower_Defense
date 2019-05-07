@@ -8,20 +8,26 @@ using namespace std;
 
 /**********************************STRUCTURE METHODS*********************************************/
 
-Monster::Monster()
+    //type: 0-red, 1-green, 2-yellow, 3-blue
+    int life_points, resistance, speed,xM,yM; //puissance, portée
+    bool dead; //cadence
+    GLuint textureM;
+
+Monster::Monster(int Cx, int Cy,GLuint newTexture)
 {
     life_points = 2;
     resistance = 1;
     speed = 1;
     dead = false;
+    xM=Cx;
+    yM=Cy;
+    textureM=newTexture;
+    cout << "Monstre créé !"<< endl;
 }
 
 Monster::~Monster()
 {
-    life_points = 0;
-    resistance = 0;
-    speed = 0;
-    dead = true;
+   
 }
 
 int Monster::get_life_points()
@@ -52,4 +58,30 @@ int Monster::get_speed()
 void Monster::set_speed(int sp)
 {
     speed = sp;
+}
+int Monster::get_x()
+{
+    return xM;
+}
+
+void Monster::set_x(int Cx)
+{
+    xM = Cx;
+}
+int Monster::get_y()
+{
+    return yM;
+}
+
+void Monster::set_y(int Cy)
+{
+    yM = Cy;
+}
+
+GLuint Monster::get_texture(){
+    return textureM;
+}
+
+void Monster::set_texture(GLuint newTexture){
+    textureM=newTexture;
 }
