@@ -126,7 +126,7 @@ int main(int argc, char **argv) {
        
         
 
-        if(wave && monsters.size()>0){
+       if(wave && monsters.size()>0){
             
             for (Tower* tower : towers) {
                 int loopMonster=0; 
@@ -146,7 +146,7 @@ int main(int argc, char **argv) {
                         time=0;
                         }
                     }
-                    cout << "Loop life : "<<loopMonster<<endl;
+                    
                     loopMonster+=1;
                 }
             
@@ -154,7 +154,6 @@ int main(int argc, char **argv) {
         }
         if(monsters.size()<=0){
             wave=false;
-             cout << "Fin de la wave : " << wave<<endl;
         }
        
         if(!supr.empty()){
