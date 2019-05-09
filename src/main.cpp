@@ -81,6 +81,10 @@ int main(int argc, char **argv) {
     bool loop = true;
     bool wave=false;
     int numberWave=0;
+
+    /*create the graph out of the given nodes and therefore the map*/
+    Graph map = create_graph();
+    Image* img_map = create_map_ppm(map); //will be used by drawPath(...)
     
     while (loop) {
         /* Recuperation du temps au debut de la boucle */
@@ -120,7 +124,8 @@ int main(int argc, char **argv) {
          }
 
         }
-        drawPath();
+
+        drawPath(img_map);
    
         /* Echange du front et du back buffer : mise a jour de la fenetre */
         SDL_GL_SwapWindow(window);

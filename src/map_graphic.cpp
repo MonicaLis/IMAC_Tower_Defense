@@ -192,18 +192,16 @@ GLuint initTexturePath(){
     return texture_id;
 }
 
-void drawPath(){
-    /*create the graph out of the given nodes and therefore the map*/
-    Graph map = create_graph();
-    Image* img_map = create_map_ppm(map);
-
+void drawPath(Image* I)
+{
     int i, j;
+    //+15 so we don't load the image on every pixel otherwise it doesn't look like anything and it takes ages to load
     for (i=0; i<X_DIMENSION_IMG_MAP; i=i+15)
     {
         for (j=0; j<Y_DIMENSION_IMG_MAP; j=j+15)
         {
             //if the pixel is white, it's the path, draw it
-            if( type_position(i, j, img_map) == 2)
+            if( type_position(i, j, I) == 2)
             {
                 GLuint texturePath = initTexturePath();
                 glBindTexture(GL_TEXTURE_2D, texturePath);
