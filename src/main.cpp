@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
 
     std::vector<Tower*> towers;
     std::vector<Monster*> monsters;
-
+    std::vector<Monster*> supr ;
 
     /* Boucle d'affichage */
     bool loop = true;
@@ -121,8 +121,51 @@ int main(int argc, char **argv) {
                 int Posy=monster->get_y()+numberY;
                 monster->set_x(Posx);
                 monster->set_y(Posy);
-         }
+            }
+            
+        }
+        
+        
+        int time=0;
+       
+        
 
+       if(wave && monsters.size()>0){
+            
+            for (Tower* tower : towers) {
+                int loopMonster=0; 
+                for (Monster* monster : monsters) {
+                    time+=1;
+                    int compareX= tower->get_x()-monster->get_x();
+                    int compareY= tower->get_y()-monster->get_y();
+                    if(monsters.size()>0 && compareX<100 && compareY<100 && time>=3){
+                        if(monster->get_life_points()<=0){
+                            supr.push_back(monster);
+                            monsters.erase(monsters.begin()+loopMonster);
+                        }
+                        if(monster->get_life_points()>0){
+                        int life=monster->get_life_points()-2;
+                        monster->set_life_points(life);
+                        cout << "Monster life : "<<life<<endl;
+                        time=0;
+                        }
+                    }
+                    
+                    loopMonster+=1;
+                }
+            
+            }
+        }
+        if(monsters.size()<=0){
+            wave=false;
+        }
+       
+        if(!supr.empty()){
+            for (Monster* toSupr : supr) {
+            supr.erase(supr.begin(), supr.end());
+            delete toSupr;
+            cout << "Monstre tué" <<endl;
+            }
         }
 
         drawPath(img_map);
@@ -146,7 +189,7 @@ int main(int argc, char **argv) {
                 /* Clic souris */
                 case SDL_MOUSEBUTTONUP:
                 {
-                    if(money>0){
+                    if(money>0 && !wave){
                         //CONTRUCT TOWER
                         Tower* newTower= new Tower(e.button.x,e.button.y, textureTower);
                         towers.push_back(newTower);
@@ -155,7 +198,10 @@ int main(int argc, char **argv) {
                         player.set_money(money);
                         cout << "Argent disponbile : "<<money<<endl;
                     }
-                    else{
+                    if(wave==true){
+                        cout << "Pas de construction pendant une vague"<<endl;
+                    }
+                    if(money<=0){
                         cout << "Pas d'argent disponible"<<endl;
                     }
                 
@@ -175,7 +221,7 @@ int main(int argc, char **argv) {
                             Monster* newMonster= new Monster(0,0, textureMonster);
                             monsters.push_back(newMonster);
                         }
-                        wave=false;
+                        
 
                     }
                     printf("touche pressee (code = %d)\n", e.key.keysym.sym);
@@ -200,6 +246,9 @@ int main(int argc, char **argv) {
     SDL_Quit();
     for (Tower* tower : towers) {
         delete tower;
+    }
+      for (Monster* monster : monsters) {
+        delete monster;
     }
 
     return EXIT_SUCCESS;
