@@ -24,6 +24,7 @@ CMakeFiles/itd.dir/src/map_algo.cpp.o
 CMakeFiles/itd.dir/src/map_graphic.cpp.o
  ../include/map_algo.h
  ../include/map_graphic.h
+ ../lib/stb_image/stb_image.h
  /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp
 CMakeFiles/itd.dir/src/monsters_algo.cpp.o
  ../include/monsters_algo.h

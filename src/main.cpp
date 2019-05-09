@@ -107,6 +107,8 @@ int main(int argc, char **argv) {
         // Unbind texture
         glBindTexture(GL_TEXTURE_2D, 0); 
 
+        //draw path
+        drawPath(img_map);
 
          /* Update des entités */
         for (Tower* tower : towers) {
@@ -167,8 +169,6 @@ int main(int argc, char **argv) {
             cout << "Monstre tué" <<endl;
             }
         }
-
-        drawPath(img_map);
    
         /* Echange du front et du back buffer : mise a jour de la fenetre */
         SDL_GL_SwapWindow(window);

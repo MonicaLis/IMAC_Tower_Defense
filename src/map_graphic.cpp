@@ -22,7 +22,7 @@ const int Y_DIMENSION_IMG_MAP = 300;
 
 /**********************************FUNCTIONS TO CREATE PPM MAP*********************************************/
 
-//DJIKSTRA
+//DJIKSTRA used here again
 void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I)
 {
     int dx, dy; //width and height of bounding box
@@ -195,7 +195,10 @@ GLuint initTexturePath(){
 void drawPath(Image* I)
 {
     int i, j;
-    //+15 so we don't load the image on every pixel otherwise it doesn't look like anything and it takes ages to load
+    GLuint texturePath = initTexturePath();
+    glBindTexture(GL_TEXTURE_2D, texturePath);
+
+    //+40 so we don't load the image on every pixel otherwise it doesn't look like anything and it takes ages to load
     for (i=0; i<X_DIMENSION_IMG_MAP; i=i+15)
     {
         for (j=0; j<Y_DIMENSION_IMG_MAP; j=j+15)
@@ -203,8 +206,6 @@ void drawPath(Image* I)
             //if the pixel is white, it's the path, draw it
             if( type_position(i, j, I) == 2)
             {
-                GLuint texturePath = initTexturePath();
-                glBindTexture(GL_TEXTURE_2D, texturePath);
                 glPushMatrix();
                     glLoadIdentity();
                     //we do *1.4 to scale to space image
@@ -218,12 +219,11 @@ void drawPath(Image* I)
                         glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
                     glEnd();
                 glPopMatrix();
-
-                // Unbind texture
-                glBindTexture(GL_TEXTURE_2D, 0); 
             }
         }
     }
+    // Unbind texture
+    glBindTexture(GL_TEXTURE_2D, 0); 
 }
 
 /**********************************FUNCTIONS FROM C PROJECT*********************************************/

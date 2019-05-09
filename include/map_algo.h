@@ -52,6 +52,7 @@ public:
     ~Graph();
     void add_node(Node N, int position);
     Node get_node(int i);
+    int get_nb_nodes();
 
 }Graph;
 

@@ -9,6 +9,7 @@
 #include <iostream>
 #include <fstream>
 #include <list>
+#include <sstream>    
 
 using namespace std;
 
@@ -98,6 +99,11 @@ Graph::Graph(int G_nb_nodes)
 {
     nb_nodes = G_nb_nodes;
     node_array = new Node[nb_nodes];
+}
+
+int Graph::get_nb_nodes()
+{
+    return nb_nodes;
 }
 
 Graph::~Graph()
@@ -209,10 +215,11 @@ bool load_map(const char* filename)
 
     bool one_char_line = false; //when this is true we've reached the nodes part and we can get out the loop
 
+    cout<<"Verifying itd file:"<<endl;
+
     //loop that lasts as long as there's a line to read and that the boolean is set to true
     while (getline(myfile, line) && !one_char_line)
     {
-        cout<<"line : "<<line<<endl;
         //check the first line is @ITD (technically this could be any line...)
         if((line.find("@ITD", 0) == 0))  //if found at position 0
         {
@@ -241,8 +248,9 @@ bool load_map(const char* filename)
         }
         if((line.find("chemin", 0) == 0))
         {
+            stringstream ss(line); //current line
             string para, para1, para2, para3;
-            myfile >> para >> para1 >> para2 >> para3; //"para" is the word
+            ss >> para >> para1 >> para2 >> para3; //"para" is the word
             //if values are between 0 and 255
             if ( (is_parameter_valid(para1))
                 && (is_parameter_valid(para2))
@@ -252,10 +260,11 @@ bool load_map(const char* filename)
                     cout<<"Correct path format"<<endl;
                 }
         }
-        //this is never read, the line is empty ----------------------------------> WEIRD
         if((line.find("noeud", 0) == 0))
         {
+            stringstream ss(line); 
             string para, para1, para2, para3;
+            ss >> para >> para1 >> para2 >> para3;
             //if values are all 0 (because the color is 0)
             if ( (para1 == "0")
                 && (para2 == "0")
@@ -267,8 +276,9 @@ bool load_map(const char* filename)
         }
         if((line.find("construct", 0) == 0))
         {
+            stringstream ss(line);
             string para, para1, para2, para3;
-            myfile >> para >> para1 >> para2 >> para3;
+            ss >> para >> para1 >> para2 >> para3;
             //if values aren't between 0 and 255
             if ( (is_parameter_valid(para1))
                 && (is_parameter_valid(para2))
@@ -278,11 +288,11 @@ bool load_map(const char* filename)
                     cout<<"Correct constructible area format"<<endl;  
                 }         
         }
-        //this is never read, the line is empty ----------------------------------> WEIRD
         if((line.find("in", 0) == 0))
         {
+            stringstream ss(line);
             string para, para1, para2, para3;
-            myfile >> para >> para1 >> para2 >> para3;
+            ss >> para >> para1 >> para2 >> para3;
             //if values aren't between 0 and 255
             if ( (is_parameter_valid(para1))
                 && (is_parameter_valid(para2))
@@ -294,8 +304,9 @@ bool load_map(const char* filename)
         }
         if((line.find("out", 0) == 0))
         {
+            stringstream ss(line);
             string para, para1, para2, para3;
-            myfile >> para >> para1 >> para2 >> para3;
+            ss >> para >> para1 >> para2 >> para3;
             //if values aren't between 0 and 255
             if ( (is_parameter_valid(para1))
                 && (is_parameter_valid(para2))
@@ -310,6 +321,8 @@ bool load_map(const char* filename)
     }
 
     myfile.close();
+    cout<<"end of verification"<<endl;
+    cout<<"**************************"<<endl;
     return  (valid_itd &&valid_comm && valid_carte && valid_chemin 
             && valid_noeud && valid_construct && valid_in && valid_out);
 }
@@ -320,36 +333,59 @@ bool verify_path (Graph graph)
     //i.e. check that there are nodes of natures 3 or 4 
     bool is_there_a_path = false;
     int i;
-    for (i=0; i<5; i++) //because 5 nodes
+    for (i=0; i<graph.get_nb_nodes(); i++) 
     {
         if ((graph.get_node(0).get_nature() == 3) || (graph.get_node(0).get_nature() == 4)) is_there_a_path = true;
     }
 
-    /*
-    //check that the path isn't crossing anything else: i.e. Djikstra code
-    list<Node> visited_nodes;
-    list<Node> list_nodes;
-    list<Node> predecessors;
-    list<int> distances; //minimum distances starting from first_node
-    int i;
-    for (i=0; i<5; i++) 
-    {
-        Node N = graph.get_node(i);
-        list_nodes.push_back(N);
-    }
-    Node first_node = list_nodes.front();
+    //check that the path between 
 
-    while (S != NULL)
+    /*int x0, int y0, int x1, int y1, Image* I;
+
+    int dx, dy; //width and height of bounding box
+    int x, y; //current point
+    int sx, sy; //-1 or 1
+    int err, e2; //loop-carried value and temporary variable
+    int right, down; //bool
+    Pixel white = create_pixel(255,255,255);
+    int k, j;
+
+    dx = x1 - x0;
+    right = dx > 0;
+    if (!right) dx = -dx;
+    dy = y1 - y0;
+    down = dy > 0;
+    if (down) dy = -dy;
+    err = dx + dy;
+    x = x0;
+    y = y0;
+
+    for (;;) //loops forever
     {
-        visited_nodes.push_back(S);
-        for (i=0; i<S.get_successors(); i++) //for each segment/edge of the node
+        //create a larger path
+        for (k=-12; k<=12; k++)
         {
-
+            for (j=-12; j<=12; j++)
+            {
+                set_pixel(I, white, x+k, y+j);
+            }
         }
-    }
-*/
-
-    //delete all tabs
+        if ((x == x1) && (y == y1)) break; //reached the end
+        e2 = err << 1; //err*2
+        if (e2 > dy)
+        {
+            err += dy;
+            if (right) x++;
+            else x--;
+        }
+        if (e2 < dx)
+        {
+            err += dx;
+            if (down) y++;
+            else y--;
+        }
+    
+}*/
 
     return is_there_a_path;
 }
