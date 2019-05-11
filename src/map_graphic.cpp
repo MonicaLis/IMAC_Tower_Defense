@@ -153,6 +153,51 @@ Image* create_map_ppm(Graph graph)
     return img_map;
 }
 
+/**********************************FUNCTIONS TO DISPLAY MAP IN WINDOW***************************************/
+
+void display_map()
+{
+    /* loading image */
+    const char image_path[] = "images/space.ppm";
+    int imgWidth, imgHeight, imgChannels;
+    unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
+    if (nullptr == image)
+    {
+        cerr<<"issue loading image of map"<<endl;
+    }
+    // Autorisation de l'affichage des textures
+    glEnable(GL_TEXTURE_2D);
+
+    /* Initialisation de la texture */
+    GLuint texture_id;
+    glGenTextures(1, &texture_id);
+    glBindTexture(GL_TEXTURE_2D, texture_id);
+
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, imgWidth, imgHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
+    glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+
+     glBindTexture(GL_TEXTURE_2D, texture_id);
+        glPushMatrix();
+            glTranslated(350,350,0);
+            glScalef(600,600,0);
+            glBegin(GL_QUADS);
+                glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
+                glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
+                glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
+                glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
+            glEnd();
+        glPopMatrix();
+    // Unbind texture
+    glBindTexture(GL_TEXTURE_2D, 0); 
+}
+
 /**********************************FUNCTIONS TO DISPLAY PATH IN WINDOW****************************************/
 
 //if 2: path zone, if 1: constructible zone, if 0: non constructible zone (nodes)
@@ -192,7 +237,7 @@ GLuint initTexturePath(){
     return texture_id;
 }
 
-void drawPath(Image* I)
+void draw_path(Image* I)
 {
     int i, j;
     GLuint texturePath = initTexturePath();
@@ -213,10 +258,10 @@ void drawPath(Image* I)
                     glTranslated(i*1.4 + 40,j*1.4 + 100,0); 
                     glScalef(20,20,0);
                     glBegin(GL_QUADS);
-                        glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
-                        glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
-                        glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
-                        glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
+                        glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // down left
+                        glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // down right
+                        glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // up right
+                        glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // up left
                     glEnd();
                 glPopMatrix();
             }

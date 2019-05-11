@@ -217,6 +217,33 @@ src/buildings_graphic.cpp.s:
 	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/buildings_graphic.cpp.s
 .PHONY : src/buildings_graphic.cpp.s
 
+src/interface.o: src/interface.cpp.o
+
+.PHONY : src/interface.o
+
+# target to build an object file
+src/interface.cpp.o:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/interface.cpp.o
+.PHONY : src/interface.cpp.o
+
+src/interface.i: src/interface.cpp.i
+
+.PHONY : src/interface.i
+
+# target to preprocess a source file
+src/interface.cpp.i:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/interface.cpp.i
+.PHONY : src/interface.cpp.i
+
+src/interface.s: src/interface.cpp.s
+
+.PHONY : src/interface.s
+
+# target to generate assembly for a file
+src/interface.cpp.s:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/src/interface.cpp.s
+.PHONY : src/interface.cpp.s
+
 src/main.o: src/main.cpp.o
 
 .PHONY : src/main.o
@@ -452,6 +479,9 @@ help:
 	@echo "... src/buildings_graphic.o"
 	@echo "... src/buildings_graphic.i"
 	@echo "... src/buildings_graphic.s"
+	@echo "... src/interface.o"
+	@echo "... src/interface.i"
+	@echo "... src/interface.s"
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"

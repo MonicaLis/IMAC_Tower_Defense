@@ -121,8 +121,6 @@ map_graphic.h
 /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
 cmath
 -
-SDL2/SDL.h
--
 stdlib.h
 -
 stdio.h

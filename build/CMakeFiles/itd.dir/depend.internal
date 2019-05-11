@@ -7,6 +7,10 @@ CMakeFiles/itd.dir/src/buildings_algo.cpp.o
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
  ../include/buildings_graphic.h
  /home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp
+CMakeFiles/itd.dir/src/interface.cpp.o
+ ../include/interface.h
+ ../lib/stb_image/stb_image.h
+ /home/monica/Documents/IMAC_Tower_Defense/src/interface.cpp
 CMakeFiles/itd.dir/src/main.cpp.o
  ../include/init.h
  ../include/map_algo.h

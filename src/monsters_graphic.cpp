@@ -2,7 +2,6 @@
 #include "map_algo.h"
 #include "map_graphic.h"
 #include <cmath>
-#include <SDL2/SDL.h>
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
@@ -48,7 +47,8 @@ void Monster::drawMonster(){
     glBindTexture(GL_TEXTURE_2D, textureM);
     glPushMatrix();
         glLoadIdentity();
-        glTranslated(xM,yM,0);
+        //*1.4 and +100 to adapt to size of path on screen
+        glTranslated(xM*1.4 + 40,yM*1.4 + 100,0); 
         glScalef(50,50,0);
         glBegin(GL_QUADS);
             glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche

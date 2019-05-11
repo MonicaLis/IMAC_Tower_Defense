@@ -323,7 +323,7 @@ bool load_map(const char* filename)
     myfile.close();
     cout<<"end of verification"<<endl;
     cout<<"**************************"<<endl;
-    return  (valid_itd &&valid_comm && valid_carte && valid_chemin 
+    return  (valid_itd && valid_comm && valid_carte && valid_chemin 
             && valid_noeud && valid_construct && valid_in && valid_out);
 }
 

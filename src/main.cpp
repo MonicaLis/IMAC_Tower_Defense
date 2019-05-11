@@ -22,10 +22,10 @@ using namespace std;
 #include "monsters_graphic.h"
 #include "player.h"
 
-/* Nombre minimal de millisecondes separant le rendu de deux images */
 static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
 int main(int argc, char **argv) {
+
     /* Init SDL, OpenGL, Debug and Glad */
     SDL_Window* window = init();
     if (window == nullptr) {
@@ -36,40 +36,13 @@ int main(int argc, char **argv) {
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
 
-     /* Chargement de l'image */
-    const char image_path[] = "images/space.ppm";
-    int imgWidth, imgHeight, imgChannels;
-    unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
-    if (nullptr == image)
-    {
-        return (EXIT_FAILURE);
-    }
-    // Autorisation de l'affichage des textures
-    glEnable(GL_TEXTURE_2D);
-
-    /* Initialisation de la texture */
-    GLuint texture_id;
-    glGenTextures(1, &texture_id);
-    glBindTexture(GL_TEXTURE_2D, texture_id);
-
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
-
-    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA8, imgWidth, imgHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
-    glBindTexture(GL_TEXTURE_2D, 0); // Unbind texture
-    glMatrixMode(GL_MODELVIEW);
-    glLoadIdentity();
-
-    //display path
-    GLuint texturePath=initTexturePath();
 
     /*==============PLAYER INIT==========================================*/
     Player player;
     int money = player.get_money();
     cout << "Argent disponbile : "<<money<<endl;
 
+    GLuint texturePath=initTexturePath();
     GLuint textureTower=initTextureTower();
     GLuint textureMonster=initTextureMonster();
 
@@ -84,33 +57,25 @@ int main(int argc, char **argv) {
 
     /*create the graph out of the given nodes and therefore the map*/
     Graph map = create_graph();
-    Image* img_map = create_map_ppm(map); //will be used by drawPath(...)
-    
+    //will be used by drawPath(...)
+    Image* img_map = create_map_ppm(map); 
+    //work out where monsters go
+    int monsters_enter_x = map.get_node(0).get_coordinates().get_p_x();
+    int monsters_enter_y = map.get_node(0).get_coordinates().get_p_y();
+    int monsters_exit_x = map.get_node(1).get_coordinates().get_p_x();
+    int monsters_exit_y = map.get_node(1).get_coordinates().get_p_y();
+
     while (loop) {
-        /* Recuperation du temps au debut de la boucle */
+
         Uint32 startTime = SDL_GetTicks();
 
-        /* Placer ici le code de dessin */
+        /* code to draw */
         glClear(GL_COLOR_BUFFER_BIT);
+        //draw map and path
+        display_map();
+        draw_path(img_map);
 
-        glBindTexture(GL_TEXTURE_2D, texture_id);
-        glPushMatrix();
-            glTranslated(350,350,0);
-            glScalef(600,600,0);
-            glBegin(GL_QUADS);
-                glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
-                glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
-                glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
-                glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
-            glEnd();
-        glPopMatrix();
-        // Unbind texture
-        glBindTexture(GL_TEXTURE_2D, 0); 
-
-        //draw path
-        drawPath(img_map);
-
-         /* Update des entités */
+         /* Update entities */
         for (Tower* tower : towers) {
             tower->drawTower();
         }
@@ -218,7 +183,8 @@ int main(int argc, char **argv) {
                         numberWave+=1;
                         
                         for(int i=1; i<=numberWave; i++){
-                            Monster* newMonster= new Monster(0,0, textureMonster);
+                            Monster* newMonster= new Monster(
+                                    monsters_enter_x, monsters_enter_y, textureMonster);
                             monsters.push_back(newMonster);
                         }
                         
@@ -244,6 +210,8 @@ int main(int argc, char **argv) {
     /* Liberation des ressources associees a la SDL */
     SDL_DestroyWindow(window);
     SDL_Quit();
+
+    //  PAS SURE DE CETTE PARTIE NORMALEMENT CES STRUCTS SE DETRUISENT TOUTES SEULES SI T'AS FAIT DES DESTRUCTEURS
     for (Tower* tower : towers) {
         delete tower;
     }

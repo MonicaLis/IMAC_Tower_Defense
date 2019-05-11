@@ -45,6 +45,7 @@ Image* create_map_ppm(Graph graph);
 void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I);
 int type_position(int x, int y, Image* I);
 GLuint initTexturePath();
-void drawPath(Image* I);
+void draw_path(Image* I);
+void display_map();
 
 #endif 
