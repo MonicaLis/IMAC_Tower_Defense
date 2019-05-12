@@ -1,6 +1,4 @@
-#ifdef _WIN32
-    #include <windows.h>
-#endif
+
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <SDL2/SDL.h>
@@ -57,6 +55,7 @@ int main(int argc, char **argv) {
 
     /*create the graph out of the given nodes and therefore the map*/
     Graph map = create_graph();
+    verify_path (map);
     //will be used by drawPath(...)
     Image* img_map = create_map_ppm(map); 
     //work out where monsters go
@@ -135,42 +134,52 @@ int main(int argc, char **argv) {
             }
         }
    
-        /* Echange du front et du back buffer : mise a jour de la fenetre */
+        /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
 
-        /* Boucle traitant les evenements */
+        /* Loop for events */
         SDL_Event e;
         while (SDL_PollEvent(&e)) {
-            /* L'utilisateur ferme la fenetre : */
+            /* User closes window */
             if (e.type == SDL_QUIT)
             {
                 loop = false;
                 break;
             }
 
-            /* Quelques exemples de traitement d'evenements : */
             switch (e.type)
             {
-                /* Clic souris */
+                /* click */
                 case SDL_MOUSEBUTTONUP:
                 {
-                    if(money>0 && !wave){
-                        //CONTRUCT TOWER
-                        Tower* newTower= new Tower(e.button.x,e.button.y, textureTower);
-                        towers.push_back(newTower);
+                    int x_conversion = e.button.x;
+                    int y_conversion = e.button.y;
+                    to_ppm_coordinates(x_conversion, y_conversion);
 
-                        money=player.get_money()-newTower->get_cost();
-                        player.set_money(money);
-                        cout << "Argent disponbile : "<<money<<endl;
+                    // cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
+                    // cout << "converted:" << x_conversion << " " << y_conversion <<endl;
+
+                    if(money>0 && !wave){
+
+                        bool valid_zone;    
+                        Tower* newTower = new Tower(e.button.x,e.button.y, textureTower, img_map, valid_zone);
+                        if (valid_zone)
+                        {
+                            towers.push_back(newTower);
+                            cout<<"Tower built"<<endl;
+                            money=player.get_money()-newTower->get_cost();
+                            player.set_money(money);
+                            cout << "Argent disponbile : "<<money<<endl;
+                        }
                     }
+                    
                     if(wave==true){
-                        cout << "Pas de construction pendant une vague"<<endl;
+                        cout << "No right to build during a wave"<<endl;
                     }
                     if(money<=0){
-                        cout << "Pas d'argent disponible"<<endl;
+                        cout << "No money available"<<endl;
                     }
                 
-                    cout << "clic en "<< e.button.x<< " " << e.button.y<< endl;
                 }
                     break;
 

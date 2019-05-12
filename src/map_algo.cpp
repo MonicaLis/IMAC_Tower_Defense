@@ -271,7 +271,7 @@ bool load_map(const char* filename)
                 && (para3 == "0") ) 
                 {
                     valid_noeud = true;
-                    cout<<"Correct noeud format"<<endl;
+                    cout<<"Correct node format"<<endl;
                 }
         }
         if((line.find("construct", 0) == 0))
@@ -327,7 +327,7 @@ bool load_map(const char* filename)
             && valid_noeud && valid_construct && valid_in && valid_out);
 }
 
-bool verify_path (Graph graph)
+void verify_path (Graph graph)
 {
     //check that there's at least one path 
     //i.e. check that there are nodes of natures 3 or 4 
@@ -335,59 +335,15 @@ bool verify_path (Graph graph)
     int i;
     for (i=0; i<graph.get_nb_nodes(); i++) 
     {
-        if ((graph.get_node(0).get_nature() == 3) || (graph.get_node(0).get_nature() == 4)) is_there_a_path = true;
+        if ((graph.get_node(i).get_nature() == 3) || 
+            (graph.get_node(i).get_nature() == 4)) is_there_a_path = true;
     }
 
-    //check that the path between 
+    //there's not much point in using Bresenhem to chec whether the path is valid, because I created
+    //the path with the exact same algorithm in map_graphic
 
-    /*int x0, int y0, int x1, int y1, Image* I;
-
-    int dx, dy; //width and height of bounding box
-    int x, y; //current point
-    int sx, sy; //-1 or 1
-    int err, e2; //loop-carried value and temporary variable
-    int right, down; //bool
-    Pixel white = create_pixel(255,255,255);
-    int k, j;
-
-    dx = x1 - x0;
-    right = dx > 0;
-    if (!right) dx = -dx;
-    dy = y1 - y0;
-    down = dy > 0;
-    if (down) dy = -dy;
-    err = dx + dy;
-    x = x0;
-    y = y0;
-
-    for (;;) //loops forever
-    {
-        //create a larger path
-        for (k=-12; k<=12; k++)
-        {
-            for (j=-12; j<=12; j++)
-            {
-                set_pixel(I, white, x+k, y+j);
-            }
-        }
-        if ((x == x1) && (y == y1)) break; //reached the end
-        e2 = err << 1; //err*2
-        if (e2 > dy)
-        {
-            err += dy;
-            if (right) x++;
-            else x--;
-        }
-        if (e2 < dx)
-        {
-            err += dx;
-            if (down) y++;
-            else y--;
-        }
-    
-}*/
-
-    return is_there_a_path;
+    if (is_there_a_path) cout<<"Path is valid."<<endl;
+    else cout<<"Invalid path.";
 }
 
 

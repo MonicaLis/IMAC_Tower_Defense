@@ -59,7 +59,7 @@ public:
 /**********************************FUNCTIONS********************************************/
 
 bool load_map(const char* filename); //returns true if the map is valid
-bool verify_path (Graph graph);
+void verify_path (Graph graph); //tells us if the path is valid
 bool is_parameter_valid(string parameter);
 Graph create_graph();
 

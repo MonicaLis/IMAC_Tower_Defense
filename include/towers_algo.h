@@ -9,18 +9,20 @@
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 
+#include "map_graphic.h"
+
 using namespace std;
 
 typedef struct Tower{
 
 private:
     //type: 0-red, 1-green, 2-yellow, 3-blue
-    int power, range, type, cost,x,y; //puissance, portée
+    int power, range, type, cost, x, y; //puissance, portée
     GLuint texture;
     float pace; //cadence, 10e de sec
 
 public:
-    Tower(int Cx, int Cy,GLuint newTexture);
+    Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone);
     ~Tower();
     int get_power();
     void set_power(int pow);
@@ -39,9 +41,9 @@ public:
     float get_pace();
     void set_pace(float p);
     
-    
 }Tower;
 
+void to_ppm_coordinates(int &x, int &y);
 
 
 #endif 

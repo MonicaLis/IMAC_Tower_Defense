@@ -42,6 +42,8 @@ CMakeFiles/itd.dir/src/player.cpp.o: src/player.cpp
 CMakeFiles/itd.dir/src/player.cpp.o: include/player.h
 
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: src/towers_algo.cpp
+CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/map_algo.h
+CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/map_graphic.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/towers_algo.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/towers_graphic.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: lib/stb_image/stb_image.h

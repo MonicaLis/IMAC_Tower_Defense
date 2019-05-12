@@ -22,7 +22,7 @@ const int Y_DIMENSION_IMG_MAP = 300;
 
 /**********************************FUNCTIONS TO CREATE PPM MAP*********************************************/
 
-//DJIKSTRA used here again
+//BRESENHAM ALGO used here again
 void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I)
 {
     int dx, dy; //width and height of bounding box
@@ -46,9 +46,9 @@ void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I)
     for (;;) //loops forever
     {
         //create a larger path
-        for (k=-12; k<=12; k++)
+        for (k=-14; k<=14; k++)
         {
-            for (j=-12; j<=12; j++)
+            for (j=-14; j<=14; j++)
             {
                 set_pixel(I, white, x+k, y+j);
             }
@@ -200,13 +200,13 @@ void display_map()
 
 /**********************************FUNCTIONS TO DISPLAY PATH IN WINDOW****************************************/
 
-//if 2: path zone, if 1: constructible zone, if 0: non constructible zone (nodes)
+//if 2: tower, if 1: constructible zone, if 0: path
 int type_position(int x, int y, Image* I)
 {
     Pixel color_construct = create_pixel(120, 180, 180);
-    Pixel color_path = create_pixel(255, 255, 255);
+    Pixel color_tower = create_pixel(110,0,110);
     if ( are_they_equal( get_pixel(x, y, I), color_construct) ) return 1;
-    else if ( are_they_equal( get_pixel(x, y, I), color_path) ) return 2;
+    if ( are_they_equal( get_pixel(x, y, I), color_tower) ) return 2;
     else return 0;
 }
 
@@ -248,8 +248,8 @@ void draw_path(Image* I)
     {
         for (j=0; j<Y_DIMENSION_IMG_MAP; j=j+15)
         {
-            //if the pixel is white, it's the path, draw it
-            if( type_position(i, j, I) == 2)
+            //if it's not a constructible zone nor a tower we can draw a path
+            if( type_position(i, j, I) == 0)
             {
                 glPushMatrix();
                     glLoadIdentity();

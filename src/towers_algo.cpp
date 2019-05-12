@@ -1,6 +1,6 @@
 #include "towers_algo.h"
 #include "towers_graphic.h"
-
+#include "map_graphic.h"
 
 #include <stdlib.h>
 #include <iostream>
@@ -15,7 +15,7 @@ using namespace std;
     float pace; //cadence
     GLuint texture;
 
-Tower::Tower(int Cx, int Cy,GLuint newTexture)
+Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
 {
     power = 3;
     range = 3;
@@ -25,7 +25,44 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture)
     x=Cx;
     y=Cy;
     texture=newTexture;
-    cout << "Tower créé !"<< endl;
+
+    int i,j;
+    Pixel color = create_pixel(110,0,110);
+    to_ppm_coordinates(Cx, Cy);
+    valid_zone = true; 
+
+    //checking whether the tower is far enough from other elements
+    //to do this we check if a slightly larger circle's perimeter is in a constructible zone
+    //when i=j=0 we're checking whether the centre is in a constructible zone
+    for (i=-12; i<12; i=i+12)
+    {
+        for (j=-12; j<12; j=j+12)
+        {
+            if ( sqrt( i*i + j*j ) <= 12 )
+            {
+                if ( type_position(Cx + i, Cy +j, I) < 1 ) valid_zone = false;
+                set_pixel(I, color, Cx+i,Cy+j);
+            }
+        }
+    }
+
+    if (valid_zone)
+    {
+        cout<<"Valid zone for tower to be built"<<endl;
+
+        //to create 20px circles
+        for (i=-10; i<10; i++)
+        {
+            for (j=-10; j<10; j++)
+            {
+                if ( sqrt( i*i + j*j ) <= 10 ) set_pixel(I, color, Cx + i, Cy + j);
+            }
+        }
+    } 
+    else cout<<"Invalid zone for tower to be built, try again"<<endl;
+
+    //just to check if towers are well represented as circles at the right place
+    //save(I, "doc/lolol.ppm"); 
 }
 
 Tower::~Tower()
@@ -128,4 +165,11 @@ GLuint get_texture(){
 
 void set_texture(GLuint newTexture){
     texture=newTexture;
+}
+
+void to_ppm_coordinates(int &x, int &y)
+{
+    //to go from (650,650) SDL to ppm coordinates (500,300) 
+    x = (x - 50) * 0.83;
+    y = (y - 50) * 0.5;
 }

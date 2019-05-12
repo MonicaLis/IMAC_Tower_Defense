@@ -113,6 +113,8 @@ GL/glu.h
 -
 stb_image/stb_image.h
 -
+map_graphic.h
+../include/map_graphic.h
 
 ../include/towers_graphic.h
 towers_algo.h
@@ -191,8 +193,6 @@ stb_image/stb_image.h
 -
 
 /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
-windows.h
--
 cmath
 -
 SDL2/SDL.h
@@ -333,6 +333,8 @@ towers_algo.h
 /home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.h
 towers_graphic.h
 /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.h
+map_graphic.h
+/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
 stdlib.h
 -
 iostream

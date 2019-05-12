@@ -46,6 +46,8 @@ CMakeFiles/itd.dir/src/player.cpp.o
  ../include/player.h
  /home/monica/Documents/IMAC_Tower_Defense/src/player.cpp
 CMakeFiles/itd.dir/src/towers_algo.cpp.o
+ ../include/map_algo.h
+ ../include/map_graphic.h
  ../include/towers_algo.h
  ../include/towers_graphic.h
  ../lib/stb_image/stb_image.h
