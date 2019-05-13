@@ -9,6 +9,9 @@ set(SDL2_LIBRARY /usr/lib/libSDL2.so)
 set(CMAKE_MODULE_PATH ${PROJECT_SOURCE_DIR}/cmake)
 
 add_library(STB_IMAGE STATIC "lib/stb_image/stb_image.c")
+file(GLOB_RECURSE IMGUI_SOURCES lib/imgui/*)
+add_library(IMGUI STATIC ${IMGUI_SOURCES})
+add_library(GLAD STATIC "lib/glad/src/glad.c")
 
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
@@ -21,12 +24,14 @@ if (OPENGL_LIBRARIES)
     message("Found OpenGL: " ${SDL2_LIBRARIES})
 endif()
 
+
 # include
 include_directories(
 	${SDL2_INCLUDE_DIRS}
 	${SDL_TTF_INCLUDE_DIRS}
 	${OPENGL_INCLUDE_DIRS}
 	include
+	lib/glad/include
 	src
 	lib
 )
@@ -36,5 +41,14 @@ file(GLOB SOURCES "src/*.cpp")
 
 add_executable(${PROJECT_NAME} ${SOURCES})
 
-target_link_libraries(${PROJECT_NAME} ${OPENGL_LIBRARIES} ${SDL2_LIBRARIES} ${SDL_TTF_LIBRARIES} STB_IMAGE -ldl)
+target_link_libraries(
+	${PROJECT_NAME} 
+	${OPENGL_LIBRARIES} 
+	${SDL2_LIBRARIES} 
+	${SDL_TTF_LIBRARIES} 
+	STB_IMAGE 
+	IMGUI 
+	GLAD
+	-ldl
+)
 

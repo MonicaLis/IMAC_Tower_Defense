@@ -10,7 +10,9 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 #include <vector>
-#include <imgui>
+#include <imgui/imgui.h>
+#include <imgui/imgui_impl_sdl.h>
+#include <imgui/imgui_impl_opengl3.h>
 
 #include "init.h"
 #include "map_algo.h"
@@ -125,9 +127,8 @@ int main(int argc, char **argv) {
         }
         if(monsters.size()<=0){
             wave=false;
-            money=player.get_money()+10;
-            player.set_money(money);
         }
+       
        
         if(!supr.empty()){
             for (Monster* toSupr : supr) {
@@ -135,6 +136,7 @@ int main(int argc, char **argv) {
             delete toSupr;
             cout << "Monstre tué" <<endl;
             }
+        
         }
    
         /* Swap front and back buffers */
@@ -195,10 +197,11 @@ int main(int argc, char **argv) {
                         numberWave+=1;
                         
                         for(int i=1; i<=numberWave; i++){
+                            int life;
                             Monster* newMonster= new Monster(
                                     monsters_enter_x, monsters_enter_y, textureMonster);
-                            life=newMonster.get_life_point()+2;
-                            newMonster.set_life(life);
+                            life=newMonster->get_life_points()+2;
+                            newMonster->set_life_points(life);
                             monsters.push_back(newMonster);
                             
                         }
