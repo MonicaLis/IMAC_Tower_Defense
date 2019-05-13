@@ -10,6 +10,7 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 #include <vector>
+#include <imgui>
 
 #include "init.h"
 #include "map_algo.h"
@@ -124,6 +125,8 @@ int main(int argc, char **argv) {
         }
         if(monsters.size()<=0){
             wave=false;
+            money=player.get_money()+10;
+            player.set_money(money);
         }
        
         if(!supr.empty()){
@@ -194,7 +197,10 @@ int main(int argc, char **argv) {
                         for(int i=1; i<=numberWave; i++){
                             Monster* newMonster= new Monster(
                                     monsters_enter_x, monsters_enter_y, textureMonster);
+                            life=newMonster.get_life_point()+2;
+                            newMonster.set_life(life);
                             monsters.push_back(newMonster);
+                            
                         }
                         
 

@@ -49,7 +49,7 @@ void Tower::drawTower(){
     glPushMatrix();
         glLoadIdentity();
         glTranslated(x,y,0);
-        glScalef(100,100,0);
+        glScalef(50,50,0);
         glBegin(GL_QUADS);
             glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
             glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
