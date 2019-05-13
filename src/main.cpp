@@ -8,11 +8,15 @@
 using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <GL/glut.h>
+
 #include <stb_image/stb_image.h>
 #include <vector>
 #include <imgui/imgui.h>
 #include <imgui/imgui_impl_sdl.h>
 #include <imgui/imgui_impl_opengl3.h>
+#include <SDL2/SDL_ttf.h>
+
 
 #include "init.h"
 #include "map_algo.h"
@@ -23,7 +27,10 @@ using namespace std;
 #include "monsters_graphic.h"
 #include "player.h"
 
+
 static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
+
+void text();
 
 int main(int argc, char **argv) {
 
@@ -32,7 +39,9 @@ int main(int argc, char **argv) {
     if (window == nullptr) {
         cout << "Error window init" << endl;
     }
-
+    
+    
+    
     /*loading and verifying the map*/
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
@@ -61,14 +70,20 @@ int main(int argc, char **argv) {
     verify_path (map);
     //will be used by drawPath(...)
     Image* img_map = create_map_ppm(map); 
-    //work out where monsters go
-    int monsters_enter_x = map.get_node(0).get_coordinates().get_p_x();
-    int monsters_enter_y = map.get_node(0).get_coordinates().get_p_y();
-    int monsters_exit_x = map.get_node(1).get_coordinates().get_p_x();
-    int monsters_exit_y = map.get_node(1).get_coordinates().get_p_y();
+     //work out where monsters go
+    int enter_x = map.get_node(0).get_coordinates().get_p_x();
+    int enter_y = map.get_node(0).get_coordinates().get_p_y();
+    int exit_x = map.get_node(1).get_coordinates().get_p_x();
+    int exit_y = map.get_node(1).get_coordinates().get_p_y();
+    int node_3_x = map.get_node(3).get_coordinates().get_p_x();
+    int node_3_y = map.get_node(3).get_coordinates().get_p_y();
+    int node_4_x = map.get_node(4).get_coordinates().get_p_x();
+    int node_4_y = map.get_node(4).get_coordinates().get_p_y();
+    int node_2_x = map.get_node(2).get_coordinates().get_p_x();
+    int node_2_y = map.get_node(2).get_coordinates().get_p_y();
 
     while (loop) {
-
+       
         Uint32 startTime = SDL_GetTicks();
 
         /* code to draw */
@@ -76,23 +91,43 @@ int main(int argc, char **argv) {
         //draw map and path
         display_map();
         draw_path(img_map);
+        
+
 
          /* Update entities */
         for (Tower* tower : towers) {
             tower->drawTower();
         }
+       float x = 0;
+        float y = 0;
+        int pos_x, pos_y;
         for (Monster* monster : monsters) {
-            monster->drawMonster();
-            if (monsters.size() > 0){
-                int numberX = rand() % 5;   
-                int numberY = rand() % 5;      // v1 in the range 0 to 99
-                int Posx=monster->get_x()+numberX;
-                int Posy=monster->get_y()+numberY;
-                monster->set_x(Posx);
-                monster->set_y(Posy);
-            }
             
-        }
+            monster->drawMonster();
+            
+            if (monsters.size() > 0){
+                
+                //to go from the entrance to N3
+                if (monster->get_x() < node_3_x)
+                {
+                    pos_x = monster->get_x() + x; 
+                    pos_y = monster->get_y() + y;
+                    monster->set_x(pos_x);
+                    monster->set_y(pos_y);
+                    x = 2;
+                    y = 1;
+                }
+                if (monster->get_x() >= node_3_x)
+                {
+                    pos_x = monster->get_x() + x; 
+                    pos_y = monster->get_y() + y;
+                    monster->set_x(pos_x);
+                    monster->set_y(pos_y);
+                    x = 2;
+                    y = 0;
+                }
+            }
+        }         
         
         
         int time=0;
@@ -138,12 +173,11 @@ int main(int argc, char **argv) {
             }
         
         }
-   
         /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
 
         /* Loop for events */
-        SDL_Event e;
+        SDL_Event e; 
         while (SDL_PollEvent(&e)) {
             /* User closes window */
             if (e.type == SDL_QUIT)
@@ -199,7 +233,7 @@ int main(int argc, char **argv) {
                         for(int i=1; i<=numberWave; i++){
                             int life;
                             Monster* newMonster= new Monster(
-                                    monsters_enter_x, monsters_enter_y, textureMonster);
+                                    0, 0, textureMonster);
                             life=newMonster->get_life_points()+2;
                             newMonster->set_life_points(life);
                             monsters.push_back(newMonster);
