@@ -29,7 +29,7 @@ SDL_Window* init() {
 
     /* Create Window */
     SDL_Window* window = SDL_CreateWindow(
-        "IMAC Soutien tower defense",
+        "Tower defense",
         SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED,
         windowWidth, windowHeight,
         SDL_WINDOW_OPENGL);
