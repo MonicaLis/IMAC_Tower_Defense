@@ -7,6 +7,10 @@ CMakeFiles/itd.dir/src/buildings_algo.cpp.o
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp
  include/buildings_graphic.h
+CMakeFiles/itd.dir/src/interface.cpp.o
+ /home/monica/Documents/IMAC_Tower_Defense/src/interface.cpp
+ include/interface.h
+ lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/main.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp
  include/init.h
@@ -17,6 +21,10 @@ CMakeFiles/itd.dir/src/main.cpp.o
  include/player.h
  include/towers_algo.h
  include/towers_graphic.h
+ lib/imgui/imconfig.h
+ lib/imgui/imgui.h
+ lib/imgui/imgui_impl_opengl3.h
+ lib/imgui/imgui_impl_sdl.h
  lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/map_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp

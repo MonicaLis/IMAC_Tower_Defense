@@ -7,6 +7,10 @@ CMakeFiles/itd.dir/src/buildings_algo.cpp.o: include/buildings_algo.h
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o: src/buildings_graphic.cpp
 CMakeFiles/itd.dir/src/buildings_graphic.cpp.o: include/buildings_graphic.h
 
+CMakeFiles/itd.dir/src/interface.cpp.o: src/interface.cpp
+CMakeFiles/itd.dir/src/interface.cpp.o: include/interface.h
+CMakeFiles/itd.dir/src/interface.cpp.o: lib/stb_image/stb_image.h
+
 CMakeFiles/itd.dir/src/main.cpp.o: src/main.cpp
 CMakeFiles/itd.dir/src/main.cpp.o: include/init.h
 CMakeFiles/itd.dir/src/main.cpp.o: include/map_algo.h
@@ -16,6 +20,10 @@ CMakeFiles/itd.dir/src/main.cpp.o: include/monsters_graphic.h
 CMakeFiles/itd.dir/src/main.cpp.o: include/player.h
 CMakeFiles/itd.dir/src/main.cpp.o: include/towers_algo.h
 CMakeFiles/itd.dir/src/main.cpp.o: include/towers_graphic.h
+CMakeFiles/itd.dir/src/main.cpp.o: lib/imgui/imconfig.h
+CMakeFiles/itd.dir/src/main.cpp.o: lib/imgui/imgui.h
+CMakeFiles/itd.dir/src/main.cpp.o: lib/imgui/imgui_impl_opengl3.h
+CMakeFiles/itd.dir/src/main.cpp.o: lib/imgui/imgui_impl_sdl.h
 CMakeFiles/itd.dir/src/main.cpp.o: lib/stb_image/stb_image.h
 
 CMakeFiles/itd.dir/src/map_algo.cpp.o: src/map_algo.cpp

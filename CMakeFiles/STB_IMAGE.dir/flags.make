@@ -6,5 +6,5 @@ C_FLAGS =
 
 C_DEFINES = 
 
-C_INCLUDES = -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib 
+C_INCLUDES = -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib 
 

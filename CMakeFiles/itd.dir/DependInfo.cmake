@@ -6,6 +6,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/buildings_algo.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/buildings_graphic.cpp.o"
+  "/home/monica/Documents/IMAC_Tower_Defense/src/interface.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/interface.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/main.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/main.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/map_algo.cpp.o"
   "/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp" "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/itd.dir/src/map_graphic.cpp.o"
@@ -21,6 +22,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/SDL2"
   "include"
+  "lib/glad/include"
   "src"
   "lib"
   )
@@ -28,6 +30,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/STB_IMAGE.dir/DependInfo.cmake"
+  "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/IMGUI.dir/DependInfo.cmake"
+  "/home/monica/Documents/IMAC_Tower_Defense/CMakeFiles/GLAD.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

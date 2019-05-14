@@ -22,7 +22,7 @@ Monster::Monster(int Cx, int Cy,GLuint newTexture)
     xM=Cx;
     yM=Cy;
     textureM=newTexture;
-    cout << "Monstre créé !"<< endl;
+    cout << "Monster created !"<< endl;
 }
 
 Monster::~Monster()
