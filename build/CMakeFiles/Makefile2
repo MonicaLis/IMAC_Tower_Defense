@@ -60,13 +60,89 @@ CMAKE_SOURCE_DIR = /home/monica/Documents/IMAC_Tower_Defense
 CMAKE_BINARY_DIR = /home/monica/Documents/IMAC_Tower_Defense/build
 
 #=============================================================================
+# Target rules for target CMakeFiles/GLAD.dir
+
+# All Build rule for target.
+CMakeFiles/GLAD.dir/all:
+	$(MAKE) -f CMakeFiles/GLAD.dir/build.make CMakeFiles/GLAD.dir/depend
+	$(MAKE) -f CMakeFiles/GLAD.dir/build.make CMakeFiles/GLAD.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=1,2 "Built target GLAD"
+.PHONY : CMakeFiles/GLAD.dir/all
+
+# Include target in all.
+all: CMakeFiles/GLAD.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/GLAD.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/GLAD.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 0
+.PHONY : CMakeFiles/GLAD.dir/rule
+
+# Convenience name for target.
+GLAD: CMakeFiles/GLAD.dir/rule
+
+.PHONY : GLAD
+
+# clean rule for target.
+CMakeFiles/GLAD.dir/clean:
+	$(MAKE) -f CMakeFiles/GLAD.dir/build.make CMakeFiles/GLAD.dir/clean
+.PHONY : CMakeFiles/GLAD.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/GLAD.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/itd.dir
+
+# All Build rule for target.
+CMakeFiles/itd.dir/all: CMakeFiles/GLAD.dir/all
+CMakeFiles/itd.dir/all: CMakeFiles/IMGUI.dir/all
+CMakeFiles/itd.dir/all: CMakeFiles/STB_IMAGE.dir/all
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/depend
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=12,13,14,15,16,17,18,19,20,21,22,23 "Built target itd"
+.PHONY : CMakeFiles/itd.dir/all
+
+# Include target in all.
+all: CMakeFiles/itd.dir/all
+
+.PHONY : all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/itd.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 23
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/itd.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 0
+.PHONY : CMakeFiles/itd.dir/rule
+
+# Convenience name for target.
+itd: CMakeFiles/itd.dir/rule
+
+.PHONY : itd
+
+# clean rule for target.
+CMakeFiles/itd.dir/clean:
+	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/clean
+.PHONY : CMakeFiles/itd.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/itd.dir/clean
+
+.PHONY : clean
+
+#=============================================================================
 # Target rules for target CMakeFiles/STB_IMAGE.dir
 
 # All Build rule for target.
 CMakeFiles/STB_IMAGE.dir/all:
 	$(MAKE) -f CMakeFiles/STB_IMAGE.dir/build.make CMakeFiles/STB_IMAGE.dir/depend
 	$(MAKE) -f CMakeFiles/STB_IMAGE.dir/build.make CMakeFiles/STB_IMAGE.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=1,2 "Built target STB_IMAGE"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=10,11 "Built target STB_IMAGE"
 .PHONY : CMakeFiles/STB_IMAGE.dir/all
 
 # Include target in all.
@@ -97,39 +173,39 @@ clean: CMakeFiles/STB_IMAGE.dir/clean
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/itd.dir
+# Target rules for target CMakeFiles/IMGUI.dir
 
 # All Build rule for target.
-CMakeFiles/itd.dir/all: CMakeFiles/STB_IMAGE.dir/all
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/depend
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14 "Built target itd"
-.PHONY : CMakeFiles/itd.dir/all
+CMakeFiles/IMGUI.dir/all:
+	$(MAKE) -f CMakeFiles/IMGUI.dir/build.make CMakeFiles/IMGUI.dir/depend
+	$(MAKE) -f CMakeFiles/IMGUI.dir/build.make CMakeFiles/IMGUI.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=3,4,5,6,7,8,9 "Built target IMGUI"
+.PHONY : CMakeFiles/IMGUI.dir/all
 
 # Include target in all.
-all: CMakeFiles/itd.dir/all
+all: CMakeFiles/IMGUI.dir/all
 
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/itd.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 14
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/itd.dir/all
+CMakeFiles/IMGUI.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/IMGUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles 0
-.PHONY : CMakeFiles/itd.dir/rule
+.PHONY : CMakeFiles/IMGUI.dir/rule
 
 # Convenience name for target.
-itd: CMakeFiles/itd.dir/rule
+IMGUI: CMakeFiles/IMGUI.dir/rule
 
-.PHONY : itd
-
-# clean rule for target.
-CMakeFiles/itd.dir/clean:
-	$(MAKE) -f CMakeFiles/itd.dir/build.make CMakeFiles/itd.dir/clean
-.PHONY : CMakeFiles/itd.dir/clean
+.PHONY : IMGUI
 
 # clean rule for target.
-clean: CMakeFiles/itd.dir/clean
+CMakeFiles/IMGUI.dir/clean:
+	$(MAKE) -f CMakeFiles/IMGUI.dir/build.make CMakeFiles/IMGUI.dir/clean
+.PHONY : CMakeFiles/IMGUI.dir/clean
+
+# clean rule for target.
+clean: CMakeFiles/IMGUI.dir/clean
 
 .PHONY : clean
 

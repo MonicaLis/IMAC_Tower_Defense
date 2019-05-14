@@ -22,6 +22,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "/usr/local/include/SDL2"
   "../include"
+  "../lib/glad/include"
   "../src"
   "../lib"
   )
@@ -29,6 +30,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
   "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/STB_IMAGE.dir/DependInfo.cmake"
+  "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/IMGUI.dir/DependInfo.cmake"
+  "/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/GLAD.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

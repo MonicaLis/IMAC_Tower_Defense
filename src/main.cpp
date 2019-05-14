@@ -98,7 +98,7 @@ int main(int argc, char **argv) {
         for (Tower* tower : towers) {
             tower->drawTower();
         }
-       float x = 0;
+        float x = 0;
         float y = 0;
         int pos_x, pos_y;
         for (Monster* monster : monsters) {
@@ -110,21 +110,21 @@ int main(int argc, char **argv) {
                 //to go from the entrance to N3
                 if (monster->get_x() < node_3_x)
                 {
+                    x = 2;
+                    y = 1;
                     pos_x = monster->get_x() + x; 
                     pos_y = monster->get_y() + y;
                     monster->set_x(pos_x);
                     monster->set_y(pos_y);
-                    x = 2;
-                    y = 1;
                 }
                 if (monster->get_x() >= node_3_x)
                 {
+                    x = 2;
+                    y = 0;
                     pos_x = monster->get_x() + x; 
                     pos_y = monster->get_y() + y;
                     monster->set_x(pos_x);
                     monster->set_y(pos_y);
-                    x = 2;
-                    y = 0;
                 }
             }
         }         
@@ -150,7 +150,7 @@ int main(int argc, char **argv) {
                         if(monster->get_life_points()>0){
                         int life=monster->get_life_points()-2;
                         monster->set_life_points(life);
-                        cout << "Monster life : "<<life<<endl;
+                        cout << "Monster's life points : "<<life<<endl;
                         time=0;
                         }
                     }
@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
             for (Monster* toSupr : supr) {
             supr.erase(supr.begin(), supr.end());
             delete toSupr;
-            cout << "Monstre tué" <<endl;
+            cout << "Monster killed" <<endl;
             }
         
         }
@@ -208,7 +208,7 @@ int main(int argc, char **argv) {
                             cout<<"Tower built"<<endl;
                             money=player.get_money()-newTower->get_cost();
                             player.set_money(money);
-                            cout << "Argent disponbile : "<<money<<endl;
+                            cout << "Available money : "<<money<<endl;
                         }
                     }
                     
@@ -222,7 +222,7 @@ int main(int argc, char **argv) {
                 }
                     break;
 
-                /* Touche clavier */
+                /* Key */
                 case SDL_KEYDOWN:
                     if (e.key.keysym.sym == 'w') {
                         printf("New wave\n");
@@ -237,12 +237,10 @@ int main(int argc, char **argv) {
                             life=newMonster->get_life_points()+2;
                             newMonster->set_life_points(life);
                             monsters.push_back(newMonster);
-                            
                         }
                         
 
                     }
-                    printf("touche pressee (code = %d)\n", e.key.keysym.sym);
                     break;
 
                 default:
@@ -251,15 +249,15 @@ int main(int argc, char **argv) {
         }
 
 
-        /* Calcul du temps ecoule */
+        /* Time elapsed */
         Uint32 elapsedTime = SDL_GetTicks() - startTime;
-        /* Si trop peu de temps s'est ecoule, on met en pause le programme */
+        /* if not enough time has passed then pause the program */
         if (elapsedTime < FRAMERATE_MILLISECONDS) {
             SDL_Delay(FRAMERATE_MILLISECONDS - elapsedTime);
         }
     }
 
-    /* Liberation des ressources associees a la SDL */
+    /* Free SDL resources */
     SDL_DestroyWindow(window);
     SDL_Quit();
 

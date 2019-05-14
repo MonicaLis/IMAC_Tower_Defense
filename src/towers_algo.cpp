@@ -46,6 +46,9 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
         }
     }
 
+    //check if the tower isn't outside of the map
+    if (Cx > 500) valid_zone = false;
+
     if (valid_zone)
     {
         cout<<"Valid zone for tower to be built"<<endl;

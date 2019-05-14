@@ -6,5 +6,5 @@ CXX_FLAGS = -g
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib 
+CXX_INCLUDES = -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib 
 
