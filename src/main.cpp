@@ -108,11 +108,9 @@ int main(int argc, char **argv) {
         for (Monster* monster : monsters) {
         
             monster->drawMonster();
-            cout<<"random is "<<random<<endl;
 
             if (monster->get_path() == 0)
             {   
-                cout<<"mon "<<endl;
                 //to go from the entrance to P3
                 monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
                 //go to N2 and finally the exit
@@ -120,7 +118,6 @@ int main(int argc, char **argv) {
             }
             else 
             {
-                cout<<"here "<<endl;
                 //to go from the entrance to N4 and then N2
                 monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
                 //go to N2 and finally the exit
