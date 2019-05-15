@@ -158,7 +158,7 @@ Image* create_map_ppm(Graph graph)
 void display_map()
 {
     /* loading image */
-    const char image_path[] = "images/space.ppm";
+    const char image_path[] = "images/ui.png";
     int imgWidth, imgHeight, imgChannels;
     unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
     if (nullptr == image)
@@ -185,8 +185,9 @@ void display_map()
 
      glBindTexture(GL_TEXTURE_2D, texture_id);
         glPushMatrix();
-            glTranslated(350,350,0);
-            glScalef(600,600,0);
+            glTranslated(500,350,0);
+            glScalef(1000,700,0);
+            glRotatef(180,1,0,0);
             glBegin(GL_QUADS);
                 glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
                 glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite

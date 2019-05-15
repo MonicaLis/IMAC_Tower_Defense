@@ -20,7 +20,7 @@ using namespace std;
 
 GLuint initTextureTower(){
     /* Chargement de l'image */
-    const char image_path[] = "images/tower.ppm";
+    const char image_path[] = "images/tower.png";
     int imgWidth, imgHeight, imgChannels;
     unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
   

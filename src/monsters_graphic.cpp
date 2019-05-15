@@ -19,7 +19,7 @@ using namespace std;
 
 GLuint initTextureMonster(){
     /* Chargement de l'image */
-    const char image_path[] = "images/ship1.png";
+    const char image_path[] = "images/alien.png";
     int imgWidth, imgHeight, imgChannels;
     unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
   
@@ -50,6 +50,7 @@ void Monster::drawMonster(){
         //*1.4 and +100 to adapt to size of path on screen
         glTranslated(xM*1.4 + 40,yM*1.4 + 100,0); 
         glScalef(50,50,0);
+        glRotatef(180,1,0,0);
         glBegin(GL_QUADS);
             glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
             glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
