@@ -23,12 +23,21 @@ Monster::Monster(int Cx, int Cy,GLuint newTexture)
     yM=Cy;
     textureM=newTexture;
     cout << "Monster created !"<< endl;
+    int random = rand() % 5;
+    if (random % 2 == 0) choose_path = 1;
+    else choose_path = 0;
 }
 
 Monster::~Monster()
 {
    
 }
+
+int Monster::get_path()
+{
+    return choose_path;
+}
+
 
 int Monster::get_life_points()
 {

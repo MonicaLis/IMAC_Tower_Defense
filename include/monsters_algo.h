@@ -21,12 +21,14 @@ private:
     int life_points, resistance, speed,xM,yM;
     bool dead;
     GLuint textureM;
+    bool choose_path; 
 
 public:
     Monster(int Cx, int Cy,GLuint newTexture);
     ~Monster();
     int get_life_points();
     void set_life_points(int points);
+    int get_path();
     int get_resistance();
     void set_resistance(int res);
     int get_speed();
@@ -38,16 +40,8 @@ public:
     GLuint get_texture();
     void set_texture(GLuint newTexture);
     void drawMonster();
+    void move(int initial_pos_x, int before_x, int before_y, int after_x, int after_y, int destination1_x,int destination2_x);
 }Monster;
 
-/*
-es monstres disposent de points de vie et d’une résistance propre à chacun des types de tour (voir
-section suivante). Les monstres arrivent par groupes de dix. À chaque nouvelle vague, les monstres
-voient leur point de vie et/ou leur résistance augmenter. C’est à vous de définir cette augmentation.
-De même, chaque monstre tué rapporte de l’argent au joueur. Initialement, les monstres de la première
-vague rapportent 5 unités d’argent. À chaque nouvelle vague, les monstres rapporteront plus d’argent.
-Vous devrez implémenter au moins 2 types différents de monstre ayant des caractéristiques distinctes
-notamment de vitesse.
-*/
 
 #endif 

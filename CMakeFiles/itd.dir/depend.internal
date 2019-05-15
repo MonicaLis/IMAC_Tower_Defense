@@ -53,6 +53,7 @@ CMakeFiles/itd.dir/src/towers_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp
  include/map_algo.h
  include/map_graphic.h
+ include/monsters_algo.h
  include/towers_algo.h
  include/towers_graphic.h
  lib/stb_image/stb_image.h
@@ -60,6 +61,7 @@ CMakeFiles/itd.dir/src/towers_graphic.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp
  include/map_algo.h
  include/map_graphic.h
+ include/monsters_algo.h
  include/player.h
  include/towers_algo.h
  include/towers_graphic.h

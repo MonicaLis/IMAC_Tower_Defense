@@ -8,8 +8,10 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
+#include <vector>
 
 #include "map_graphic.h"
+#include "monsters_algo.h"
 
 using namespace std;
 
@@ -44,6 +46,6 @@ public:
 }Tower;
 
 void to_ppm_coordinates(int &x, int &y);
-
+void to_sdl_coordinates(int &x, int &y);
 
 #endif 

@@ -40,8 +40,6 @@ int main(int argc, char **argv) {
         cout << "Error window init" << endl;
     }
     
-    
-    
     /*loading and verifying the map*/
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
@@ -55,6 +53,8 @@ int main(int argc, char **argv) {
     GLuint texturePath=initTexturePath();
     GLuint textureTower=initTextureTower();
     GLuint textureMonster=initTextureMonster();
+
+    BEGIN:
 
     std::vector<Tower*> towers;
     std::vector<Monster*> monsters;
@@ -70,17 +70,23 @@ int main(int argc, char **argv) {
     verify_path (map);
     //will be used by drawPath(...)
     Image* img_map = create_map_ppm(map); 
-     //work out where monsters go
+    //work out where monsters go
     int enter_x = map.get_node(0).get_coordinates().get_p_x();
     int enter_y = map.get_node(0).get_coordinates().get_p_y();
+    //to_sdl_coordinates(enter_x, enter_y);
     int exit_x = map.get_node(1).get_coordinates().get_p_x();
     int exit_y = map.get_node(1).get_coordinates().get_p_y();
+    //to_sdl_coordinates(exit_x, exit_y);
     int node_3_x = map.get_node(3).get_coordinates().get_p_x();
     int node_3_y = map.get_node(3).get_coordinates().get_p_y();
+    //to_sdl_coordinates(node_3_x, node_3_y);
     int node_4_x = map.get_node(4).get_coordinates().get_p_x();
     int node_4_y = map.get_node(4).get_coordinates().get_p_y();
+    //to_sdl_coordinates(node_4_x, node_4_y);
     int node_2_x = map.get_node(2).get_coordinates().get_p_x();
     int node_2_y = map.get_node(2).get_coordinates().get_p_y();
+    //to_sdl_coordinates(node_2_x, node_2_y);
+
 
     while (loop) {
        
@@ -98,34 +104,41 @@ int main(int argc, char **argv) {
         for (Tower* tower : towers) {
             tower->drawTower();
         }
-        float x = 0;
-        float y = 0;
-        int pos_x, pos_y;
+
         for (Monster* monster : monsters) {
-            
+        
             monster->drawMonster();
-            
-            if (monsters.size() > 0){
-                
-                //to go from the entrance to N3
-                if (monster->get_x() < node_3_x)
-                {
-                    x = 2;
-                    y = 1;
-                    pos_x = monster->get_x() + x; 
-                    pos_y = monster->get_y() + y;
-                    monster->set_x(pos_x);
-                    monster->set_y(pos_y);
+            cout<<"random is "<<random<<endl;
+
+            if (monster->get_path() == 0)
+            {   
+                cout<<"mon "<<endl;
+                //to go from the entrance to P3
+                monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
+                //go to N2 and finally the exit
+                monster->move(node_2_x, 1, 0, 1, 0, node_2_x, exit_x);
+            }
+            else 
+            {
+                cout<<"here "<<endl;
+                //to go from the entrance to N4 and then N2
+                monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
+                //go to N2 and finally the exit
+                monster->move(node_2_x-20, 1, 0, 1, 0, node_2_x-20, exit_x-20);
+            }
+            if (monster->get_x() == exit_x)
+            {
+                cout << "Game over"<<endl;
+                for (Tower* tower : towers) {
+                    delete tower;
                 }
-                if (monster->get_x() >= node_3_x)
-                {
-                    x = 2;
-                    y = 0;
-                    pos_x = monster->get_x() + x; 
-                    pos_y = monster->get_y() + y;
-                    monster->set_x(pos_x);
-                    monster->set_y(pos_y);
+                for (Monster* monster : monsters) {
+                    delete monster;
                 }
+                for (Monster* toSupr : supr) {
+                    delete toSupr;
+                }
+                goto BEGIN;
             }
         }         
         
@@ -136,26 +149,29 @@ int main(int argc, char **argv) {
 
        if(wave && monsters.size()>0){
             
-            for (Tower* tower : towers) {
+            for (Tower* tower : towers) 
+            {
                 int loopMonster=0; 
-                for (Monster* monster : monsters) {
+                for (Monster* monster : monsters) 
+                {
                     time+=1;
                     int compareX= tower->get_x()-monster->get_x();
                     int compareY= tower->get_y()-monster->get_y();
-                    if(monsters.size()>0 && compareX<100 && compareY<100 && time>=3){
-                        if(monster->get_life_points()<=0){
+                    if(monsters.size()>0 && compareX<100 && compareY<100 && time>=3)
+                    {
+                        if(monster->get_life_points()<=0)
+                        {
                             supr.push_back(monster);
                             monsters.erase(monsters.begin()+loopMonster);
                         }
-                        if(monster->get_life_points()>0){
-                        int life=monster->get_life_points()-2;
-                        monster->set_life_points(life);
-                        cout << "Monster's life points : "<<life<<endl;
-                        time=0;
+                        if(monster->get_life_points()>0)
+                        {
+                            int life=monster->get_life_points()-2;
+                            monster->set_life_points(life);
+                            cout << "Monster's life points : "<<life<<endl;
+                            time=0;
                         }
                     }
-                    
-                    loopMonster+=1;
                 }
             
             }
@@ -233,7 +249,7 @@ int main(int argc, char **argv) {
                         for(int i=1; i<=numberWave; i++){
                             int life;
                             Monster* newMonster= new Monster(
-                                    0, 0, textureMonster);
+                                    enter_x, enter_y, textureMonster);
                             life=newMonster->get_life_points()+2;
                             newMonster->set_life_points(life);
                             monsters.push_back(newMonster);
@@ -259,9 +275,13 @@ int main(int argc, char **argv) {
 
     /* Free SDL resources */
     SDL_DestroyWindow(window);
+    delete_image(img_map);
+    texturePath=initTexturePath();
+    glDeleteTextures(1, &texturePath);
+    glDeleteTextures(1, &textureTower);
+    glDeleteTextures(1, &textureMonster);
     SDL_Quit();
 
-    //  PAS SURE DE CETTE PARTIE NORMALEMENT CES STRUCTS SE DETRUISENT TOUTES SEULES SI T'AS FAIT DES DESTRUCTEURS
     for (Tower* tower : towers) {
         delete tower;
     }
@@ -269,5 +289,12 @@ int main(int argc, char **argv) {
         delete monster;
     }
 
+    for (Monster* toSupr : supr) {
+        delete toSupr;
+    }
+
     return EXIT_SUCCESS;
 }
+
+
+

@@ -52,6 +52,7 @@ CMakeFiles/itd.dir/src/player.cpp.o: include/player.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: src/towers_algo.cpp
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/map_algo.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/map_graphic.h
+CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/monsters_algo.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/towers_algo.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: include/towers_graphic.h
 CMakeFiles/itd.dir/src/towers_algo.cpp.o: lib/stb_image/stb_image.h
@@ -59,6 +60,7 @@ CMakeFiles/itd.dir/src/towers_algo.cpp.o: lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: src/towers_graphic.cpp
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/map_algo.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/map_graphic.h
+CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/monsters_algo.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/player.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/towers_algo.h
 CMakeFiles/itd.dir/src/towers_graphic.cpp.o: include/towers_graphic.h

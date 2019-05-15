@@ -2,6 +2,7 @@
 #include "towers_graphic.h"
 #include "map_graphic.h"
 
+#include <vector>
 #include <stdlib.h>
 #include <iostream>
 
@@ -175,4 +176,11 @@ void to_ppm_coordinates(int &x, int &y)
     //to go from (650,650) SDL to ppm coordinates (500,300) 
     x = (x - 50) * 0.83;
     y = (y - 50) * 0.5;
+}
+
+void to_sdl_coordinates(int &x, int &y)
+{
+    //to go from ppm coordinates (500,300) to (650,650) SDL 
+    x = 1.2*x + 50;
+    y = y*2 + 50;
 }

@@ -183,6 +183,8 @@ towers_graphic.h
 /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.h
 map_graphic.h
 /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.h
+vector
+-
 stdlib.h
 -
 iostream
@@ -329,8 +331,12 @@ GL/glu.h
 -
 stb_image/stb_image.h
 -
+vector
+-
 map_graphic.h
 include/map_graphic.h
+monsters_algo.h
+include/monsters_algo.h
 
 include/towers_graphic.h
 towers_algo.h

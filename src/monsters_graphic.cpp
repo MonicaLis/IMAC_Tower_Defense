@@ -61,3 +61,29 @@ void Monster::drawMonster(){
         // Unbind texture
         glBindTexture(GL_TEXTURE_2D, 0); 
 }
+
+//x, y steps of monster before destination1_x, and x, y step after
+//when it reaches destination2 it needs to stop
+void Monster::move(int initial_pos_x, int before_x, int before_y, int after_x, int after_y, int destination1_x,int destination2_x)
+{
+    //don't do anything if the monster hasn't arrived yet 
+    //and don't do anything if it has arrived to its final destination
+    if ( (get_x() >= initial_pos_x) && (get_x() < destination2_x) )
+    {
+        int pos_x, pos_y;
+        if (get_x() < destination1_x)
+        {
+            pos_x = get_x() + before_x; 
+            pos_y = get_y() + before_y;
+            set_x(pos_x);
+            set_y(pos_y);
+        }
+        if (get_x() >= destination1_x)
+        {
+            pos_x = get_x() + after_x; 
+            pos_y = get_y() + after_y;
+            set_x(pos_x);
+            set_y(pos_y);
+        }
+    }
+}
