@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/monica/Documents/IMAC_Tower_Defense
+CMAKE_SOURCE_DIR = /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/monica/Documents/IMAC_Tower_Defense/build
+CMAKE_BINARY_DIR = /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/STB_IMAGE.dir/depend.make
@@ -59,16 +59,16 @@ include CMakeFiles/STB_IMAGE.dir/flags.make
 
 CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o: CMakeFiles/STB_IMAGE.dir/flags.make
 CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o: ../lib/stb_image/stb_image.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o"
-	/usr/bin/gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o   -c /home/monica/Documents/IMAC_Tower_Defense/lib/stb_image/stb_image.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o"
+	/usr/bin/gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/stb_image/stb_image.c
 
 CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.i"
-	/usr/bin/gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/monica/Documents/IMAC_Tower_Defense/lib/stb_image/stb_image.c > CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.i
+	/usr/bin/gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/stb_image/stb_image.c > CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.i
 
 CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.s"
-	/usr/bin/gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/monica/Documents/IMAC_Tower_Defense/lib/stb_image/stb_image.c -o CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.s
+	/usr/bin/gcc-7 $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/stb_image/stb_image.c -o CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.s
 
 CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o.requires:
 
@@ -91,7 +91,7 @@ STB_IMAGE_EXTERNAL_OBJECTS =
 libSTB_IMAGE.a: CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o
 libSTB_IMAGE.a: CMakeFiles/STB_IMAGE.dir/build.make
 libSTB_IMAGE.a: CMakeFiles/STB_IMAGE.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libSTB_IMAGE.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C static library libSTB_IMAGE.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/STB_IMAGE.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/STB_IMAGE.dir/link.txt --verbose=$(VERBOSE)
 
@@ -109,6 +109,6 @@ CMakeFiles/STB_IMAGE.dir/clean:
 .PHONY : CMakeFiles/STB_IMAGE.dir/clean
 
 CMakeFiles/STB_IMAGE.dir/depend:
-	cd /home/monica/Documents/IMAC_Tower_Defense/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/monica/Documents/IMAC_Tower_Defense /home/monica/Documents/IMAC_Tower_Defense /home/monica/Documents/IMAC_Tower_Defense/build /home/monica/Documents/IMAC_Tower_Defense/build /home/monica/Documents/IMAC_Tower_Defense/build/CMakeFiles/STB_IMAGE.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/STB_IMAGE.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/STB_IMAGE.dir/depend
 

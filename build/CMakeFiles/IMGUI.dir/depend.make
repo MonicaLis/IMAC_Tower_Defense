@@ -1,2 +1,2 @@
-# Empty dependencies file for STB_IMAGE.
+# Empty dependencies file for IMGUI.
 # This may be replaced when dependencies are built.

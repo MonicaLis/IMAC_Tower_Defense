@@ -1,97 +1,97 @@
 [
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/gcc-7  -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/GLAD.dir/lib/glad/src/glad.c.o   -c /home/monica/Documents/IMAC_Tower_Defense/lib/glad/src/glad.c",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/glad/src/glad.c"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/gcc-7  -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/GLAD.dir/lib/glad/src/glad.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/src/glad.c",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/src/glad.c"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/buildings_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_algo.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/buildings_algo.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/buildings_algo.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/buildings_algo.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/buildings_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/buildings_graphic.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/buildings_graphic.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/buildings_graphic.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/buildings_graphic.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/interface.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/interface.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/interface.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/interface.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/interface.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/interface.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/main.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/main.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/main.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/main.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/main.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/main.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/map_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/map_algo.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/map_algo.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/map_algo.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/map_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/map_graphic.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/map_graphic.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/map_graphic.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/map_graphic.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/monsters_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/monsters_algo.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/monsters_algo.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/monsters_algo.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/monsters_algo.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/monsters_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/monsters_graphic.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/monsters_graphic.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/monsters_graphic.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/monsters_graphic.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/player.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/player.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/player.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/player.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/player.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/player.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/towers_algo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/towers_algo.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/towers_algo.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/towers_algo.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/towers_algo.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/towers_graphic.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/src/towers_graphic.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/itd.dir/src/towers_graphic.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/towers_graphic.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src/towers_graphic.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/gcc-7  -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o   -c /home/monica/Documents/IMAC_Tower_Defense/lib/stb_image/stb_image.c",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/stb_image/stb_image.c"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/gcc-7  -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/stb_image/stb_image.c",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/stb_image/stb_image.c"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_demo.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_demo.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_demo.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_demo.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_demo.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_demo.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_draw.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_draw.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_draw.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_draw.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_draw.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_draw.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_impl_opengl3.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_impl_opengl3.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_impl_opengl3.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_impl_opengl3.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_impl_opengl3.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_impl_opengl3.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_impl_sdl.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_impl_sdl.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_impl_sdl.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_impl_sdl.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_impl_sdl.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_impl_sdl.cpp"
 },
 {
-  "directory": "/home/monica/Documents/IMAC_Tower_Defense/build",
-  "command": "/usr/bin/g++-7   -I/usr/local/include/SDL2 -I/home/monica/Documents/IMAC_Tower_Defense/include -I/home/monica/Documents/IMAC_Tower_Defense/lib/glad/include -I/home/monica/Documents/IMAC_Tower_Defense/src -I/home/monica/Documents/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_widgets.cpp.o -c /home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_widgets.cpp",
-  "file": "/home/monica/Documents/IMAC_Tower_Defense/lib/imgui/imgui_widgets.cpp"
+  "directory": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build",
+  "command": "/usr/bin/g++-7   -I/usr/include/SDL2 -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/include -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/src -I/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib  -g   -o CMakeFiles/IMGUI.dir/lib/imgui/imgui_widgets.cpp.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_widgets.cpp",
+  "file": "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/imgui/imgui_widgets.cpp"
 }
 ]

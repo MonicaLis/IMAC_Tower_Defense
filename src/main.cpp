@@ -8,15 +8,9 @@
 using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GL/glut.h>
 
 #include <stb_image/stb_image.h>
 #include <vector>
-#include <imgui/imgui.h>
-#include <imgui/imgui_impl_sdl.h>
-#include <imgui/imgui_impl_opengl3.h>
-//#include <SDL2/SDL_ttf.h>
-
 
 #include "init.h"
 #include "map_algo.h"
@@ -44,18 +38,19 @@ int main(int argc, char **argv) {
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
 
-
-    /*==============PLAYER INIT==========================================*/
+    /*INIT TEXTURE*/
+   
+    GLuint texturePath=initTexturePath();
+    GLuint textureTower=initTextureTower();
+    GLuint textureMonster=initTextureMonster();
+   
+    BEGIN:
+   /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
     cout << "Argent disponbile : "<<money<<endl;
 
-    GLuint texturePath=initTexturePath();
-    GLuint textureTower=initTextureTower();
-    GLuint textureMonster=initTextureMonster();
-
-    BEGIN:
-
+    /*INIT ENTITIES LISTS*/
     std::vector<Tower*> towers;
     std::vector<Monster*> monsters;
     std::vector<Monster*> supr ;
@@ -70,47 +65,49 @@ int main(int argc, char **argv) {
     verify_path (map);
     //will be used by drawPath(...)
     Image* img_map = create_map_ppm(map); 
-    //work out where monsters go
+     //work out where monsters go
     int enter_x = map.get_node(0).get_coordinates().get_p_x();
     int enter_y = map.get_node(0).get_coordinates().get_p_y();
-    //to_sdl_coordinates(enter_x, enter_y);
     int exit_x = map.get_node(1).get_coordinates().get_p_x();
     int exit_y = map.get_node(1).get_coordinates().get_p_y();
-    //to_sdl_coordinates(exit_x, exit_y);
     int node_3_x = map.get_node(3).get_coordinates().get_p_x();
     int node_3_y = map.get_node(3).get_coordinates().get_p_y();
-    //to_sdl_coordinates(node_3_x, node_3_y);
     int node_4_x = map.get_node(4).get_coordinates().get_p_x();
     int node_4_y = map.get_node(4).get_coordinates().get_p_y();
-    //to_sdl_coordinates(node_4_x, node_4_y);
     int node_2_x = map.get_node(2).get_coordinates().get_p_x();
     int node_2_y = map.get_node(2).get_coordinates().get_p_y();
-    //to_sdl_coordinates(node_2_x, node_2_y);
-
 
     while (loop) {
        
         Uint32 startTime = SDL_GetTicks();
-
-        /* code to draw */
         glClear(GL_COLOR_BUFFER_BIT);
+       
         //draw map and path
-        display_map();
         draw_path(img_map);
-        
+        display_map();
 
+        /*INIT VARIABLE*/
+        float x = 0;
+        float y = 0;
+        int pos_x, pos_y;
+        int time=0;
+        int life;
+        int typeBuilding=1;
 
-         /* Update entities */
+         /* Update tower */
         for (Tower* tower : towers) {
             tower->drawTower();
         }
 
-        for (Monster* monster : monsters) {
+        /*Update Monster*/
+         for (Monster* monster : monsters) {
         
             monster->drawMonster();
+            cout<<"random is "<<random<<endl;
 
             if (monster->get_path() == 0)
             {   
+                cout<<"mon "<<endl;
                 //to go from the entrance to P3
                 monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
                 //go to N2 and finally the exit
@@ -118,6 +115,7 @@ int main(int argc, char **argv) {
             }
             else 
             {
+                cout<<"here "<<endl;
                 //to go from the entrance to N4 and then N2
                 monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
                 //go to N2 and finally the exit
@@ -138,54 +136,66 @@ int main(int argc, char **argv) {
                 goto BEGIN;
             }
         }         
-        
-        
-        int time=0;
        
         
-
+       //WIN CONDITION
+       if(numberWave==3 && wave==false && monsters.size()<=0){
+            cout << "Vous avez gagné"<<endl;
+                    for (Tower* tower : towers) {
+                        delete tower;
+                    }
+                    for (Monster* monster : monsters) {
+                        delete monster;
+                    }
+                    for (Monster* toSupr : supr) {
+                        delete toSupr;
+                    }
+                    goto BEGIN;
+       }
+        
+        //TOWER ATTACK MONSTER
        if(wave && monsters.size()>0){
             
-            for (Tower* tower : towers) 
-            {
+            for (Tower* tower : towers) {
                 int loopMonster=0; 
-                for (Monster* monster : monsters) 
-                {
+                for (Monster* monster : monsters) {
                     time+=1;
                     int compareX= tower->get_x()-monster->get_x();
                     int compareY= tower->get_y()-monster->get_y();
-                    if(monsters.size()>0 && compareX<100 && compareY<100 && time>=3)
-                    {
-                        if(monster->get_life_points()<=0)
-                        {
+                    if(monsters.size()>0 && compareX<150 && compareY<150 && time>=3){
+                        if(monster->get_life_points()<=0){
+                            money=player.get_money()+3;
+                            player.set_money(money);
+                             cout << "Argents disponible :"<<money<<endl;
                             supr.push_back(monster);
                             monsters.erase(monsters.begin()+loopMonster);
                         }
-                        if(monster->get_life_points()>0)
-                        {
-                            int life=monster->get_life_points()-2;
-                            monster->set_life_points(life);
-                            cout << "Monster's life points : "<<life<<endl;
-                            time=0;
+                        if(monster->get_life_points()>0){
+                        int life=monster->get_life_points()-2;
+                        monster->set_life_points(life);
+                        cout << "Monster's life points : "<<life<<endl;
+                        time=0;
                         }
                     }
+                    loopMonster+=1;
                 }
             
             }
         }
+        //Wave is false when no monster
         if(monsters.size()<=0){
             wave=false;
         }
        
-       
+       //Delete monsters who are dead
         if(!supr.empty()){
             for (Monster* toSupr : supr) {
             supr.erase(supr.begin(), supr.end());
             delete toSupr;
             cout << "Monster killed" <<endl;
             }
-        
         }
+
         /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
 
@@ -208,9 +218,29 @@ int main(int argc, char **argv) {
                     int y_conversion = e.button.y;
                     to_ppm_coordinates(x_conversion, y_conversion);
 
-                    // cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
-                    // cout << "converted:" << x_conversion << " " << y_conversion <<endl;
+                     cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
+                     cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
+                    //Chose Tower
+                    if(e.button.x>=828 && e.button.x<=950 && e.button.y>=15 && e.button.y<=31){
+                        typeBuilding=1;
+                        cout << "Chose tower" <<endl;
+                    }
+                    //Chose radar
+                    if(x_conversion>=828 && x_conversion<=950 && y_conversion>=44 &&  y_conversion<=98){
+                        typeBuilding=2;
+                        cout << "Chose radar" <<endl;
+                    }
+                    //Chose factory
+                    if(x_conversion>=828 && x_conversion<=950 && y_conversion>=272 &&  y_conversion<=416){
+                        typeBuilding=3;
+                        cout << "Chose facotory" <<endl;
+                    }
+                    //Chose weapon supplies
+                    if(x_conversion>=828 && x_conversion<=950 && y_conversion>=433 &&  y_conversion<=593){
+                        typeBuilding=4;
+                    }
+                    //BUILDING CONSTRUCT
                     if(money>0 && !wave){
 
                         bool valid_zone;    
@@ -237,22 +267,19 @@ int main(int argc, char **argv) {
 
                 /* Key */
                 case SDL_KEYDOWN:
+                    //NEW WAVE : create monster
                     if (e.key.keysym.sym == 'w') {
-                        printf("New wave\n");
                         wave = true;
-                        
                         numberWave+=1;
-                        
+                        cout << "New wave no "<<numberWave<<endl;
                         for(int i=1; i<=numberWave; i++){
-                            int life;
                             Monster* newMonster= new Monster(
                                     enter_x, enter_y, textureMonster);
-                            life=newMonster->get_life_points()+2;
-                            newMonster->set_life_points(life);
                             monsters.push_back(newMonster);
+                            life=newMonster->get_life_points()+life;
+                            newMonster->set_life_points(life);
                         }
-                        
-
+                        life++;
                     }
                     break;
 
@@ -270,7 +297,7 @@ int main(int argc, char **argv) {
         }
     }
 
-    /* Free SDL resources */
+     /* Free SDL resources */
     SDL_DestroyWindow(window);
     delete_image(img_map);
     texturePath=initTexturePath();
@@ -292,6 +319,3 @@ int main(int argc, char **argv) {
 
     return EXIT_SUCCESS;
 }
-
-
-

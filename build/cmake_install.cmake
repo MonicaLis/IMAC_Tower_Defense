@@ -1,4 +1,4 @@
-# Install script for directory: /home/monica/Documents/IMAC_Tower_Defense
+# Install script for directory: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/monica/Documents/IMAC_Tower_Defense/build/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

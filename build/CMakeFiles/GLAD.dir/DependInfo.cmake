@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/stb_image/stb_image.c" "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/STB_IMAGE.dir/lib/stb_image/stb_image.c.o"
+  "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/lib/glad/src/glad.c" "/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/GLAD.dir/lib/glad/src/glad.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 
