@@ -241,7 +241,7 @@ int main(int argc, char **argv) {
                         typeBuilding=4;
                     }
                     //BUILDING CONSTRUCT
-                    if(money>0 && !wave){
+             /*       if(money>0 && !wave){
 
                         bool valid_zone;    
                         Tower* newTower = new Tower(e.button.x,e.button.y, textureTower, img_map, valid_zone);
@@ -253,7 +253,7 @@ int main(int argc, char **argv) {
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
-                    }
+                    }*/
                     
                     if(wave==true){
                         cout << "No right to build during a wave"<<endl;

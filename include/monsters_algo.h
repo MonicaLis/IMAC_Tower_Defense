@@ -19,7 +19,6 @@ typedef struct Monster{
 
 private:
     int life_points, resistance, speed,xM,yM;
-    bool dead;
     GLuint textureM;
     bool choose_path; 
 

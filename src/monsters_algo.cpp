@@ -10,7 +10,6 @@ using namespace std;
 
     //type: 0-red, 1-green, 2-yellow, 3-blue
     int life_points, resistance, speed,xM,yM; //puissance, portée
-    bool dead; //cadence
     GLuint textureM;
 
 Monster::Monster(int Cx, int Cy,GLuint newTexture)
@@ -18,7 +17,6 @@ Monster::Monster(int Cx, int Cy,GLuint newTexture)
     life_points =5;
     resistance = 1;
     speed = 1;
-    dead = false;
     xM=Cx;
     yM=Cy;
     textureM=newTexture;
