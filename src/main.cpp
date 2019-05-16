@@ -20,6 +20,8 @@ using namespace std;
 #include "monsters_algo.h"
 #include "monsters_graphic.h"
 #include "player.h"
+#include "buildings_algo.h"
+#include "buildings_graphic.h"
 
 
 static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
@@ -43,17 +45,19 @@ int main(int argc, char **argv) {
     GLuint texturePath=initTexturePath();
     GLuint textureTower=initTextureTower();
     GLuint textureMonster=initTextureMonster();
+    GLuint textureBuilding=initTextureBuilding();
    
     BEGIN:
    /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
-    cout << "Argent disponbile : "<<money<<endl;
+    cout << "Available money : "<<money<<endl;
 
     /*INIT ENTITIES LISTS*/
-    std::vector<Tower*> towers;
-    std::vector<Monster*> monsters;
-    std::vector<Monster*> supr ;
+    vector<Tower*> towers;
+    vector<Monster*> monsters;
+    vector<Monster*> supr;
+    vector<Building*> buildings;
 
     /* Boucle d'affichage */
     bool loop = true;
@@ -95,9 +99,14 @@ int main(int argc, char **argv) {
         int resistance = 0;
         int typeBuilding;
 
-         /* Update tower */
+         /* Update towers */
         for (Tower* tower : towers) {
             tower->drawTower();
+        }
+
+        /* Update buildings */
+        for (Building* building : buildings) {
+            building->drawBuilding();
         }
 
         /*Update Monster*/
@@ -216,44 +225,49 @@ int main(int argc, char **argv) {
                     int y_conversion = e.button.y;
                     to_ppm_coordinates(x_conversion, y_conversion);
 
-                     cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
+                     //cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
                      //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
                     //Chose Tower
                     if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=15) && (e.button.y<=125)){
-                        typeBuilding=1;
+                        typeBuilding=-1;
                         cout << "You chose a tower" <<endl;
                     }
                     //Chose radar
                     if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=150) && (e.button.y<=240)){
-                        typeBuilding=2;
+                        typeBuilding=0;
                         cout << "You chose a radar" <<endl;
                     }
                     //Chose factory
                     if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=285) && (e.button.y<=400)){
-                        typeBuilding=3;
+                        typeBuilding=1;
                         cout << "You chose a factory" <<endl;
                     }
                     //Chose weapon supplies
                     if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=450) && (e.button.y<=575)){
-                        typeBuilding=4;
+                        typeBuilding=2;
                         cout << "You chose weapon supplies" <<endl;
                     }
 
                     //BUILD A BUILDING
                     if (typeBuilding == 0) cout << "You need to choose something to build"<<endl;
-                    if(money>0 && !wave && typeBuilding == 1){
+                    if(money>0 && !wave && typeBuilding == -1){
 
                         bool valid_zone;    
                         Tower* newTower = new Tower(e.button.x,e.button.y, textureTower, img_map, valid_zone);
                         if (valid_zone)
                         {
                             towers.push_back(newTower);
-                            cout<<"Tower built"<<endl;
+                            cout<<"Tower built of type "<<newTower->get_type()<<endl;
                             money=player.get_money()-newTower->get_cost();
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
+                    }
+                    if (typeBuilding == 1)
+                    {
+                        bool valid_zone;
+                        Building* newBulding = new Building(e.button.x,e.button.y, textureBuilding, img_map, valid_zone);
                     }
                     
                     if(wave==true){

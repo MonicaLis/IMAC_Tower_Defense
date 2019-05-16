@@ -13,7 +13,7 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 
-
-#endif 
 GLuint initTextureMonster();
 void drawMonster();
+
+#endif 

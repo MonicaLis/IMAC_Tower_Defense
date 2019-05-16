@@ -65,6 +65,13 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
     } 
     else cout<<"Invalid zone for tower to be built, try again"<<endl;
 
+    //randomly choose a type for the tower
+    int random = rand() % 20; //from 0 to 19
+    if (random >=0 && random <= 5) type = 0;  
+    if (random >5 && random <= 10) type = 1;    
+    if (random >10 && random <= 15) type = 2;    
+    if (random >15 && random <= 19) type = 3;  
+
     //just to check if towers are well represented as circles at the right place
     //save(I, "doc/lolol.ppm"); 
 }
