@@ -83,7 +83,7 @@ int main(int argc, char **argv) {
         glClear(GL_COLOR_BUFFER_BIT);
        
         //draw map and path
-        draw_path(img_map);
+        //draw_path(img_map); //no need for this now that we have the path drawn on the map
         display_map();
 
         /*INIT VARIABLE*/
@@ -92,7 +92,7 @@ int main(int argc, char **argv) {
         int pos_x, pos_y;
         int time=0;
         int life;
-        int typeBuilding=1;
+        int typeBuilding;
 
          /* Update tower */
         for (Tower* tower : towers) {
@@ -103,11 +103,9 @@ int main(int argc, char **argv) {
          for (Monster* monster : monsters) {
         
             monster->drawMonster();
-            cout<<"random is "<<random<<endl;
 
             if (monster->get_path() == 0)
             {   
-                cout<<"mon "<<endl;
                 //to go from the entrance to P3
                 monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
                 //go to N2 and finally the exit
@@ -115,7 +113,6 @@ int main(int argc, char **argv) {
             }
             else 
             {
-                cout<<"here "<<endl;
                 //to go from the entrance to N4 and then N2
                 monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
                 //go to N2 and finally the exit
@@ -140,7 +137,7 @@ int main(int argc, char **argv) {
         
        //WIN CONDITION
        if(numberWave==3 && wave==false && monsters.size()<=0){
-            cout << "Vous avez gagné"<<endl;
+            cout << "You won!"<<endl;
                     for (Tower* tower : towers) {
                         delete tower;
                     }
@@ -166,7 +163,7 @@ int main(int argc, char **argv) {
                         if(monster->get_life_points()<=0){
                             money=player.get_money()+3;
                             player.set_money(money);
-                             cout << "Argents disponible :"<<money<<endl;
+                             cout << "Available money:"<<money<<endl;
                             supr.push_back(monster);
                             monsters.erase(monsters.begin()+loopMonster);
                         }
@@ -219,29 +216,32 @@ int main(int argc, char **argv) {
                     to_ppm_coordinates(x_conversion, y_conversion);
 
                      cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
-                     cout << "converted:" << x_conversion << " " << y_conversion <<endl;
+                     //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
                     //Chose Tower
-                    if(e.button.x>=828 && e.button.x<=950 && e.button.y>=15 && e.button.y<=31){
+                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=15) && (e.button.y<=125)){
                         typeBuilding=1;
-                        cout << "Chose tower" <<endl;
+                        cout << "You chose a tower" <<endl;
                     }
                     //Chose radar
-                    if(x_conversion>=828 && x_conversion<=950 && y_conversion>=44 &&  y_conversion<=98){
+                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=150) && (e.button.y<=240)){
                         typeBuilding=2;
-                        cout << "Chose radar" <<endl;
+                        cout << "You chose a radar" <<endl;
                     }
                     //Chose factory
-                    if(x_conversion>=828 && x_conversion<=950 && y_conversion>=272 &&  y_conversion<=416){
+                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=285) && (e.button.y<=400)){
                         typeBuilding=3;
-                        cout << "Chose facotory" <<endl;
+                        cout << "You chose a factory" <<endl;
                     }
                     //Chose weapon supplies
-                    if(x_conversion>=828 && x_conversion<=950 && y_conversion>=433 &&  y_conversion<=593){
+                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=450) && (e.button.y<=575)){
                         typeBuilding=4;
+                        cout << "You chose weapon supplies" <<endl;
                     }
-                    //BUILDING CONSTRUCT
-             /*       if(money>0 && !wave){
+
+                    //BUILD A BUILDING
+                    if (typeBuilding == 0) cout << "You need to choose something to build"<<endl;
+                    if(money>0 && !wave && typeBuilding == 1){
 
                         bool valid_zone;    
                         Tower* newTower = new Tower(e.button.x,e.button.y, textureTower, img_map, valid_zone);
@@ -253,7 +253,7 @@ int main(int argc, char **argv) {
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
-                    }*/
+                    }
                     
                     if(wave==true){
                         cout << "No right to build during a wave"<<endl;

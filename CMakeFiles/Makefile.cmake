@@ -46,8 +46,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/GLAD.dir/DependInfo.cmake"
-  "CMakeFiles/itd.dir/DependInfo.cmake"
   "CMakeFiles/STB_IMAGE.dir/DependInfo.cmake"
-  "CMakeFiles/IMGUI.dir/DependInfo.cmake"
+  "CMakeFiles/itd.dir/DependInfo.cmake"
   )

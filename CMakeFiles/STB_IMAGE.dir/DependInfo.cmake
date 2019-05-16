@@ -12,7 +12,6 @@ set(CMAKE_C_COMPILER_ID "GNU")
 set(CMAKE_C_TARGET_INCLUDE_PATH
   "/usr/local/include/SDL2"
   "include"
-  "lib/glad/include"
   "src"
   "lib"
   )

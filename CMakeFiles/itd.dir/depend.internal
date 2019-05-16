@@ -21,10 +21,6 @@ CMakeFiles/itd.dir/src/main.cpp.o
  include/player.h
  include/towers_algo.h
  include/towers_graphic.h
- lib/imgui/imconfig.h
- lib/imgui/imgui.h
- lib/imgui/imgui_impl_opengl3.h
- lib/imgui/imgui_impl_sdl.h
  lib/stb_image/stb_image.h
 CMakeFiles/itd.dir/src/map_algo.cpp.o
  /home/monica/Documents/IMAC_Tower_Defense/src/map_algo.cpp
