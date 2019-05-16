@@ -9,6 +9,8 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 
-GLuint initTextureBuilding();
+GLuint initTextureBuilding( const char* filename);
+void choose_building(int x, int y, int &type_building);
+
 
 #endif 

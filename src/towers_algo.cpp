@@ -18,9 +18,6 @@ using namespace std;
 
 Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
 {
-    power = 3;
-    range = 3;
-    type = 0;
     cost = 2;
     pace = 0.5;
     x=Cx;
@@ -52,7 +49,7 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
 
     if (valid_zone)
     {
-        cout<<"Valid zone for tower to be built"<<endl;
+        //cout<<"Valid zone for tower to be built"<<endl;
 
         //to create 20px circles
         for (i=-10; i<10; i++)
@@ -63,7 +60,7 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
             }
         }
     } 
-    else cout<<"Invalid zone for tower to be built, try again"<<endl;
+    //else cout<<"Invalid zone for tower to be built, try again"<<endl;
 
     //randomly choose a type for the tower
     int random = rand() % 20; //from 0 to 19
@@ -71,9 +68,10 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
     if (random >5 && random <= 10) type = 1;    
     if (random >10 && random <= 15) type = 2;    
     if (random >15 && random <= 19) type = 3;  
+    set_type(type);
 
     //just to check if towers are well represented as circles at the right place
-    //save(I, "doc/lolol.ppm"); 
+    save(I, "doc/lolol.ppm"); 
 }
 
 Tower::~Tower()
@@ -112,22 +110,22 @@ void Tower::set_type(int type)
     { 
         case 0: //high power and low pace
             power = 7;
-            pace = 0.1;
+            pace = 1;
             break; 
         case 1: //low range, low power, high pace
             range = 2;
             power = 2;
-            pace = 0.8;
+            pace = 3;
             break; 
         case 2: //low power, low range, high pace
             power = 2;
             range = 3;
-            pace = 0.7;
+            pace = 3;
             break; 
         case 3: //high range, high pace, low power
             power = 1;
             range = 5;
-            pace = 0.8;
+            pace = 2;
             break; 
     }
 }

@@ -201,7 +201,7 @@ void display_map()
 
 /**********************************FUNCTIONS TO DISPLAY PATH IN WINDOW****************************************/
 
-//if 2: tower, if 1: constructible zone, if 0: path
+//if 2: building, if 1: constructible zone, if 0: path
 int type_position(int x, int y, Image* I)
 {
     Pixel color_construct = create_pixel(120, 180, 180);
@@ -211,7 +211,7 @@ int type_position(int x, int y, Image* I)
     else return 0;
 }
 
-
+//this was used at the beginning but now we created a path on the map outside of the program
 GLuint initTexturePath(){
     /* Chargement de l'image */
     const char image_path[] = "images/brick.png";

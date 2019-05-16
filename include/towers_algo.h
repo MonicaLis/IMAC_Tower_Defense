@@ -24,7 +24,7 @@ private:
     float pace; //cadence, 10e de sec
 
 public:
-    Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone);
+    Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone);
     ~Tower();
     int get_power();
     void set_power(int pow);

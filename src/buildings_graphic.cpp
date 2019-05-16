@@ -10,12 +10,11 @@ using namespace std;
 #include <stb_image/stb_image.h>
 
 
-GLuint initTextureBuilding()
+GLuint initTextureBuilding( const char* filename)
 {
     /* Chargement de l'image */
-    const char image_path[] = "images/alien.png";
     int imgWidth, imgHeight, imgChannels;
-    unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
+    unsigned char *image = stbi_load(filename, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
   
     // Autorisation de l'affichage des textures
     glEnable(GL_TEXTURE_2D);
@@ -44,7 +43,8 @@ void Building::drawBuilding()
     glPushMatrix();
         glLoadIdentity();
         //*1.4 and +100 to adapt to size of path on screen
-        glTranslated(x*1.4 + 40,y*1.4 + 100,0); 
+        //glTranslated(x*1.4 + 40,y*1.4 + 100,0); 
+        glTranslated(x,y,0);
         glScalef(50,50,0);
         glRotatef(180,1,0,0);
         glBegin(GL_QUADS);
@@ -59,3 +59,26 @@ void Building::drawBuilding()
         glBindTexture(GL_TEXTURE_2D, 0); 
 }
 
+void choose_building(int x, int y, int &type_building)
+{
+    //Chose Tower
+    if( (x>=825) && (x<=950) && (y>=15) && (y<=125)){
+        type_building=-1;
+        cout << "You chose a tower" <<endl;
+    }
+    //Chose radar
+    if( (x>=825) && (x<=950) && (y>=150) && (y<=240)){
+        type_building=0;
+        cout << "You chose a radar" <<endl;
+    }
+    //Chose factory
+    if( (x>=825) && (x<=950) && (y>=285) && (y<=400)){
+        type_building=1;
+        cout << "You chose a factory" <<endl;
+    }
+    //Chose weapon supplies
+    if( (x>=825) && (x<=950) && (y>=450) && (y<=575)){
+        type_building=2;
+        cout << "You chose munitions stock" <<endl;
+    }
+}

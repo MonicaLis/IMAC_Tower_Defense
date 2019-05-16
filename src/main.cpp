@@ -40,12 +40,23 @@ int main(int argc, char **argv) {
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
 
+    /*images' paths*/
+    const char* radar_path = "images/radar.png";
+    const char* factory_path = "images/arme3.png";
+    const char* munitions_path = "images/arme4.png";
+
+    /*Variables*/
+    int typeBuilding = 5; //to mean that the player hasn't chosen yet
+    int pos_x, pos_y;
+    int life;
+
     /*INIT TEXTURE*/
-   
     GLuint texturePath=initTexturePath();
     GLuint textureTower=initTextureTower();
     GLuint textureMonster=initTextureMonster();
-    GLuint textureBuilding=initTextureBuilding();
+    GLuint textureRadar=initTextureBuilding(radar_path);
+    GLuint textureFactory=initTextureBuilding(factory_path);
+    GLuint textureMunitions=initTextureBuilding(munitions_path);
    
     BEGIN:
    /*INIT PLAYER*/
@@ -67,9 +78,9 @@ int main(int argc, char **argv) {
     /*create the graph out of the given nodes and therefore the map*/
     Graph map = create_graph();
     verify_path (map);
-    //will be used by drawPath(...)
+    //get the ppm image to place towers, buildings, etc.
     Image* img_map = create_map_ppm(map); 
-     //work out where monsters go
+    //work out where monsters go
     int enter_x = map.get_node(0).get_coordinates().get_p_x();
     int enter_y = map.get_node(0).get_coordinates().get_p_y();
     int exit_x = map.get_node(1).get_coordinates().get_p_x();
@@ -93,11 +104,8 @@ int main(int argc, char **argv) {
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
-        int pos_x, pos_y;
         int time=0;
-        int life;
         int resistance = 0;
-        int typeBuilding;
 
          /* Update towers */
         for (Tower* tower : towers) {
@@ -206,9 +214,12 @@ int main(int argc, char **argv) {
         /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
 
+        START_LOOP:
+
         /* Loop for events */
         SDL_Event e; 
         while (SDL_PollEvent(&e)) {
+
             /* User closes window */
             if (e.type == SDL_QUIT)
             {
@@ -228,33 +239,19 @@ int main(int argc, char **argv) {
                      //cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
                      //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
-                    //Chose Tower
-                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=15) && (e.button.y<=125)){
-                        typeBuilding=-1;
-                        cout << "You chose a tower" <<endl;
-                    }
-                    //Chose radar
-                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=150) && (e.button.y<=240)){
-                        typeBuilding=0;
-                        cout << "You chose a radar" <<endl;
-                    }
-                    //Chose factory
-                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=285) && (e.button.y<=400)){
-                        typeBuilding=1;
-                        cout << "You chose a factory" <<endl;
-                    }
-                    //Chose weapon supplies
-                    if( (e.button.x>=825) && (e.button.x<=950) && (e.button.y>=450) && (e.button.y<=575)){
-                        typeBuilding=2;
-                        cout << "You chose weapon supplies" <<endl;
+                    //if the player hasn't chosen a building, choose one
+                    //else he already clicked on the map to build it
+                    if (typeBuilding == 5)
+                    {
+                        choose_building(e.button.x, e.button.y, typeBuilding);
+                        goto START_LOOP;
                     }
 
                     //BUILD A BUILDING
-                    if (typeBuilding == 0) cout << "You need to choose something to build"<<endl;
-                    if(money>0 && !wave && typeBuilding == -1){
+                    if( (money>0) && (!wave) && (typeBuilding == -1)){
 
                         bool valid_zone;    
-                        Tower* newTower = new Tower(e.button.x,e.button.y, textureTower, img_map, valid_zone);
+                        Tower* newTower = new Tower(e.button.x, e.button.y, textureTower, img_map, valid_zone);
                         if (valid_zone)
                         {
                             towers.push_back(newTower);
@@ -263,11 +260,40 @@ int main(int argc, char **argv) {
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
+                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
                     }
-                    if (typeBuilding == 1)
+                    if( (money>0) && (!wave) && (typeBuilding == 0))
                     {
                         bool valid_zone;
-                        Building* newBulding = new Building(e.button.x,e.button.y, textureBuilding, img_map, valid_zone);
+                        Building* newBuilding = new Building(textureRadar, 0, e.button.x, e.button.y, img_map, valid_zone);
+                        if (valid_zone && newBuilding->get_cost()>=money)
+                        {     
+                            cout<<"Radar built"<<endl;
+                            buildings.push_back(newBuilding);
+                        }
+                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
+                    }
+                    if( (money>0) && (!wave) && (typeBuilding == 1))
+                    {
+                        bool valid_zone;
+                        Building* newBuilding = new Building(textureFactory, 1, e.button.x, e.button.y, img_map, valid_zone);
+                        if (valid_zone && newBuilding->get_cost()>=money)
+                        {
+                            cout<<"Factory built"<<endl;
+                            buildings.push_back(newBuilding);
+                        }
+                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
+                    }
+                    if( (money>0) && (!wave) && (typeBuilding == 2))
+                    {
+                        bool valid_zone;
+                        Building* newBuilding = new Building(textureMunitions, 2, e.button.x, e.button.y, img_map, valid_zone);
+                        if (valid_zone && newBuilding->get_cost()>=money)
+                        {
+                            cout<<"Munitions stock built"<<endl;
+                            buildings.push_back(newBuilding);
+                        }
+                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
                     }
                     
                     if(wave==true){
@@ -321,17 +347,25 @@ int main(int argc, char **argv) {
     glDeleteTextures(1, &texturePath);
     glDeleteTextures(1, &textureTower);
     glDeleteTextures(1, &textureMonster);
+    glDeleteTextures(1, &textureRadar);
+    glDeleteTextures(1, &textureFactory);
+    glDeleteTextures(1, &textureMunitions);
     SDL_Quit();
 
     for (Tower* tower : towers) {
         delete tower;
     }
-      for (Monster* monster : monsters) {
+
+    for (Monster* monster : monsters) {
         delete monster;
     }
 
     for (Monster* toSupr : supr) {
         delete toSupr;
+    }
+
+    for (Building* building : buildings) {
+        delete building;
     }
 
     return EXIT_SUCCESS;
