@@ -14,9 +14,8 @@ using namespace std;
 
 Monster::Monster(int Cx, int Cy,GLuint newTexture)
 {
-    life_points =5;
+    life_points = 5;
     resistance = 1;
-    speed = 1;
     xM=Cx;
     yM=Cy;
     textureM=newTexture;
@@ -24,11 +23,27 @@ Monster::Monster(int Cx, int Cy,GLuint newTexture)
     int random = rand() % 5;
     if (random % 2 == 0) choose_path = 1;
     else choose_path = 0;
+    random = rand() % 3;
+    if (random % 2 == 0) 
+    {   
+        type = 1; 
+        speed = 2;
+    }
+    else 
+    {
+        type = 2; 
+        speed = 1;
+    }
 }
 
 Monster::~Monster()
 {
-   
+
+}
+
+int Monster::get_type()
+{
+    return type;
 }
 
 int Monster::get_path()

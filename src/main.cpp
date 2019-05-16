@@ -92,6 +92,7 @@ int main(int argc, char **argv) {
         int pos_x, pos_y;
         int time=0;
         int life;
+        int resistance = 0;
         int typeBuilding;
 
          /* Update tower */
@@ -278,8 +279,10 @@ int main(int argc, char **argv) {
                             monsters.push_back(newMonster);
                             life=newMonster->get_life_points()+life;
                             newMonster->set_life_points(life);
+                            newMonster->set_resistance(resistance);
                         }
                         life++;
+                        resistance++;
                     }
                     break;
 

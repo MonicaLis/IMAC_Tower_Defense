@@ -67,6 +67,13 @@ void Monster::drawMonster(){
 //when it reaches destination2 it needs to stop
 void Monster::move(int initial_pos_x, int before_x, int before_y, int after_x, int after_y, int destination1_x,int destination2_x)
 {
+
+    //speed according to different types of monsters
+    before_x = speed*before_x;
+    before_y = speed*before_y;
+    after_x = speed*after_x;
+    after_y = speed*after_y;
+
     //don't do anything if the monster hasn't arrived yet 
     //and don't do anything if it has arrived to its final destination
     if ( (get_x() >= initial_pos_x) && (get_x() < destination2_x) )
