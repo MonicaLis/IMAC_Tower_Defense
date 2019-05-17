@@ -43,7 +43,7 @@ void Building::drawBuilding()
     glPushMatrix();
         glLoadIdentity();
         //*1.4 and +100 to adapt to size of path on screen
-        //glTranslated(x*1.4 + 40,y*1.4 + 100,0); 
+        //glTranslated(x*1.4 + 40,y*1.4 + 100, 0); 
         glTranslated(x,y,0);
         glScalef(50,50,0);
         glRotatef(180,1,0,0);

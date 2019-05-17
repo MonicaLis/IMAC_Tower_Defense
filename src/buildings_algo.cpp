@@ -8,6 +8,7 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 #include "map_graphic.h"
+#include "towers_algo.h"
 
 
 Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, bool &valid_zone)
@@ -33,6 +34,8 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
 
     int i, j;
     Pixel color = create_pixel(130, 50, 100);
+    to_ppm_coordinates(x_t, y_t);
+    valid_zone = true;
 
     //checking whether the building is far enough from other elements
     //to do this we check if a slightly larger circle's perimeter is in a constructible zone
@@ -43,32 +46,33 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
         {
             if ( sqrt( i*i + j*j ) <= range )
             {
-                if ( type_position(x + i, y +j, I) != 1 ) valid_zone = false;
-                set_pixel(I, color, x+i, y+j);
+                if ( type_position(x_t + i, y_t +j, I) < 1 )
+                {
+                    valid_zone = false;
+                    break;
+                } 
+                set_pixel(I, color, x_t+i, y_t+j);
             }
         }
     }
 
     //check if the building isn't outside of the map
-    if (x > 500) valid_zone = false;
+    if (x_t > 500) valid_zone = false;
 
     if (valid_zone)
     {
-        //cout<<"Valid zone for the building to be built"<<endl;
-
         //to create squares on ppm
         for (i=-range; i<range; i++)
         {
             for (j=-range; j<range; j++)
             {
-                set_pixel(I, color, x + i, y + j);
+                set_pixel(I, color, x_t + i, y_t + j);
             }
         }
     } 
-    //else cout<<"Invalid zone for building to be built, try again"<<endl; 
 
     //just to check if buildings are well represented as squares at the right place
-    save(I, "doc/lolol.ppm"); 
+    //save(I, "doc/lolol.ppm"); 
 }
 
 Building::~Building()

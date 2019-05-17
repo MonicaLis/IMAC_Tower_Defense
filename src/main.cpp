@@ -214,8 +214,6 @@ int main(int argc, char **argv) {
         /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
 
-        START_LOOP:
-
         /* Loop for events */
         SDL_Event e; 
         while (SDL_PollEvent(&e)) {
@@ -239,19 +237,19 @@ int main(int argc, char **argv) {
                      //cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
                      //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
-                    //if the player hasn't chosen a building, choose one
-                    //else he already clicked on the map to build it
-                    if (typeBuilding == 5)
-                    {
-                        choose_building(e.button.x, e.button.y, typeBuilding);
-                        goto START_LOOP;
-                    }
+                    choose_building(e.button.x, e.button.y, typeBuilding);
 
                     //BUILD A BUILDING
+                    /*TOWER*/
                     if( (money>0) && (!wave) && (typeBuilding == -1)){
-
                         bool valid_zone;    
                         Tower* newTower = new Tower(e.button.x, e.button.y, textureTower, img_map, valid_zone);
+                        if (newTower->get_cost() > money) 
+                        {
+                            cout<<"You don't have enough money"<<endl;
+                            valid_zone = false;
+                            break;
+                        }
                         if (valid_zone)
                         {
                             towers.push_back(newTower);
@@ -260,40 +258,66 @@ int main(int argc, char **argv) {
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
-                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
                     }
+                    /*RADAR*/
                     if( (money>0) && (!wave) && (typeBuilding == 0))
                     {
                         bool valid_zone;
                         Building* newBuilding = new Building(textureRadar, 0, e.button.x, e.button.y, img_map, valid_zone);
-                        if (valid_zone && newBuilding->get_cost()>=money)
+                        if (newBuilding->get_cost() > money) 
+                        {
+                            cout<<"You don't have enough money"<<endl;
+                            valid_zone = false;
+                            break;
+                        }
+                        if (valid_zone)
                         {     
                             cout<<"Radar built"<<endl;
                             buildings.push_back(newBuilding);
+                            money=player.get_money()-newBuilding->get_cost();
+                            player.set_money(money);
+                            cout << "Available money : "<<money<<endl;
                         }
-                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
                     }
+                    /*FACTORY*/
                     if( (money>0) && (!wave) && (typeBuilding == 1))
                     {
                         bool valid_zone;
                         Building* newBuilding = new Building(textureFactory, 1, e.button.x, e.button.y, img_map, valid_zone);
-                        if (valid_zone && newBuilding->get_cost()>=money)
+                        if (newBuilding->get_cost() > money) 
+                        {
+                            cout<<"You don't have enough money"<<endl;
+                            valid_zone = false;
+                            break;
+                        }
+                        if (valid_zone)
                         {
                             cout<<"Factory built"<<endl;
                             buildings.push_back(newBuilding);
+                            money=player.get_money()-newBuilding->get_cost();
+                            player.set_money(money);
+                            cout << "Available money : "<<money<<endl;
                         }
-                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
                     }
+                    /*MUNITIONS*/
                     if( (money>0) && (!wave) && (typeBuilding == 2))
                     {
                         bool valid_zone;
                         Building* newBuilding = new Building(textureMunitions, 2, e.button.x, e.button.y, img_map, valid_zone);
-                        if (valid_zone && newBuilding->get_cost()>=money)
+                        if (newBuilding->get_cost() > money) 
+                        {
+                            cout<<"You don't have enough money"<<endl;
+                            valid_zone = false;
+                            break;
+                        }           
+                        if (valid_zone)
                         {
                             cout<<"Munitions stock built"<<endl;
                             buildings.push_back(newBuilding);
+                            money=player.get_money()-newBuilding->get_cost();
+                            player.set_money(money);
+                            cout << "Available money : "<<money<<endl;
                         }
-                        else cout<<"You either can't build here, or you don't have enough money to"<<endl;
                     }
                     
                     if(wave==true){

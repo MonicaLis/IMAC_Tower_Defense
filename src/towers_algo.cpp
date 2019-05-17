@@ -16,7 +16,7 @@ using namespace std;
     float pace; //cadence
     GLuint texture;
 
-Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
+Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
 {
     cost = 2;
     pace = 0.5;
@@ -38,7 +38,11 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
         {
             if ( sqrt( i*i + j*j ) <= 12 )
             {
-                if ( type_position(Cx + i, Cy +j, I) < 1 ) valid_zone = false;
+                if ( type_position(Cx + i, Cy + j, I) < 1 ) 
+                {
+                    valid_zone = false;
+                    break;
+                }
                 set_pixel(I, color, Cx+i,Cy+j);
             }
         }
@@ -60,7 +64,6 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
             }
         }
     } 
-    //else cout<<"Invalid zone for tower to be built, try again"<<endl;
 
     //randomly choose a type for the tower
     int random = rand() % 20; //from 0 to 19
@@ -71,7 +74,7 @@ Tower::Tower(int Cx, int Cy,GLuint newTexture, Image* I, bool &valid_zone)
     set_type(type);
 
     //just to check if towers are well represented as circles at the right place
-    save(I, "doc/lolol.ppm"); 
+    //save(I, "doc/lolol.ppm"); 
 }
 
 Tower::~Tower()
