@@ -51,9 +51,9 @@ int main(int argc, char **argv) {
     int life;
 
     /*INIT TEXTURE*/
-    GLuint texturePath=initTexturePath();
     GLuint textureTower=initTextureTower();
     GLuint textureMonster=initTextureMonster();
+    GLuint textureFire=initTextureFire();
     GLuint textureRadar=initTextureBuilding(radar_path);
     GLuint textureFactory=initTextureBuilding(factory_path);
     GLuint textureMunitions=initTextureBuilding(munitions_path);
@@ -105,7 +105,8 @@ int main(int argc, char **argv) {
         float x = 0;
         float y = 0;
         int time=0;
-        int resistance = 0;
+        bool valid_zone;
+        bool success = false;
 
          /* Update towers */
         for (Tower* tower : towers) {
@@ -173,30 +174,17 @@ int main(int argc, char **argv) {
             
             for (Tower* tower : towers) {
                 int loopMonster=0; 
-                for (Monster* monster : monsters) {
-                    time+=1;
-                    int compareX= tower->get_x()-monster->get_x();
-                    int compareY= tower->get_y()-monster->get_y();
-                    if(monsters.size()>0 && compareX<150 && compareY<150 && time>=3){
-                        if(monster->get_life_points()<=0){
-                            money=player.get_money()+3;
-                            player.set_money(money);
-                             cout << "Available money:"<<money<<endl;
-                            supr.push_back(monster);
-                            monsters.erase(monsters.begin()+loopMonster);
-                        }
-                        if(monster->get_life_points()>0){
-                        int life=monster->get_life_points()-2;
-                        monster->set_life_points(life);
-                        cout << "Monster's life points : "<<life<<endl;
-                        time=0;
-                        }
+                for (Monster* monster : monsters) 
+                {
+                    tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player);
+                    if (success) 
+                    {
+                        tower->drawFire(textureFire);
                     }
-                    loopMonster+=1;
                 }
-            
             }
         }
+
         //Wave is false when no monster
         if(monsters.size()<=0){
             wave=false;
@@ -242,7 +230,6 @@ int main(int argc, char **argv) {
                     //BUILD A BUILDING
                     /*TOWER*/
                     if( (money>0) && (!wave) && (typeBuilding == -1)){
-                        bool valid_zone;    
                         Tower* newTower = new Tower(e.button.x, e.button.y, textureTower, img_map, valid_zone);
                         if (newTower->get_cost() > money) 
                         {
@@ -254,7 +241,7 @@ int main(int argc, char **argv) {
                         {
                             towers.push_back(newTower);
                             cout<<"Tower built of type "<<newTower->get_type()<<endl;
-                            money=player.get_money()-newTower->get_cost();
+                            money = player.get_money() - newTower->get_cost();
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
@@ -262,62 +249,23 @@ int main(int argc, char **argv) {
                     /*RADAR*/
                     if( (money>0) && (!wave) && (typeBuilding == 0))
                     {
-                        bool valid_zone;
                         Building* newBuilding = new Building(textureRadar, 0, e.button.x, e.button.y, img_map, valid_zone);
-                        if (newBuilding->get_cost() > money) 
-                        {
-                            cout<<"You don't have enough money"<<endl;
-                            valid_zone = false;
-                            break;
-                        }
-                        if (valid_zone)
-                        {     
-                            cout<<"Radar built"<<endl;
-                            buildings.push_back(newBuilding);
-                            money=player.get_money()-newBuilding->get_cost();
-                            player.set_money(money);
-                            cout << "Available money : "<<money<<endl;
-                        }
+                        //if the player has enough money, if the zone is valid, then the building will be built
+                        if ( after_chose_building(newBuilding, valid_zone, &player, money) ) add_building(buildings, towers, newBuilding);
                     }
                     /*FACTORY*/
                     if( (money>0) && (!wave) && (typeBuilding == 1))
                     {
-                        bool valid_zone;
                         Building* newBuilding = new Building(textureFactory, 1, e.button.x, e.button.y, img_map, valid_zone);
-                        if (newBuilding->get_cost() > money) 
-                        {
-                            cout<<"You don't have enough money"<<endl;
-                            valid_zone = false;
-                            break;
-                        }
-                        if (valid_zone)
-                        {
-                            cout<<"Factory built"<<endl;
-                            buildings.push_back(newBuilding);
-                            money=player.get_money()-newBuilding->get_cost();
-                            player.set_money(money);
-                            cout << "Available money : "<<money<<endl;
-                        }
+                        after_chose_building(newBuilding, valid_zone, &player, money);
+                        if ( after_chose_building(newBuilding, valid_zone, &player, money) ) add_building(buildings, towers, newBuilding);
                     }
                     /*MUNITIONS*/
                     if( (money>0) && (!wave) && (typeBuilding == 2))
                     {
-                        bool valid_zone;
                         Building* newBuilding = new Building(textureMunitions, 2, e.button.x, e.button.y, img_map, valid_zone);
-                        if (newBuilding->get_cost() > money) 
-                        {
-                            cout<<"You don't have enough money"<<endl;
-                            valid_zone = false;
-                            break;
-                        }           
-                        if (valid_zone)
-                        {
-                            cout<<"Munitions stock built"<<endl;
-                            buildings.push_back(newBuilding);
-                            money=player.get_money()-newBuilding->get_cost();
-                            player.set_money(money);
-                            cout << "Available money : "<<money<<endl;
-                        }
+                        after_chose_building(newBuilding, valid_zone, &player, money);
+                        if ( after_chose_building(newBuilding, valid_zone, &player, money) ) add_building(buildings, towers, newBuilding);
                     }
                     
                     if(wave==true){
@@ -339,14 +287,12 @@ int main(int argc, char **argv) {
                         cout << "New wave no "<<numberWave<<endl;
                         for(int i=1; i<=numberWave; i++){
                             Monster* newMonster= new Monster(
-                                    enter_x, enter_y, textureMonster);
+                                    enter_x, enter_y, textureMonster, numberWave);
                             monsters.push_back(newMonster);
                             life=newMonster->get_life_points()+life;
                             newMonster->set_life_points(life);
-                            newMonster->set_resistance(resistance);
                         }
                         life++;
-                        resistance++;
                     }
                     break;
 
@@ -367,8 +313,7 @@ int main(int argc, char **argv) {
      /* Free SDL resources */
     SDL_DestroyWindow(window);
     delete_image(img_map);
-    texturePath=initTexturePath();
-    glDeleteTextures(1, &texturePath);
+    glDeleteTextures(1, &textureFire);
     glDeleteTextures(1, &textureTower);
     glDeleteTextures(1, &textureMonster);
     glDeleteTextures(1, &textureRadar);

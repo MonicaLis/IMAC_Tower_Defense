@@ -1,5 +1,6 @@
 #include "buildings_graphic.h"
 #include "buildings_algo.h"
+#include "player.h"
 #include <cmath>
 #include <stdlib.h>
 #include <stdio.h>
@@ -81,4 +82,21 @@ void choose_building(int x, int y, int &type_building)
         type_building=2;
         cout << "You chose munitions stock" <<endl;
     }
+}
+
+bool after_chose_building(Building* building, bool valid_zone, Player* player, int &money)
+{
+    if (building->get_cost() > money) 
+    {
+        cout<<"You don't have enough money"<<endl;
+        valid_zone = false;
+    }
+    if (valid_zone)
+    {     
+        cout<<"=== Building built ==="<<endl;
+        money = money- building->get_cost();
+        player->set_money(money);
+        cout << "Available money : "<<money<<endl;
+    }
+    return valid_zone;
 }

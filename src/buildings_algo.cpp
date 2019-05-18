@@ -19,15 +19,15 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
     switch(type)
     {
         case 0: //radar
-            range = 20;
+            range = 200;
             cost = 5;
             break; 
         case 1: //factory
-            range = 15;
+            range = 220;
             cost = 2;
             break;
         case 2: //munitions
-            range = 18;
+            range = 180;
             cost = 4;
     }
     texture = texture_t;
@@ -40,11 +40,11 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
     //checking whether the building is far enough from other elements
     //to do this we check if a slightly larger circle's perimeter is in a constructible zone
     //when i=j=0 we're checking whether the centre is in a constructible zone
-    for (i=-range; i<range; i=i+range)
+    for (i=-range; i<range/10; i=i+range/10)
     {
-        for (j=-range; j<range; j=j+range)
+        for (j=-range/10; j<range/10; j=j+range/10)
         {
-            if ( sqrt( i*i + j*j ) <= range )
+            if ( sqrt( i*i + j*j ) <= range/10 )
             {
                 if ( type_position(x_t + i, y_t +j, I) < 1 )
                 {
@@ -62,9 +62,9 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
     if (valid_zone)
     {
         //to create squares on ppm
-        for (i=-range; i<range; i++)
+        for (i=-range/10; i<range/10; i++)
         {
-            for (j=-range; j<range; j++)
+            for (j=-range/10; j<range/10; j++)
             {
                 set_pixel(I, color, x_t + i, y_t + j);
             }
@@ -110,4 +110,39 @@ void Building::set_cost(int cost_t)
     cost = cost_t;
 }
 
+void Building::impact(Tower* tower)
+{
+    int compareX = x - tower->get_x();
+    int compareY = y - tower->get_y();
+    int tower_range, tower_power, tower_pace;
 
+    if (compareX <= range && compareY <= range)
+    {
+        switch (type)
+        {
+            case 0: //radar
+                tower_range = tower->get_range();
+                tower->set_range(1.25 * tower_range);
+                cout<<"tower's range went from "<<tower_range<<" to "<<tower->get_range()<<endl;
+                break; 
+            case 1: //factory
+                tower_power = tower->get_power();
+                tower->set_power(1.25 * tower_power);
+                cout<<"tower's power went from "<<tower_power<<" to "<<tower->get_power()<<endl;
+                break;
+            case 2: //munitions
+                tower_pace = tower->get_pace();
+                tower->set_pace(1.25 * tower_pace); 
+                cout<<"tower's pace went from "<<tower_pace<<" to "<<tower->get_pace()<<endl;
+                break;   
+        }
+    }
+}
+
+void add_building(vector<Building*> &buildings, vector<Tower*> &towers, Building* newBuilding)
+{
+    buildings.push_back(newBuilding);
+    for (Tower* tower : towers) {
+        newBuilding->impact(tower);
+    }
+}

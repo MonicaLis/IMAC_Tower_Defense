@@ -24,7 +24,7 @@ private:
     int type; //type 1 is slower than type 2
 
 public:
-    Monster(int Cx, int Cy,GLuint newTexture);
+    Monster(int Cx, int Cy,GLuint newTexture, int n_wave);
     ~Monster();
     int get_life_points();
     void set_life_points(int points);

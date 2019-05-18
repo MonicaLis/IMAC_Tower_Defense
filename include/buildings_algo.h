@@ -6,6 +6,8 @@
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include "map_graphic.h"
+#include "towers_algo.h"
+#include <vector>
 
 
 typedef struct Building{
@@ -27,8 +29,11 @@ public:
     int get_cost();
     void set_cost(int cost_t);
     void drawBuilding();
+    void impact(Tower* tower);
     
 }Building;
+
+void add_building(vector<Building*> &buildings, vector<Tower*> &towers, Building* newBuilding);
 
 
 #endif

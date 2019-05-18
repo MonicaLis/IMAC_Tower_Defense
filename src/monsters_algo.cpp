@@ -12,10 +12,10 @@ using namespace std;
     int life_points, resistance, speed,xM,yM; //puissance, portée
     GLuint textureM;
 
-Monster::Monster(int Cx, int Cy,GLuint newTexture)
+Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
 {
     life_points = 5;
-    resistance = 1;
+    resistance = 1 + n_wave;
     xM=Cx;
     yM=Cy;
     textureM=newTexture;

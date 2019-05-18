@@ -17,4 +17,5 @@ using namespace std;
 #endif 
 
 GLuint initTextureTower();
+GLuint initTextureFire();
 void drawTower();

@@ -12,6 +12,7 @@
 
 #include "map_graphic.h"
 #include "monsters_algo.h"
+#include "player.h"
 
 using namespace std;
 
@@ -40,6 +41,7 @@ public:
     GLuint get_texture();
     void set_texture(GLuint newTexture);
     void drawTower();
+    void drawFire(GLuint texture);
     float get_pace();
     void set_pace(float p);
     
@@ -47,5 +49,7 @@ public:
 
 void to_ppm_coordinates(int &x, int &y);
 void to_sdl_coordinates(int &x, int &y);
+void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player);
+
 
 #endif 

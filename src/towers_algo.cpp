@@ -1,6 +1,7 @@
 #include "towers_algo.h"
 #include "towers_graphic.h"
 #include "map_graphic.h"
+#include "player.h"
 
 #include <vector>
 #include <stdlib.h>
@@ -112,22 +113,23 @@ void Tower::set_type(int type)
     switch(type) 
     { 
         case 0: //high power and low pace
-            power = 7;
+            power = 30;
             pace = 1;
+            range = 200;
             break; 
         case 1: //low range, low power, high pace
-            range = 2;
-            power = 2;
+            range = 190;
+            power = 15;
             pace = 3;
             break; 
         case 2: //low power, low range, high pace
-            power = 2;
-            range = 3;
+            power = 20;
+            range = 150;
             pace = 3;
             break; 
         case 3: //high range, high pace, low power
-            power = 1;
-            range = 5;
+            power = 15;
+            range = 260;
             pace = 2;
             break; 
     }
@@ -171,9 +173,12 @@ void Tower::set_y(int Cy)
     y = Cy;
 }
 
-GLuint get_texture(){
+GLuint Tower::get_texture(){
     return texture;
 }
+
+/**********************************OTHER FUNCTIONS*********************************************/
+
 
 void set_texture(GLuint newTexture){
     texture=newTexture;
@@ -191,4 +196,37 @@ void to_sdl_coordinates(int &x, int &y)
     //to go from ppm coordinates (500,300) to (650,650) SDL 
     x = 1.2*x + 50;
     y = y*2 + 50;
+}
+
+//where towers kill monsters based on: their range, monsters' resistance, monsters' life points
+void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player)
+{
+    time+=1;
+    success = false;
+    int monster_x = monster->get_x();
+    int monster_y = monster->get_y();
+    to_sdl_coordinates(monster_x, monster_y);
+
+    int compareX= tower->get_x()- monster_x;
+    int compareY= tower->get_y()- monster_y;
+    int range = tower->get_range();
+    int resistance_monster = monster->get_resistance();
+
+    if(monsters.size()>0 && compareX<range && compareY<range && time>resistance_monster){
+        success = true;
+        if (monster->get_life_points() <= 0){
+            money = player.get_money()+3;
+            player.set_money(money);
+            cout << "Available money:"<<money<<endl;
+            supr.push_back(monster);
+            monsters.erase(monsters.begin()+loopMonster);
+        }
+        if (monster->get_life_points()>0){
+            int life = monster->get_life_points()-2;
+            monster->set_life_points(life);
+            cout << "Monster's life points : "<<life<<endl;
+            time=0;
+        }
+    }
+    loopMonster+=1;
 }
