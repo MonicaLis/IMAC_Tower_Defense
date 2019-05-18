@@ -49,6 +49,7 @@ int main(int argc, char **argv) {
     int typeBuilding = 5; //to mean that the player hasn't chosen yet
     int pos_x, pos_y;
     int life;
+    int tempGO=0;
 
     /*INIT TEXTURE*/
     GLuint textureTower=initTextureTower();
@@ -100,7 +101,6 @@ int main(int argc, char **argv) {
         //draw map and path
         //draw_path(img_map); //no need for this now that we have the path drawn on the map
         display_map();
-
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
@@ -140,24 +140,14 @@ int main(int argc, char **argv) {
             if (monster->get_x() == exit_x)
             {
                 cout << "Game over"<<endl;
-                for (Tower* tower : towers) {
-                    delete tower;
-                }
-                for (Monster* monster : monsters) {
-                    delete monster;
-                }
-                for (Monster* toSupr : supr) {
-                    delete toSupr;
-                }
-                goto BEGIN;
-            }
-        }         
-       
-        
-       //WIN CONDITION
-       if(numberWave==3 && wave==false && monsters.size()<=0){
-            cout << "You won!"<<endl;
-                    for (Tower* tower : towers) {
+                display_gameover();
+                
+                
+                     if(tempGO<35){
+                    tempGO++;
+                    }
+                    else{
+                        for (Tower* tower : towers) {
                         delete tower;
                     }
                     for (Monster* monster : monsters) {
@@ -167,6 +157,36 @@ int main(int argc, char **argv) {
                         delete toSupr;
                     }
                     goto BEGIN;
+                    }   
+                
+               
+               
+            }
+        }         
+       
+        
+       //WIN CONDITION
+       if(numberWave==3 && wave==false && monsters.size()<=0){
+            cout << "You won!"<<endl;
+            
+             display_gameover();
+             if(tempGO<35){
+                    tempGO++;
+                    }
+                    else{
+                        for (Tower* tower : towers) {
+                        delete tower;
+                    }
+                    for (Monster* monster : monsters) {
+                        delete monster;
+                    }
+                    for (Monster* toSupr : supr) {
+                        delete toSupr;
+                    }
+                    goto BEGIN;
+                    } 
+
+                    
        }
         
         //TOWER ATTACK MONSTER
