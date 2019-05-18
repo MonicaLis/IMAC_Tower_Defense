@@ -242,7 +242,7 @@ int main(int argc, char **argv) {
                     int y_conversion = e.button.y;
                     to_ppm_coordinates(x_conversion, y_conversion);
 
-                     //cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
+                     cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
                      //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
                     choose_building(e.button.x, e.button.y, typeBuilding);
@@ -294,14 +294,11 @@ int main(int argc, char **argv) {
                     if(money<=0){
                         cout << "No money available"<<endl;
                     }
-                
-                }
-                    break;
-
-                /* Key */
-                case SDL_KEYDOWN:
-                    //NEW WAVE : create monster
-                    if (e.key.keysym.sym == 'w') {
+                    if( (e.button.x>=825) && (e.button.x<=990) && (e.button.y>=658) && (e.button.y<=695)){
+                        goto BEGIN;
+                    }
+                     //NEW WAVE : create monster
+                    if( (e.button.x>=10) && (e.button.x<=240) && (e.button.y>=560) && (e.button.y<=600)){
                         wave = true;
                         numberWave+=1;
                         cout << "New wave no "<<numberWave<<endl;
@@ -313,6 +310,18 @@ int main(int argc, char **argv) {
                             newMonster->set_life_points(life);
                         }
                         life++;
+                     }
+                
+                }
+                    break;
+
+                /* Key */
+                case SDL_KEYDOWN:
+               
+                    
+                    if (e.key.keysym.sym == 27) {
+                        loop=false;
+                        break;
                     }
                     break;
 
