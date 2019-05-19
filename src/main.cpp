@@ -101,6 +101,7 @@ int main(int argc, char **argv) {
         //draw map and path
         //draw_path(img_map); //no need for this now that we have the path drawn on the map
         display_map();
+        display_money(player.get_money());
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
@@ -306,6 +307,10 @@ int main(int argc, char **argv) {
                
                     
                     if (e.key.keysym.sym == 27) {
+                        loop=false;
+                        break;
+                    }
+                    else if (e.key.keysym.sym == 'q') {
                         loop=false;
                         break;
                     }
