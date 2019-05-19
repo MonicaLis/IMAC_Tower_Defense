@@ -11,6 +11,7 @@ using namespace std;
 
 #include <stb_image/stb_image.h>
 #include <vector>
+#include <sstream>
 
 #include "init.h"
 #include "map_algo.h"
@@ -35,6 +36,8 @@ int main(int argc, char **argv) {
     if (window == nullptr) {
         cout << "Error window init" << endl;
     }
+
+    Uint32 startTime = SDL_GetTicks();
     
     /*loading and verifying the map*/
     bool verify_map = load_map("data/carte.itd");
@@ -95,7 +98,6 @@ int main(int argc, char **argv) {
 
     while (loop) {
        
-        Uint32 startTime = SDL_GetTicks();
         glClear(GL_COLOR_BUFFER_BIT);
        
         //draw map and path
@@ -121,7 +123,7 @@ int main(int argc, char **argv) {
         /*Update Monster*/
          for (Monster* monster : monsters) {
         
-            monster->drawMonster();
+            if (monster->get_life_points() > 0) monster->drawMonster();
 
             if (monster->get_path() == 0)
             {   
@@ -137,12 +139,13 @@ int main(int argc, char **argv) {
                 //go to N2 and finally the exit
                 monster->move(node_2_x-20, 1, 0, 1, 0, node_2_x-20, exit_x-20);
             }
+
+            /*GAME OVER*/
             if (monster->get_x() == exit_x)
             {
                 cout << "Game over"<<endl;
                 display_gameover();
-                
-                
+
                      if(tempGO<35){
                     tempGO++;
                     }
@@ -158,9 +161,6 @@ int main(int argc, char **argv) {
                     }
                     goto BEGIN;
                     }   
-                
-               
-               
             }
         }         
        
@@ -184,9 +184,7 @@ int main(int argc, char **argv) {
                         delete toSupr;
                     }
                     goto BEGIN;
-                    } 
-
-                    
+                    }       
        }
         
         //TOWER ATTACK MONSTER
@@ -200,6 +198,7 @@ int main(int argc, char **argv) {
                     if (success) 
                     {
                         tower->drawFire(textureFire);
+                        cout<<"tower shot"<<endl;
                     }
                 }
             }
@@ -212,10 +211,9 @@ int main(int argc, char **argv) {
        
        //Delete monsters who are dead
         if(!supr.empty()){
-            for (Monster* toSupr : supr) {
-            supr.erase(supr.begin(), supr.end());
-            delete toSupr;
-            cout << "Monster killed" <<endl;
+                for (Monster* toSupr : supr) {
+                supr.erase(supr.begin(), supr.end());
+                delete toSupr;
             }
         }
 
@@ -242,8 +240,8 @@ int main(int argc, char **argv) {
                     int y_conversion = e.button.y;
                     to_ppm_coordinates(x_conversion, y_conversion);
 
-                     cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
-                     //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
+                    //cout << "clicked in "<< e.button.x<< " " << e.button.y<< endl;
+                    //cout << "converted:" << x_conversion << " " << y_conversion <<endl;
 
                     choose_building(e.button.x, e.button.y, typeBuilding);
 
@@ -329,7 +327,6 @@ int main(int argc, char **argv) {
                     break;
             }
         }
-
 
         /* Time elapsed */
         Uint32 elapsedTime = SDL_GetTicks() - startTime;

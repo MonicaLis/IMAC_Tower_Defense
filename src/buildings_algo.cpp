@@ -40,31 +40,31 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
     //checking whether the building is far enough from other elements
     //to do this we check if a slightly larger circle's perimeter is in a constructible zone
     //when i=j=0 we're checking whether the centre is in a constructible zone
-    for (i=-range; i<range/10; i=i+range/10)
+    for (i=-15; i<15; i=i+15)
     {
-        for (j=-range/10; j<range/10; j=j+range/10)
+        for (j=-15; j<15; j=j+15)
         {
-            if ( sqrt( i*i + j*j ) <= range/10 )
+            if ( sqrt( i*i + j*j ) <= 15 )
             {
                 if ( type_position(x_t + i, y_t +j, I) < 1 )
                 {
                     valid_zone = false;
                     break;
                 } 
-                set_pixel(I, color, x_t+i, y_t+j);
+                //set_pixel(I, color, x_t+i, y_t+j);
             }
         }
     }
 
     //check if the building isn't outside of the map
-    if (x_t > 500) valid_zone = false;
+    if (x_t > 500  || y_t > 300) valid_zone = false;
 
     if (valid_zone)
     {
         //to create squares on ppm
-        for (i=-range/10; i<range/10; i++)
+        for (i=-15; i<15; i++)
         {
-            for (j=-range/10; j<range/10; j++)
+            for (j=-15; j<15; j++)
             {
                 set_pixel(I, color, x_t + i, y_t + j);
             }

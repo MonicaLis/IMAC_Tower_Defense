@@ -42,7 +42,7 @@ public:
     void set_texture(GLuint newTexture);
     void drawTower();
     void drawFire(GLuint texture);
-    float get_pace();
+    int get_pace();
     void set_pace(float p);
     
 }Tower;
