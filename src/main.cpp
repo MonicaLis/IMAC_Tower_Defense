@@ -36,8 +36,6 @@ int main(int argc, char **argv) {
     if (window == nullptr) {
         cout << "Error window init" << endl;
     }
-
-    Uint32 startTime = SDL_GetTicks();
     
     /*loading and verifying the map*/
     bool verify_map = load_map("data/carte.itd");
@@ -194,11 +192,11 @@ int main(int argc, char **argv) {
                 int loopMonster=0; 
                 for (Monster* monster : monsters) 
                 {
-                    tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player);
+                    tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);
                     if (success) 
                     {
-                        tower->drawFire(textureFire);
-                        cout<<"tower shot"<<endl;
+                        Uint32 startTime = SDL_GetTicks();
+                        while ( startTime - SDL_GetTicks() < 1000 ) tower->drawFire(textureFire);
                     }
                 }
             }
@@ -297,17 +295,7 @@ int main(int argc, char **argv) {
                     }
                      //NEW WAVE : create monster
                     if( (e.button.x>=10) && (e.button.x<=240) && (e.button.y>=560) && (e.button.y<=600)){
-                        wave = true;
-                        numberWave+=1;
-                        cout << "New wave no "<<numberWave<<endl;
-                        for(int i=1; i<=numberWave; i++){
-                            Monster* newMonster= new Monster(
-                                    enter_x, enter_y, textureMonster, numberWave);
-                            monsters.push_back(newMonster);
-                            life=newMonster->get_life_points()+life;
-                            newMonster->set_life_points(life);
-                        }
-                        life++;
+                        new_wave(life, wave, numberWave, textureMonster, enter_x, enter_y, monsters);
                      }
                 
                 }
@@ -326,13 +314,6 @@ int main(int argc, char **argv) {
                 default:
                     break;
             }
-        }
-
-        /* Time elapsed */
-        Uint32 elapsedTime = SDL_GetTicks() - startTime;
-        /* if not enough time has passed then pause the program */
-        if (elapsedTime < FRAMERATE_MILLISECONDS) {
-            SDL_Delay(FRAMERATE_MILLISECONDS - elapsedTime);
         }
     }
 

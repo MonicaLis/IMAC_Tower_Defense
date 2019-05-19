@@ -11,6 +11,7 @@ using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
+#include <vector>
 
 
 using namespace std;
@@ -43,6 +44,9 @@ public:
     int get_type();
     void move(int initial_pos_x, int before_x, int before_y, int after_x, int after_y, int destination1_x,int destination2_x);
 }Monster;
+
+
+void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int y, vector<Monster*> &monsters);
 
 
 #endif 

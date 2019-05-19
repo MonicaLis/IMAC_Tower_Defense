@@ -2,6 +2,7 @@
 
 #include <stdlib.h>
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
     xM=Cx;
     yM=Cy;
     textureM=newTexture;
-    cout << "Monster created !"<< endl;
+    cout << "Monster created ! wave ("<< n_wave << ")" << endl;
     int random = rand() % 5;
     if (random % 2 == 0) choose_path = 1;
     else choose_path = 0;
@@ -106,4 +107,21 @@ GLuint Monster::get_texture(){
 
 void Monster::set_texture(GLuint newTexture){
     textureM=newTexture;
+}
+
+void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int y, vector<Monster*> &monsters)
+{
+    wave = true;
+    numberWave+=1;
+    cout<<"New wave no "<<numberWave<<endl;
+    for(int i=1; i<=10; i++)
+    {
+        Uint32 startTime = SDL_GetTicks();
+        while ( startTime - SDL_GetTicks() < 1000 ) {};
+        Monster* newMonster= new Monster(x, y, texture, numberWave);
+        monsters.push_back(newMonster);
+        life=newMonster->get_life_points()+life;
+        newMonster->set_life_points(life);
+    }
+    life++;
 }

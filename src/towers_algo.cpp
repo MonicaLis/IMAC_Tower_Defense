@@ -200,7 +200,8 @@ void to_sdl_coordinates(int &x, int &y)
 }
 
 //where towers kill monsters based on: their range, monsters' resistance, monsters' life points
-void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player)
+void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, 
+    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave)
 {
     time+=1;
     success = false;
@@ -237,7 +238,7 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
             }
             if (monster->get_life_points() <= 0){
                 cout<<"Monster killed!"<<endl;
-                money = player.get_money()+5;
+                money = player.get_money() + 2*nb_wave;
                 player.set_money(money);
                 supr.push_back(monster);
                 monsters.erase(monsters.begin()+loopMonster);
