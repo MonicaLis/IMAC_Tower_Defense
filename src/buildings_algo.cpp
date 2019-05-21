@@ -90,12 +90,12 @@ void Building::set_type(int type_t)
     type = type_t;
 }
 
-float Building::get_range()
+int Building::get_range()
 {
     return range;
 }
 
-void Building::set_range(float rng)
+void Building::set_range(int rng)
 {
     range = rng;
 }
@@ -103,7 +103,7 @@ void Building::set_range(float rng)
 int Building::get_cost()
 {
     return cost;
-} 
+}
 
 void Building::set_cost(int cost_t)
 {

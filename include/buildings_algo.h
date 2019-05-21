@@ -24,8 +24,8 @@ public:
     ~Building();
     int get_type();
     void set_type(int type_t);
-    float get_range();
-    void set_range(float rng);
+    int get_range();
+    void set_range(int rng);
     int get_cost();
     void set_cost(int cost_t);
     void drawBuilding();
