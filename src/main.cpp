@@ -28,8 +28,6 @@ using namespace std;
 
 static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
-void text();
-
 int main(int argc, char **argv) {
 
     /* Init SDL, OpenGL, Debug and Glad */
@@ -110,17 +108,22 @@ int main(int argc, char **argv) {
         bool valid_zone;
         bool success = false;
 
-         /* Update towers */
-        for (Tower* tower : towers) {
-            tower->drawTower();
+        if(towers.size()>0){
+             /* Update towers */
+            for (Tower* tower : towers) {
+                tower->drawTower();
+            }
         }
-
-        /* Update buildings */
-        for (Building* building : buildings) {
-            building->drawBuilding();
+        
+        if(buildings.size()>0){
+            /* Update buildings */
+            for (Building* building : buildings) {
+                building->drawBuilding();
+            }
         }
-
-        /*Update Monster*/
+        
+        if(monsters.size()>0){
+            /*Update Monster*/
          for (Monster* monster : monsters) {
         
             if (monster->get_life_points() > 0) monster->drawMonster();
@@ -162,7 +165,9 @@ int main(int argc, char **argv) {
                     goto BEGIN;
                     }   
             }
-        }         
+        }  
+        }
+               
        
         
        //WIN CONDITION
