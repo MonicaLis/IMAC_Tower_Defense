@@ -13,8 +13,13 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 
-void display_win();
-void display_gameover();
-void display_money(int i);
+GLuint display_money(int i);
+void drawMoney(GLuint texture);
+GLuint display_win();
+void drawWin(GLuint texture);
+GLuint display_gameover();
+void drawGO(GLuint texture);
+
+
 
 #endif 

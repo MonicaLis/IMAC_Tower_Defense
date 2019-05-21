@@ -155,7 +155,9 @@ Image* create_map_ppm(Graph graph)
 
 /**********************************FUNCTIONS TO DISPLAY MAP IN WINDOW***************************************/
 
-void display_map()
+
+
+GLuint init_map()
 {
     /* loading image */
     const char image_path[] = "images/ui.png";
@@ -183,18 +185,23 @@ void display_map()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-     glBindTexture(GL_TEXTURE_2D, texture_id);
-        glPushMatrix();
-            glTranslated(500,350,0);
-            glScalef(1000,700,0);
-            glRotatef(180,1,0,0);
-            glBegin(GL_QUADS);
-                glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
-                glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
-                glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
-                glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
-            glEnd();
-        glPopMatrix();
+    return texture_id;
+}
+
+void drawMap(GLuint texture)
+{
+    glBindTexture(GL_TEXTURE_2D, texture);
+    glPushMatrix();
+        glTranslated(500,350,0);
+        glScalef(1000,700,0);
+        glRotatef(180,1,0,0);
+        glBegin(GL_QUADS);
+            glTexCoord2f(0, 1); glVertex2f(-0.5f, -0.5f);   // bas gauche
+            glTexCoord2f(1, 1); glVertex2f(0.5f, -0.5f);    // bas droite
+            glTexCoord2f(1, 0); glVertex2f(0.5f, 0.5f);     // haut droite
+            glTexCoord2f(0, 0); glVertex2f(-0.5f, 0.5f);    // haut gauche
+        glEnd();
+    glPopMatrix();
     // Unbind texture
     glBindTexture(GL_TEXTURE_2D, 0); 
 }

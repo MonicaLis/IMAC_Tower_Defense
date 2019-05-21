@@ -46,6 +46,7 @@ void draw_line_ppm(int x0, int y0, int x1, int y1, Image* I);
 int type_position(int x, int y, Image* I);
 GLuint initTexturePath();
 void draw_path(Image* I);
-void display_map();
+GLuint init_map();
+void drawMap(GLuint texture);
 
 #endif 

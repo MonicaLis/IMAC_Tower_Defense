@@ -11,7 +11,7 @@ using namespace std;
 
 Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
 {
-    life_points = 5;
+    life_points = 1;
     resistance = 1 + n_wave;
     xM=Cx;
     yM=Cy;
@@ -110,20 +110,13 @@ void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int
     wave = true;
     numberWave+=1;
     cout<<"New wave no "<<numberWave<<endl;
-    int random, i, nb_monsters;
-    nb_monsters = 0;
-    i = 1;
-    random = rand()%5;
-    while(nb_monsters<5)
+    int random, i;
+    for (i=1; i<5; i++)
     {
-        if (random % 2 == 0)
-        {
-            Monster* newMonster= new Monster(x, y, texture, numberWave);
-            monsters.push_back(newMonster);
-            life=newMonster->get_life_points()+life;
-            newMonster->set_life_points(life);
-            nb_monsters++;
-        }
+        Monster* newMonster= new Monster(x +rand()%20, y+ rand()%15, texture, numberWave);
+        monsters.push_back(newMonster);
+        life=newMonster->get_life_points()+life;
+        newMonster->set_life_points(life);
     }
     life++;
 }

@@ -58,12 +58,15 @@ int main(int argc, char **argv) {
     GLuint textureRadar=initTextureBuilding(radar_path);
     GLuint textureFactory=initTextureBuilding(factory_path);
     GLuint textureMunitions=initTextureBuilding(munitions_path);
+    GLuint textureMap=init_map();
+    GLuint textureWin=display_win();
+    GLuint textureGO=display_gameover();
    
     BEGIN:
    /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
-    cout << "Available money : "<<money<<endl;
+    GLuint textureMoney = display_money(money);
 
     /*INIT ENTITIES LISTS*/
     vector<Tower*> towers;
@@ -96,11 +99,9 @@ int main(int argc, char **argv) {
     while (loop) {
        
         glClear(GL_COLOR_BUFFER_BIT);
-       
-        //draw map and path
-        //draw_path(img_map); //no need for this now that we have the path drawn on the map
-        display_map();
-        display_money(player.get_money());
+
+        drawMap(textureMap);
+        drawMoney(textureMoney);
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
@@ -145,9 +146,8 @@ int main(int argc, char **argv) {
 
             /*GAME OVER*/
             if (monster->get_x() == exit_x)
-            {
-                
-                display_gameover();
+            { 
+                drawGO(textureGO);
 
                      if(tempGO<35){
                     tempGO++;
@@ -171,10 +171,9 @@ int main(int argc, char **argv) {
        
         
        //WIN CONDITION
-       if(numberWave==3 && wave==false && monsters.size()<=0){
-            cout << "You won!"<<endl;
-            
-             display_gameover();
+       if(numberWave==3 && wave==false && monsters.size()<=0){            
+             drawWin(textureWin);
+
              if(tempGO<35){
                     tempGO++;
                     }
@@ -337,6 +336,7 @@ int main(int argc, char **argv) {
     glDeleteTextures(1, &textureRadar);
     glDeleteTextures(1, &textureFactory);
     glDeleteTextures(1, &textureMunitions);
+    glDeleteTextures(1, &textureMap);
     SDL_Quit();
 
     for (Tower* tower : towers) {

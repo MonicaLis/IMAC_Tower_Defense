@@ -9,7 +9,7 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 
-void display_money(int i)
+GLuint display_money(int i)
 {
     if(i<0){
         i=0;
@@ -53,7 +53,12 @@ void display_money(int i)
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-     glBindTexture(GL_TEXTURE_2D, texture_id);
+    return texture_id;
+}
+
+void drawMoney(GLuint texture)
+{
+     glBindTexture(GL_TEXTURE_2D, texture);
         glPushMatrix();
             glTranslated(150,30,0);
             glScalef(242,20,0);
@@ -69,7 +74,7 @@ void display_money(int i)
     glBindTexture(GL_TEXTURE_2D, 0); 
 }
 
-void display_win()
+GLuint display_win()
 {
     /* loading image */
     const char image_path[] = "images/youwon.png";
@@ -97,7 +102,12 @@ void display_win()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-     glBindTexture(GL_TEXTURE_2D, texture_id);
+    return texture_id;
+}
+
+void drawWin(GLuint texture)
+{
+    glBindTexture(GL_TEXTURE_2D, texture);
         glPushMatrix();
             glTranslated(500,350,0);
             glScalef(1000,700,0);
@@ -113,7 +123,7 @@ void display_win()
     glBindTexture(GL_TEXTURE_2D, 0); 
 }
 
-void display_gameover()
+GLuint display_gameover()
 {
     /* loading image */
     const char image_path[] = "images/gameover.png";
@@ -141,7 +151,12 @@ void display_gameover()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-     glBindTexture(GL_TEXTURE_2D, texture_id);
+    return texture_id;
+ }
+
+void drawGO(GLuint texture)
+{
+     glBindTexture(GL_TEXTURE_2D, texture);
         glPushMatrix();
             glTranslated(500,350,0);
             glScalef(1000,700,0);
@@ -155,4 +170,4 @@ void display_gameover()
         glPopMatrix();
     // Unbind texture
     glBindTexture(GL_TEXTURE_2D, 0); 
- }
+}
