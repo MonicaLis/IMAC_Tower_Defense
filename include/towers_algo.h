@@ -22,7 +22,7 @@ private:
     //type: 0-red, 1-green, 2-yellow, 3-blue
     int power, range, type, cost, x, y; //puissance, portée
     GLuint texture;
-    float pace; //cadence, 10e de sec
+    int pace; //cadence, 10e de sec
 
 public:
     Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone);
@@ -43,7 +43,7 @@ public:
     void drawTower();
     void drawFire(GLuint texture);
     int get_pace();
-    void set_pace(float p);
+    void set_pace(int p);
     
 }Tower;
 

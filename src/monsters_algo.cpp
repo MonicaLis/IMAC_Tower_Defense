@@ -116,7 +116,7 @@ void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int
     cout<<"New wave no "<<numberWave<<endl;
     for(int i=1; i<=5; i++)
     {
-        Monster* newMonster= new Monster(x, y, texture, numberWave);
+        Monster* newMonster= new Monster(x+ rand() % 30, y +rand() % 20, texture, numberWave);
         monsters.push_back(newMonster);
         life=newMonster->get_life_points()+life;
         newMonster->set_life_points(life);

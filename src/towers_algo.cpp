@@ -12,11 +12,6 @@ using namespace std;
 
 /**********************************STRUCTURE METHODS*********************************************/
 
-    //type: 0-red, 1-green, 2-yellow, 3-blue
-    int power, range, type, cost,x,y; //puissance, portée
-    float pace; //cadence
-    GLuint texture;
-
 Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
 {
     cost = 2;
@@ -150,7 +145,7 @@ int Tower::get_pace()
     return pace;
 }
 
-void Tower::set_pace(float p)
+void Tower::set_pace(int p)
 {
     pace = p;
 }
@@ -177,12 +172,13 @@ GLuint Tower::get_texture(){
     return texture;
 }
 
+void Tower::set_texture(GLuint newTexture){
+    texture=newTexture;
+}
+
 /**********************************OTHER FUNCTIONS*********************************************/
 
 
-void set_texture(GLuint newTexture){
-    texture=newTexture;
-}
 
 void to_ppm_coordinates(int &x, int &y)
 {
