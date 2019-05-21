@@ -66,7 +66,7 @@ int main(int argc, char **argv) {
    /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
-    GLuint textureMoney = display_money(money);
+    //GLuint textureMoney = display_money(money);
 
     /*INIT ENTITIES LISTS*/
     vector<Tower*> towers;
@@ -101,7 +101,7 @@ int main(int argc, char **argv) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         drawMap(textureMap);
-        drawMoney(textureMoney);
+        //drawMoney(textureMoney);
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
@@ -201,8 +201,7 @@ int main(int argc, char **argv) {
                     tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);
                     if (success) 
                     {
-                        Uint32 startTime = SDL_GetTicks();
-                        while ( startTime - SDL_GetTicks() < 1000 ) tower->drawFire(textureFire);
+                        tower->drawFire(textureFire);
                     }
                 }
             }

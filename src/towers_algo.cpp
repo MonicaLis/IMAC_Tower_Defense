@@ -38,9 +38,9 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
     //when i=j=0 we're checking whether the centre is in a constructible zone
     for (i=-11; i<11; i=i+4)
     {
-        for (j=-11; j<11; j=j+4)
+        for (j=-11; j<11; j=j+range)
         {
-            if ( sqrt( i*i + j*j ) <= range/10 )
+            if ( sqrt( i*i + j*j ) <= 11 )
             {
                 if ( type_position(Cx + i, Cy + j, I) < 1 ) 
                 {
@@ -48,6 +48,18 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
                     break;
                 }
                 //set_pixel(I, color, Cx+i,Cy+j);
+            }
+        }
+    }
+
+        for (i=-range; i<range; i=i+1)
+    {
+        for (j=-range; j<range; j=j+4)
+        {
+            if ( sqrt( i*i + j*j ) <= range )
+            {
+
+                set_pixel(I, color, Cx+i,Cy+j);
             }
         }
     }
@@ -70,7 +82,7 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
     } 
 
     //just to check if towers are well represented as circles at the right place
-    //save(I, "doc/lolol.ppm"); 
+    save(I, "doc/lolol.ppm"); 
 }
 
 Tower::~Tower()
@@ -110,21 +122,21 @@ void Tower::set_type(int type)
         case 0: //high power and low pace (so higher number because 0.8sec is slow)
             power = 4;
             pace = 800;
-            range = 200;
+            range = 60;
             break; 
         case 1: //low range, low power, high pace
-            range = 190;
+            range = 40;
             power = 1;
-            pace = 210;
+            pace = 150;
             break; 
         case 2: //low power, low range, high pace
             power = 1;
-            range = 150;
+            range = 30;
             pace = 300;
             break; 
         case 3: //high range, high pace, low power
             power = 2;
-            range = 260;
+            range = 60;
             pace = 250;
             break; 
     }
