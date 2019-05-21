@@ -36,15 +36,14 @@ void display_money(int i)
     if(i<0){
         i=0;
     }
-    if(i>50){
 
-    }
     std::string nb=std::to_string(i);
     
     const char *pchar=nb.c_str();
     const char *begin="images/money/Money _ ";
     const char *end=".png";
     if(i>50){
+        i=50;
        const char *end="+.png"; 
     }
     char result[50];   // array to hold the result.

@@ -142,7 +142,7 @@ int main(int argc, char **argv) {
             /*GAME OVER*/
             if (monster->get_x() == exit_x)
             {
-                cout << "Game over"<<endl;
+                
                 display_gameover();
 
                      if(tempGO<35){
