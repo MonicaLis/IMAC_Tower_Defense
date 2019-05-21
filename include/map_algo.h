@@ -25,14 +25,14 @@ public:
 //we are using graphs to represent the paths and their nodes (i.e. adjacency list)
 typedef struct Node{
 
-private:
+private: 
     int index, nature, width, height, nb_successors;
     Node* linked_to;
     Position coordinates;
 
 public:
     Node();
-    Node(Position coordinates, int N_index, int N_nature, int N_width, int N_height, int N_nb_successors, Node* N_linked_to); //constructor
+    Node(Position coordinates, int N_index, int N_nature, int N_nb_successors, Node* N_linked_to); //constructor
     ~Node(); //destructor
     void set_successors(Node* successors);
     int get_successors();

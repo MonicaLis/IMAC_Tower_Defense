@@ -9,10 +9,6 @@ using namespace std;
 
 /**********************************STRUCTURE METHODS*********************************************/
 
-    //type: 0-red, 1-green, 2-yellow, 3-blue
-    int life_points, resistance, speed,xM,yM; //puissance, portée
-    GLuint textureM;
-
 Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
 {
     life_points = 5;
@@ -114,12 +110,20 @@ void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int
     wave = true;
     numberWave+=1;
     cout<<"New wave no "<<numberWave<<endl;
-    for(int i=1; i<=5; i++)
+    int random, i, nb_monsters;
+    nb_monsters = 0;
+    i = 1;
+    random = rand()%5;
+    while(nb_monsters<5)
     {
-        Monster* newMonster= new Monster(x+ rand() % 30, y +rand() % 20, texture, numberWave);
-        monsters.push_back(newMonster);
-        life=newMonster->get_life_points()+life;
-        newMonster->set_life_points(life);
+        if (random % 2 == 0)
+        {
+            Monster* newMonster= new Monster(x, y, texture, numberWave);
+            monsters.push_back(newMonster);
+            life=newMonster->get_life_points()+life;
+            newMonster->set_life_points(life);
+            nb_monsters++;
+        }
     }
     life++;
 }
