@@ -21,6 +21,7 @@ using namespace std;
 #include "monsters_algo.h"
 #include "monsters_graphic.h"
 #include "player.h"
+#include "interface.h"
 #include "buildings_algo.h"
 #include "buildings_graphic.h"
 
@@ -125,7 +126,7 @@ int main(int argc, char **argv) {
             if (monster->get_life_points() > 0) monster->drawMonster();
 
             if (monster->get_path() == 0)
-            {   
+            { 
                 //to go from the entrance to P3
                 monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
                 //go to N2 and finally the exit

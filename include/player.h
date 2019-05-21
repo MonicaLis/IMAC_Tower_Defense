@@ -20,7 +20,4 @@ public:
     
 }Player;
 
-void display_win();
-void display_gameover();
-void display_money(int i);
 #endif

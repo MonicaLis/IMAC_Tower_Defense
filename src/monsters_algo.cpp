@@ -114,10 +114,8 @@ void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int
     wave = true;
     numberWave+=1;
     cout<<"New wave no "<<numberWave<<endl;
-    for(int i=1; i<=10; i++)
+    for(int i=1; i<=5; i++)
     {
-        Uint32 startTime = SDL_GetTicks();
-        while ( startTime - SDL_GetTicks() < 1000 ) {};
         Monster* newMonster= new Monster(x, y, texture, numberWave);
         monsters.push_back(newMonster);
         life=newMonster->get_life_points()+life;

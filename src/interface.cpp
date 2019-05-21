@@ -15,7 +15,7 @@ void display_money(int i)
         i=0;
     }
 
-    std::string nb=std::to_string(i);
+    string nb = to_string(i);
     
     const char *pchar=nb.c_str();
     const char *begin="images/money/Money _ ";
