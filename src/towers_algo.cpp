@@ -4,6 +4,7 @@
 #include "player.h"
 
 #include <vector>
+#include <algorithm>
 #include <stdlib.h>
 #include <iostream>
 
@@ -214,8 +215,8 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
     int compareY= tower->get_y()- monster_y;
 
     //delay time for <pace> milliseconds
-    // Uint32 startTime = SDL_GetTicks();
-    // while ( startTime - SDL_GetTicks() < tower->get_pace() ) //cout<<"waiting"<<endl;
+    Uint32 startTime = SDL_GetTicks();
+    while ( startTime - SDL_GetTicks() < tower->get_pace() ) //cout<<"waiting"<<endl;
 
     //if there's a monster in the tower's range 
     if(monsters.size()>0 && compareX<range && compareY<range){
@@ -239,11 +240,18 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
             if (monster->get_life_points() <= 0){
                 cout<<"Monster killed!"<<endl;
                 money = player.get_money() + 2*nb_wave;
+                //look for the position of the monster in the monsters' list
+                vector<Monster*>::iterator it;
+                it = find(monsters.begin(), monsters.end(), monster);
+                int position = it - monsters.begin();
                 player.set_money(money);
                 supr.push_back(monster);
-                monsters.erase(monsters.begin()+loopMonster);
+                monsters.erase(monsters.begin() +position);
             }
         }
     }
     loopMonster+=1;
 }
+
+//pb: on se retrouve avec des montres qui ont des fois 9 points de vie
+//pb: on efface pas le bon monstre

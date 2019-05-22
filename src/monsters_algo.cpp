@@ -105,7 +105,7 @@ void Monster::set_texture(GLuint newTexture){
     textureM=newTexture;
 }
 
-void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int y, vector<Monster*> &monsters)
+void new_wave(bool &wave, int &numberWave, GLuint texture, int x, int y, vector<Monster*> &monsters)
 {
     wave = true;
     numberWave+=1;
@@ -115,8 +115,7 @@ void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int
     {
         Monster* newMonster= new Monster(x +rand()%20, y+ rand()%15, texture, numberWave);
         monsters.push_back(newMonster);
-        life=newMonster->get_life_points()+life;
-        newMonster->set_life_points(life);
+        int life = newMonster->get_life_points();
+        newMonster->set_life_points(life*numberWave);
     }
-    life++;
 }

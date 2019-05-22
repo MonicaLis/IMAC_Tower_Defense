@@ -156,20 +156,19 @@ int main(int argc, char **argv) {
                     else{
                         for (Tower* tower : towers) {
                         delete tower;
-                    }
-                    for (Monster* monster : monsters) {
-                        delete monster;
-                    }
-                    for (Monster* toSupr : supr) {
-                        delete toSupr;
-                    }
-                    glDeleteTextures(1, &textureMoney);
-                    goto BEGIN;
+                        }
+                        for (Monster* monster : monsters) {
+                            delete monster;
+                        }
+                        for (Monster* toSupr : supr) {
+                            delete toSupr;
+                        }
+                        glDeleteTextures(1, &textureMoney);
+                        goto BEGIN;
                     }   
             }
         }  
-        }
-               
+    }  
        
         
        //WIN CONDITION
@@ -191,7 +190,10 @@ int main(int argc, char **argv) {
                     }
                     glDeleteTextures(1, &textureMoney);
                     goto BEGIN;
-                    }       
+                    }     
+                    for (Building* building : buildings) {
+                        delete building;
+                    }  
        }
         
         //TOWER ATTACK MONSTER
@@ -316,7 +318,7 @@ int main(int argc, char **argv) {
                     }
                      //NEW WAVE : create monster
                     if( (e.button.x>=10) && (e.button.x<=240) && (e.button.y>=560) && (e.button.y<=600)){
-                        new_wave(life, wave, numberWave, textureMonster, enter_x, enter_y, monsters);
+                        new_wave(wave, numberWave, textureMonster, enter_x, enter_y, monsters);
                      }
                 
                 }
@@ -342,6 +344,22 @@ int main(int argc, char **argv) {
         }
     }
 
+
+    // for (Tower* tower : towers) {
+    //     delete tower;
+    // }
+
+    // for (Monster* monster : monsters) {
+    //     delete monster;
+    // }
+
+    // for (Monster* toSupr : supr) {
+    //     delete toSupr;
+    // }
+
+    for (Building* building : buildings) {
+        delete building;
+    }
      /* Free SDL resources */
     SDL_DestroyWindow(window);
     delete_image(img_map);
@@ -356,22 +374,6 @@ int main(int argc, char **argv) {
     glDeleteTextures(1, &textureGO);
     glDeleteTextures(1, &textureMoney);
     SDL_Quit();
-
-    for (Tower* tower : towers) {
-        delete tower;
-    }
-
-    for (Monster* monster : monsters) {
-        delete monster;
-    }
-
-    for (Monster* toSupr : supr) {
-        delete toSupr;
-    }
-
-    for (Building* building : buildings) {
-        delete building;
-    }
 
     return EXIT_SUCCESS;
 }
