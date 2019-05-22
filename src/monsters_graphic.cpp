@@ -85,7 +85,7 @@ void Monster::move(int initial_pos_x, int before_x, int before_y, int after_x, i
             pos_y = get_y() + before_y;
             set_x(pos_x);
             set_y(pos_y);
-        }
+        } 
         if (get_x() >= destination1_x)
         {
             pos_x = get_x() + after_x; 

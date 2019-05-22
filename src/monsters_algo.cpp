@@ -20,15 +20,15 @@ Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
     int random = rand() % 5;
     if (random % 2 == 0) choose_path = 1;
     else choose_path = 0;
-    random = rand() % 3;
-    if (random % 2 == 0) 
+    random = rand() % 10;
+    if (random % 3 == 0) //less chances of getting a super quick monster
     {   
         type = 1; 
         speed = 2;
     }
     else 
     {
-        type = 2; 
+        type = 2;
         speed = 1;
     }
 }
