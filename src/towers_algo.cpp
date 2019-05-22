@@ -36,9 +36,9 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
     //checking whether the tower is far enough from other elements
     //to do this we check if a slightly larger circle's perimeter is in a constructible zone
     //when i=j=0 we're checking whether the centre is in a constructible zone
-    for (i=-11; i<11; i=i+4)
+    for (i=-11; i<11; i=i+11)
     {
-        for (j=-11; j<11; j=j+range)
+        for (j=-11; j<11; j=j+11)
         {
             if ( sqrt( i*i + j*j ) <= 11 )
             {
@@ -52,17 +52,6 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
         }
     }
 
-        for (i=-range; i<range; i=i+1)
-    {
-        for (j=-range; j<range; j=j+4)
-        {
-            if ( sqrt( i*i + j*j ) <= range )
-            {
-
-                set_pixel(I, color, Cx+i,Cy+j);
-            }
-        }
-    }
 
     //check if the tower isn't outside of the map
     if (Cx > 500  || Cy > 300) valid_zone = false;
@@ -82,7 +71,7 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
     } 
 
     //just to check if towers are well represented as circles at the right place
-    save(I, "doc/lolol.ppm"); 
+    //save(I, "doc/lolol.ppm"); 
 }
 
 Tower::~Tower()
@@ -225,8 +214,8 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
     int compareY= tower->get_y()- monster_y;
 
     //delay time for <pace> milliseconds
-    Uint32 startTime = SDL_GetTicks();
-    while ( startTime - SDL_GetTicks() < tower->get_pace() ) //cout<<"waiting"<<endl;
+    // Uint32 startTime = SDL_GetTicks();
+    // while ( startTime - SDL_GetTicks() < tower->get_pace() ) //cout<<"waiting"<<endl;
 
     //if there's a monster in the tower's range 
     if(monsters.size()>0 && compareX<range && compareY<range){
@@ -234,7 +223,10 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
         success = true;
         
         //first we need to shoot the monster until he loses all resistance
-        if (time >= resistance_monster) monster->set_resistance(resistance_monster - 1);
+        if (time >= resistance_monster && resistance_monster > 0) 
+        {
+            monster->set_resistance(resistance_monster - 1);
+        }
         else
         {
             if (monster->get_life_points() > 0){

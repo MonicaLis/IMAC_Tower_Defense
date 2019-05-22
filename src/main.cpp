@@ -205,7 +205,7 @@ int main(int argc, char **argv) {
                     textureMoney=display_money(player.get_money());
                     if (success) 
                     {
-                        tower->drawFire(textureFire);
+                        tower->drawFire(textureFire); 
                     }
                 }
             }
