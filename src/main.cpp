@@ -61,12 +61,12 @@ int main(int argc, char **argv) {
     GLuint textureMap=init_map();
     GLuint textureWin=display_win();
     GLuint textureGO=display_gameover();
+    GLuint textureMoney=display_money(10);
    
     BEGIN:
    /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
-    //GLuint textureMoney = display_money(money);
 
     /*INIT ENTITIES LISTS*/
     vector<Tower*> towers;
@@ -101,7 +101,8 @@ int main(int argc, char **argv) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         drawMap(textureMap);
-        //drawMoney(textureMoney);
+        drawMoney(textureMoney);
+
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
@@ -198,7 +199,7 @@ int main(int argc, char **argv) {
                 int loopMonster=0; 
                 for (Monster* monster : monsters) 
                 {
-                    tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);
+                    tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave, textureMoney);
                     if (success) 
                     {
                         tower->drawFire(textureFire);
@@ -263,6 +264,8 @@ int main(int argc, char **argv) {
                             towers.push_back(newTower);
                             cout<<"Tower built of type "<<newTower->get_type()<<endl;
                             money = player.get_money() - newTower->get_cost();
+                          //  glDeleteTextures(1, &textureMoney);
+                             textureMoney=display_money(money);
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
@@ -272,21 +275,21 @@ int main(int argc, char **argv) {
                     {
                         Building* newBuilding = new Building(textureRadar, 0, e.button.x, e.button.y, img_map, valid_zone);
                         //if the player has enough money, if the zone is valid, then the building will be built
-                        if ( after_chose_building(newBuilding, valid_zone, &player, money) ) add_building(buildings, towers, newBuilding);
+                        if ( after_chose_building(newBuilding, valid_zone, &player, money, textureMoney) ) add_building(buildings, towers, newBuilding);
                     }
                     /*FACTORY*/
                     if( (money>0) && (!wave) && (typeBuilding == 1))
                     {
                         Building* newBuilding = new Building(textureFactory, 1, e.button.x, e.button.y, img_map, valid_zone);
-                        after_chose_building(newBuilding, valid_zone, &player, money);
-                        if ( after_chose_building(newBuilding, valid_zone, &player, money) ) add_building(buildings, towers, newBuilding);
+                        after_chose_building(newBuilding, valid_zone, &player, money, textureMoney);
+                        if ( after_chose_building(newBuilding, valid_zone, &player, money, textureMoney) ) add_building(buildings, towers, newBuilding);
                     }
                     /*MUNITIONS*/
                     if( (money>0) && (!wave) && (typeBuilding == 2))
                     {
                         Building* newBuilding = new Building(textureMunitions, 2, e.button.x, e.button.y, img_map, valid_zone);
-                        after_chose_building(newBuilding, valid_zone, &player, money);
-                        if ( after_chose_building(newBuilding, valid_zone, &player, money) ) add_building(buildings, towers, newBuilding);
+                        after_chose_building(newBuilding, valid_zone, &player, money, textureMoney);
+                        if ( after_chose_building(newBuilding, valid_zone, &player, money, textureMoney) ) add_building(buildings, towers, newBuilding);
                     }
                     
                     if(wave==true){
@@ -336,6 +339,9 @@ int main(int argc, char **argv) {
     glDeleteTextures(1, &textureFactory);
     glDeleteTextures(1, &textureMunitions);
     glDeleteTextures(1, &textureMap);
+    glDeleteTextures(1, &textureWin);
+    glDeleteTextures(1, &textureGO);
+     glDeleteTextures(1, &textureMoney);
     SDL_Quit();
 
     for (Tower* tower : towers) {

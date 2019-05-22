@@ -2,10 +2,13 @@
 #include "towers_graphic.h"
 #include "map_graphic.h"
 #include "player.h"
+#include "interface.h"
 
 #include <vector>
 #include <stdlib.h>
 #include <iostream>
+#include <GL/gl.h>
+#include <GL/glu.h>
 
 using namespace std;
 
@@ -209,7 +212,7 @@ void to_sdl_coordinates(int &x, int &y)
 
 //where towers kill monsters based on: their range, monsters' resistance, monsters' life points
 void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, 
-    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave)
+    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave,GLuint textureMoney)
 {
     time+=1;
     success = false;
@@ -247,6 +250,7 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
             if (monster->get_life_points() <= 0){
                 cout<<"Monster killed!"<<endl;
                 money = player.get_money() + 2*nb_wave;
+                textureMoney=display_money(money);
                 player.set_money(money);
                 supr.push_back(monster);
                 monsters.erase(monsters.begin()+loopMonster);
