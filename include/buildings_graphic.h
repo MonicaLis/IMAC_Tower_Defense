@@ -13,7 +13,7 @@ using namespace std;
 
 GLuint initTextureBuilding( const char* filename);
 void choose_building(int x, int y, int &type_building);
-bool after_chose_building(Building* building, bool valid_zone, Player* player, int &money, GLuint textureMoney);
+bool after_chose_building(Building* building, bool valid_zone, Player* player, int &money);
 
 
 #endif 

@@ -1,7 +1,6 @@
 #include "buildings_graphic.h"
 #include "buildings_algo.h"
 #include "player.h"
-#include "interface.h"
 #include <cmath>
 #include <stdlib.h>
 #include <stdio.h>
@@ -85,7 +84,7 @@ void choose_building(int x, int y, int &type_building)
     }
 }
 
-bool after_chose_building(Building* building, bool valid_zone, Player* player, int &money, GLuint textureMoney)
+bool after_chose_building(Building* building, bool valid_zone, Player* player, int &money)
 {
     if (building->get_cost() > money) 
     {
@@ -96,8 +95,6 @@ bool after_chose_building(Building* building, bool valid_zone, Player* player, i
     {     
         cout<<"=== Building built ==="<<endl;
         money = money- building->get_cost();
-     //   glDeleteTextures(1, &textureMoney);
-        textureMoney=display_money(money);
         player->set_money(money);
         cout << "Available money : "<<money<<endl;
     }

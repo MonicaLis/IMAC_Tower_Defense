@@ -50,7 +50,7 @@ public:
 void to_ppm_coordinates(int &x, int &y);
 void to_sdl_coordinates(int &x, int &y);
 void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, 
-    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave,GLuint textureMoney);
+    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave);
 
 
 #endif 
