@@ -1,6 +1,4 @@
-/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/GLAD.dir
-/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/rebuild_cache.dir
-/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/itd.dir
-/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/STB_IMAGE.dir
 /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/edit_cache.dir
-/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/IMGUI.dir
+/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/rebuild_cache.dir
+/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/STB_IMAGE.dir
+/home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/itd.dir

@@ -8,10 +8,10 @@
             "name": "(gdb) Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "/lib/a.out",
+            "program": "${workspaceFolder}/build/itd",
             "args": [],
             "stopAtEntry": false,
-            "cwd": "lib",
+            "cwd": "${workspaceFolder}",
             "environment": [],
             "externalConsole": true,
             "MIMode": "gdb",
@@ -22,6 +22,6 @@
                     "ignoreFailures": true
                 }
             ]
-        },
+        }
     ]
 }

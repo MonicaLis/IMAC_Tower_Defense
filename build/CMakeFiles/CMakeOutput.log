@@ -1,4 +1,4 @@
-The system is: Linux - 4.15.0-48-generic - x86_64
+The system is: Linux - 4.15.0-50-generic - x86_64
 Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
 Compiler: /usr/bin/gcc-7 
 Build flags: 
@@ -28,28 +28,28 @@ The CXX compiler identification is GNU, found in "/home/sophie/Documents/TowerDe
 Determining if the C compiler works passed with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_db5ec/fast"
-/usr/bin/make -f CMakeFiles/cmTC_db5ec.dir/build.make CMakeFiles/cmTC_db5ec.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_79588/fast"
+/usr/bin/make -f CMakeFiles/cmTC_79588.dir/build.make CMakeFiles/cmTC_79588.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_db5ec.dir/testCCompiler.c.o
-/usr/bin/gcc-7    -o CMakeFiles/cmTC_db5ec.dir/testCCompiler.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp/testCCompiler.c
-Linking C executable cmTC_db5ec
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db5ec.dir/link.txt --verbose=1
-/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_db5ec.dir/testCCompiler.c.o  -o cmTC_db5ec 
+Building C object CMakeFiles/cmTC_79588.dir/testCCompiler.c.o
+/usr/bin/gcc-7    -o CMakeFiles/cmTC_79588.dir/testCCompiler.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp/testCCompiler.c
+Linking C executable cmTC_79588
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_79588.dir/link.txt --verbose=1
+/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_79588.dir/testCCompiler.c.o  -o cmTC_79588 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_964dd/fast"
-/usr/bin/make -f CMakeFiles/cmTC_964dd.dir/build.make CMakeFiles/cmTC_964dd.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_5aaa6/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5aaa6.dir/build.make CMakeFiles/cmTC_5aaa6.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o
-/usr/bin/gcc-7    -o CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
-Linking C executable cmTC_964dd
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_964dd.dir/link.txt --verbose=1
-/usr/bin/gcc-7     -v -rdynamic CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o  -o cmTC_964dd 
+Building C object CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o
+/usr/bin/gcc-7    -o CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c
+Linking C executable cmTC_5aaa6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5aaa6.dir/link.txt --verbose=1
+/usr/bin/gcc-7     -v -rdynamic CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o  -o cmTC_5aaa6 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/gcc-7
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -61,9 +61,9 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_964dd' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccY1vZyt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_964dd /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_964dd' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_5aaa6' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cckPbINT.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5aaa6 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_5aaa6' '-mtune=generic' '-march=x86-64'
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -71,14 +71,14 @@ Parsed C implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_964dd/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_964dd.dir/build.make CMakeFiles/cmTC_964dd.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_5aaa6/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_5aaa6.dir/build.make CMakeFiles/cmTC_5aaa6.dir/build]
   ignore line: [make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »]
-  ignore line: [Building C object CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o]
-  ignore line: [/usr/bin/gcc-7    -o CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
-  ignore line: [Linking C executable cmTC_964dd]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_964dd.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/gcc-7     -v -rdynamic CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o  -o cmTC_964dd ]
+  ignore line: [Building C object CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o]
+  ignore line: [/usr/bin/gcc-7    -o CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o   -c /usr/share/cmake-3.10/Modules/CMakeCCompilerABI.c]
+  ignore line: [Linking C executable cmTC_5aaa6]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5aaa6.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/gcc-7     -v -rdynamic CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o  -o cmTC_5aaa6 ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/gcc-7]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -90,13 +90,13 @@ Parsed C implicit link information from above output:
   ignore line: [gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_964dd' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccY1vZyt.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_964dd /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_5aaa6' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/cckPbINT.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lgcc_s --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_5aaa6 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o -lgcc --push-state --as-needed -lgcc_s --pop-state -lc -lgcc --push-state --as-needed -lgcc_s --pop-state /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccY1vZyt.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/cckPbINT.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -116,7 +116,7 @@ Parsed C implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_964dd] ==> ignore
+    arg [cmTC_5aaa6] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -128,7 +128,7 @@ Parsed C implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_964dd.dir/CMakeCCompilerABI.c.o] ==> ignore
+    arg [CMakeFiles/cmTC_5aaa6.dir/CMakeCCompilerABI.c.o] ==> ignore
     arg [-lgcc] ==> lib [gcc]
     arg [--push-state] ==> ignore
     arg [--as-needed] ==> ignore
@@ -160,14 +160,14 @@ Parsed C implicit link information from above output:
 Detecting C [-std=c11] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_c23b7/fast"
-/usr/bin/make -f CMakeFiles/cmTC_c23b7.dir/build.make CMakeFiles/cmTC_c23b7.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_da5eb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_da5eb.dir/build.make CMakeFiles/cmTC_da5eb.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_c23b7.dir/feature_tests.c.o
-/usr/bin/gcc-7   -std=c11 -o CMakeFiles/cmTC_c23b7.dir/feature_tests.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_c23b7
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c23b7.dir/link.txt --verbose=1
-/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_c23b7.dir/feature_tests.c.o  -o cmTC_c23b7 
+Building C object CMakeFiles/cmTC_da5eb.dir/feature_tests.c.o
+/usr/bin/gcc-7   -std=c11 -o CMakeFiles/cmTC_da5eb.dir/feature_tests.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_da5eb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_da5eb.dir/link.txt --verbose=1
+/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_da5eb.dir/feature_tests.c.o  -o cmTC_da5eb 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -180,14 +180,14 @@ make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/towe
 Detecting C [-std=c99] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_14105/fast"
-/usr/bin/make -f CMakeFiles/cmTC_14105.dir/build.make CMakeFiles/cmTC_14105.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_48ecb/fast"
+/usr/bin/make -f CMakeFiles/cmTC_48ecb.dir/build.make CMakeFiles/cmTC_48ecb.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_14105.dir/feature_tests.c.o
-/usr/bin/gcc-7   -std=c99 -o CMakeFiles/cmTC_14105.dir/feature_tests.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_14105
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_14105.dir/link.txt --verbose=1
-/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_14105.dir/feature_tests.c.o  -o cmTC_14105 
+Building C object CMakeFiles/cmTC_48ecb.dir/feature_tests.c.o
+/usr/bin/gcc-7   -std=c99 -o CMakeFiles/cmTC_48ecb.dir/feature_tests.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_48ecb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_48ecb.dir/link.txt --verbose=1
+/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_48ecb.dir/feature_tests.c.o  -o cmTC_48ecb 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -200,14 +200,14 @@ make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/towe
 Detecting C [-std=c90] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_6fd35/fast"
-/usr/bin/make -f CMakeFiles/cmTC_6fd35.dir/build.make CMakeFiles/cmTC_6fd35.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_3c340/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3c340.dir/build.make CMakeFiles/cmTC_3c340.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building C object CMakeFiles/cmTC_6fd35.dir/feature_tests.c.o
-/usr/bin/gcc-7   -std=c90 -o CMakeFiles/cmTC_6fd35.dir/feature_tests.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.c
-Linking C executable cmTC_6fd35
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_6fd35.dir/link.txt --verbose=1
-/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_6fd35.dir/feature_tests.c.o  -o cmTC_6fd35 
+Building C object CMakeFiles/cmTC_3c340.dir/feature_tests.c.o
+/usr/bin/gcc-7   -std=c90 -o CMakeFiles/cmTC_3c340.dir/feature_tests.c.o   -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.c
+Linking C executable cmTC_3c340
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c340.dir/link.txt --verbose=1
+/usr/bin/gcc-7      -rdynamic CMakeFiles/cmTC_3c340.dir/feature_tests.c.o  -o cmTC_3c340 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -218,28 +218,28 @@ make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/towe
 Determining if the CXX compiler works passed with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_8ea86/fast"
-/usr/bin/make -f CMakeFiles/cmTC_8ea86.dir/build.make CMakeFiles/cmTC_8ea86.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7975b/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7975b.dir/build.make CMakeFiles/cmTC_7975b.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_8ea86.dir/testCXXCompiler.cxx.o
-/usr/bin/g++-7     -o CMakeFiles/cmTC_8ea86.dir/testCXXCompiler.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
-Linking CXX executable cmTC_8ea86
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8ea86.dir/link.txt --verbose=1
-/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_8ea86.dir/testCXXCompiler.cxx.o  -o cmTC_8ea86 
+Building CXX object CMakeFiles/cmTC_7975b.dir/testCXXCompiler.cxx.o
+/usr/bin/g++-7     -o CMakeFiles/cmTC_7975b.dir/testCXXCompiler.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp/testCXXCompiler.cxx
+Linking CXX executable cmTC_7975b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7975b.dir/link.txt --verbose=1
+/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_7975b.dir/testCXXCompiler.cxx.o  -o cmTC_7975b 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_609f5/fast"
-/usr/bin/make -f CMakeFiles/cmTC_609f5.dir/build.make CMakeFiles/cmTC_609f5.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_7ed4c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_7ed4c.dir/build.make CMakeFiles/cmTC_7ed4c.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o
-/usr/bin/g++-7     -o CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
-Linking CXX executable cmTC_609f5
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_609f5.dir/link.txt --verbose=1
-/usr/bin/g++-7      -v -rdynamic CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_609f5 
+Building CXX object CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o
+/usr/bin/g++-7     -o CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp
+Linking CXX executable cmTC_7ed4c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ed4c.dir/link.txt --verbose=1
+/usr/bin/g++-7      -v -rdynamic CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7ed4c 
 Using built-in specs.
 COLLECT_GCC=/usr/bin/g++-7
 COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper
@@ -251,9 +251,9 @@ Thread model: posix
 gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) 
 COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/
 LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_609f5' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
- /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZk7xad.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_609f5 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
-COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_609f5' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7ed4c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
+ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbAzowt.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_7ed4c /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o
+COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7ed4c' '-shared-libgcc' '-mtune=generic' '-march=x86-64'
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -261,14 +261,14 @@ Parsed CXX implicit link information from above output:
   link line regex: [^( *|.*[/\])(ld|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\]+-)?ld|collect2)[^/\]*( |$)]
   ignore line: [Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp]
   ignore line: []
-  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_609f5/fast"]
-  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_609f5.dir/build.make CMakeFiles/cmTC_609f5.dir/build]
+  ignore line: [Run Build Command:"/usr/bin/make" "cmTC_7ed4c/fast"]
+  ignore line: [/usr/bin/make -f CMakeFiles/cmTC_7ed4c.dir/build.make CMakeFiles/cmTC_7ed4c.dir/build]
   ignore line: [make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »]
-  ignore line: [Building CXX object CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o]
-  ignore line: [/usr/bin/g++-7     -o CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
-  ignore line: [Linking CXX executable cmTC_609f5]
-  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_609f5.dir/link.txt --verbose=1]
-  ignore line: [/usr/bin/g++-7      -v -rdynamic CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_609f5 ]
+  ignore line: [Building CXX object CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o]
+  ignore line: [/usr/bin/g++-7     -o CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o -c /usr/share/cmake-3.10/Modules/CMakeCXXCompilerABI.cpp]
+  ignore line: [Linking CXX executable cmTC_7ed4c]
+  ignore line: [/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_7ed4c.dir/link.txt --verbose=1]
+  ignore line: [/usr/bin/g++-7      -v -rdynamic CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o  -o cmTC_7ed4c ]
   ignore line: [Using built-in specs.]
   ignore line: [COLLECT_GCC=/usr/bin/g++-7]
   ignore line: [COLLECT_LTO_WRAPPER=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper]
@@ -280,13 +280,13 @@ Parsed CXX implicit link information from above output:
   ignore line: [gcc version 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04) ]
   ignore line: [COMPILER_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/]
   ignore line: [LIBRARY_PATH=/usr/lib/gcc/x86_64-linux-gnu/7/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib/:/lib/x86_64-linux-gnu/:/lib/../lib/:/usr/lib/x86_64-linux-gnu/:/usr/lib/../lib/:/usr/lib/gcc/x86_64-linux-gnu/7/../../../:/lib/:/usr/lib/]
-  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_609f5' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
-  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccZk7xad.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_609f5 /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
+  ignore line: [COLLECT_GCC_OPTIONS='-v' '-rdynamic' '-o' 'cmTC_7ed4c' '-shared-libgcc' '-mtune=generic' '-march=x86-64']
+  link line: [ /usr/lib/gcc/x86_64-linux-gnu/7/collect2 -plugin /usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so -plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper -plugin-opt=-fresolution=/tmp/ccbAzowt.res -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lc -plugin-opt=-pass-through=-lgcc_s -plugin-opt=-pass-through=-lgcc --sysroot=/ --build-id --eh-frame-hdr -m elf_x86_64 --hash-style=gnu --as-needed -export-dynamic -dynamic-linker /lib64/ld-linux-x86-64.so.2 -pie -z now -z relro -o cmTC_7ed4c /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o /usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o -L/usr/lib/gcc/x86_64-linux-gnu/7 -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu -L/usr/lib/gcc/x86_64-linux-gnu/7/../../../../lib -L/lib/x86_64-linux-gnu -L/lib/../lib -L/usr/lib/x86_64-linux-gnu -L/usr/lib/../lib -L/usr/lib/gcc/x86_64-linux-gnu/7/../../.. CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o -lstdc++ -lm -lgcc_s -lgcc -lc -lgcc_s -lgcc /usr/lib/gcc/x86_64-linux-gnu/7/crtendS.o /usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crtn.o]
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/collect2] ==> ignore
     arg [-plugin] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/liblto_plugin.so] ==> ignore
     arg [-plugin-opt=/usr/lib/gcc/x86_64-linux-gnu/7/lto-wrapper] ==> ignore
-    arg [-plugin-opt=-fresolution=/tmp/ccZk7xad.res] ==> ignore
+    arg [-plugin-opt=-fresolution=/tmp/ccbAzowt.res] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc_s] ==> ignore
     arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
     arg [-plugin-opt=-pass-through=-lc] ==> ignore
@@ -306,7 +306,7 @@ Parsed CXX implicit link information from above output:
     arg [-znow] ==> ignore
     arg [-zrelro] ==> ignore
     arg [-o] ==> ignore
-    arg [cmTC_609f5] ==> ignore
+    arg [cmTC_7ed4c] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/Scrt1.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/../../../x86_64-linux-gnu/crti.o] ==> ignore
     arg [/usr/lib/gcc/x86_64-linux-gnu/7/crtbeginS.o] ==> ignore
@@ -318,7 +318,7 @@ Parsed CXX implicit link information from above output:
     arg [-L/usr/lib/x86_64-linux-gnu] ==> dir [/usr/lib/x86_64-linux-gnu]
     arg [-L/usr/lib/../lib] ==> dir [/usr/lib/../lib]
     arg [-L/usr/lib/gcc/x86_64-linux-gnu/7/../../..] ==> dir [/usr/lib/gcc/x86_64-linux-gnu/7/../../..]
-    arg [CMakeFiles/cmTC_609f5.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
+    arg [CMakeFiles/cmTC_7ed4c.dir/CMakeCXXCompilerABI.cpp.o] ==> ignore
     arg [-lstdc++] ==> lib [stdc++]
     arg [-lm] ==> lib [m]
     arg [-lgcc_s] ==> lib [gcc_s]
@@ -346,14 +346,14 @@ Parsed CXX implicit link information from above output:
 Detecting CXX [-std=c++1z] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_92667/fast"
-/usr/bin/make -f CMakeFiles/cmTC_92667.dir/build.make CMakeFiles/cmTC_92667.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_201c1/fast"
+/usr/bin/make -f CMakeFiles/cmTC_201c1.dir/build.make CMakeFiles/cmTC_201c1.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_92667.dir/feature_tests.cxx.o
-/usr/bin/g++-7    -std=c++1z -o CMakeFiles/cmTC_92667.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_92667
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_92667.dir/link.txt --verbose=1
-/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_92667.dir/feature_tests.cxx.o  -o cmTC_92667 
+Building CXX object CMakeFiles/cmTC_201c1.dir/feature_tests.cxx.o
+/usr/bin/g++-7    -std=c++1z -o CMakeFiles/cmTC_201c1.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_201c1
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_201c1.dir/link.txt --verbose=1
+/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_201c1.dir/feature_tests.cxx.o  -o cmTC_201c1 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -419,14 +419,14 @@ make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/towe
 Detecting CXX [-std=c++14] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_e9168/fast"
-/usr/bin/make -f CMakeFiles/cmTC_e9168.dir/build.make CMakeFiles/cmTC_e9168.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_a2d0a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a2d0a.dir/build.make CMakeFiles/cmTC_a2d0a.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_e9168.dir/feature_tests.cxx.o
-/usr/bin/g++-7    -std=c++14 -o CMakeFiles/cmTC_e9168.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_e9168
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_e9168.dir/link.txt --verbose=1
-/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_e9168.dir/feature_tests.cxx.o  -o cmTC_e9168 
+Building CXX object CMakeFiles/cmTC_a2d0a.dir/feature_tests.cxx.o
+/usr/bin/g++-7    -std=c++14 -o CMakeFiles/cmTC_a2d0a.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_a2d0a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a2d0a.dir/link.txt --verbose=1
+/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_a2d0a.dir/feature_tests.cxx.o  -o cmTC_a2d0a 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -492,14 +492,14 @@ make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/towe
 Detecting CXX [-std=c++11] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_82dca/fast"
-/usr/bin/make -f CMakeFiles/cmTC_82dca.dir/build.make CMakeFiles/cmTC_82dca.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_78d75/fast"
+/usr/bin/make -f CMakeFiles/cmTC_78d75.dir/build.make CMakeFiles/cmTC_78d75.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_82dca.dir/feature_tests.cxx.o
-/usr/bin/g++-7    -std=c++11 -o CMakeFiles/cmTC_82dca.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_82dca
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_82dca.dir/link.txt --verbose=1
-/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_82dca.dir/feature_tests.cxx.o  -o cmTC_82dca 
+Building CXX object CMakeFiles/cmTC_78d75.dir/feature_tests.cxx.o
+/usr/bin/g++-7    -std=c++11 -o CMakeFiles/cmTC_78d75.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_78d75
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78d75.dir/link.txt --verbose=1
+/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_78d75.dir/feature_tests.cxx.o  -o cmTC_78d75 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
@@ -565,14 +565,14 @@ make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/towe
 Detecting CXX [-std=c++98] compiler features compiled with the following output:
 Change Dir: /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp
 
-Run Build Command:"/usr/bin/make" "cmTC_cb266/fast"
-/usr/bin/make -f CMakeFiles/cmTC_cb266.dir/build.make CMakeFiles/cmTC_cb266.dir/build
+Run Build Command:"/usr/bin/make" "cmTC_ec8e5/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ec8e5.dir/build.make CMakeFiles/cmTC_ec8e5.dir/build
 make[1] : on entre dans le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
-Building CXX object CMakeFiles/cmTC_cb266.dir/feature_tests.cxx.o
-/usr/bin/g++-7    -std=c++98 -o CMakeFiles/cmTC_cb266.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
-Linking CXX executable cmTC_cb266
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cb266.dir/link.txt --verbose=1
-/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_cb266.dir/feature_tests.cxx.o  -o cmTC_cb266 
+Building CXX object CMakeFiles/cmTC_ec8e5.dir/feature_tests.cxx.o
+/usr/bin/g++-7    -std=c++98 -o CMakeFiles/cmTC_ec8e5.dir/feature_tests.cxx.o -c /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/feature_tests.cxx
+Linking CXX executable cmTC_ec8e5
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ec8e5.dir/link.txt --verbose=1
+/usr/bin/g++-7       -rdynamic CMakeFiles/cmTC_ec8e5.dir/feature_tests.cxx.o  -o cmTC_ec8e5 
 make[1] : on quitte le répertoire « /home/sophie/Documents/TowerDefense/tower_defense/IMAC_Tower_Defense/build/CMakeFiles/CMakeTmp »
 
 
