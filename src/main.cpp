@@ -163,7 +163,7 @@ int main(int argc, char **argv) {
        
         
        //WIN CONDITION
-        if(numberWave==3 && wave==false && monsters.size()==0){            
+        if(numberWave==5 && wave==false && monsters.size()==0){            
             drawWin(textureWin);
             if(tempGO<35){
                 tempGO++;

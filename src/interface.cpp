@@ -38,7 +38,7 @@ GLuint display_money(int i)
     unsigned char *image = stbi_load(result, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
     if (nullptr == image)
     {
-        cerr<<"issue loading image of map"<<endl;
+        cerr<<"issue loading image of money"<<endl;
     }
     // Autorisation de l'affichage des textures
     glEnable(GL_TEXTURE_2D);
@@ -87,7 +87,7 @@ GLuint display_win()
     unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
     if (nullptr == image)
     {
-        cerr<<"issue loading image of map"<<endl;
+        cerr<<"issue loading image of winning"<<endl;
     }
     // Autorisation de l'affichage des textures
     glEnable(GL_TEXTURE_2D);
@@ -136,7 +136,7 @@ GLuint display_gameover()
     unsigned char *image = stbi_load(image_path, &imgWidth, &imgHeight, &imgChannels, STBI_rgb_alpha);
     if (nullptr == image)
     {
-        cerr<<"issue loading image of map"<<endl;
+        cerr<<"issue loading image of GO"<<endl;
     }
     // Autorisation de l'affichage des textures
     glEnable(GL_TEXTURE_2D);
