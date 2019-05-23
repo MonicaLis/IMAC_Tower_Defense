@@ -127,7 +127,7 @@ void Building::impact(Tower* tower)
                 break; 
             case 1: //factory
                 tower_power = tower->get_power();
-                tower->set_power(1.25 * tower_power);
+                tower->set_power(1 + tower_power);
                 cout<<"tower's power went from "<<tower_power<<" to "<<tower->get_power()<<endl;
                 break;
             case 2: //munitions

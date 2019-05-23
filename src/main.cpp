@@ -200,18 +200,19 @@ int main(int argc, char **argv) {
        if(wave && monsters.size()>0){
             
             for (Tower* tower : towers) {
-                int loopMonster=0; 
+                int loopMonster = 0; 
                 for (Monster* monster : monsters) 
                 {
                     tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);
                     textureMoney=display_money(player.get_money());
-                    if (success) 
-                    {
-                        tower->drawFire(textureFire); 
-                    }
+                    //if the tower shot, draw fire
+                    if (success) tower->drawFire(textureFire); 
                 }
             }
         }
+        //doing this inside the first FOR causes memory issues
+        int i = 0;
+        for (Monster* monster : monsters) rid_monsters(i, monster, monsters, supr);
 
         //Wave is false when no monster
         if(monsters.size()<=0){

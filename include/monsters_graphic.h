@@ -15,5 +15,7 @@ using namespace std;
 
 GLuint initTextureMonster();
 void drawMonster();
+void rid_monsters(int &i, Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr);
+
 
 #endif 

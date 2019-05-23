@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
@@ -94,4 +95,14 @@ void Monster::move(int initial_pos_x, int before_x, int before_y, int after_x, i
             set_y(pos_y);
         }
     }
+}
+
+void rid_monsters(int &i, Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr)
+{
+    if (monster->get_life_points() == -1)
+    {
+        supr.push_back(monster);
+        monsters.erase(monsters.begin() + i);
+    }
+    i++;
 }

@@ -237,21 +237,16 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
                 monster->set_life_points(life);
                 time=0;
             }
-            if (monster->get_life_points() <= 0){
+            if (monster->get_life_points() == 0){
                 cout<<"Monster killed!"<<endl;
                 money = player.get_money() + 2*nb_wave;
-                //look for the position of the monster in the monsters' list
-                vector<Monster*>::iterator it;
-                it = find(monsters.begin(), monsters.end(), monster);
-                int position = it - monsters.begin();
                 player.set_money(money);
-                supr.push_back(monster);
-                monsters.erase(monsters.begin() +position);
+                monster->set_life_points(-1);
+                //supr.push_back(monster);
+                //monsters.erase(monsters.begin() + loopMonster);
             }
         }
     }
     loopMonster+=1;
 }
 
-//pb: on se retrouve avec des montres qui ont des fois 9 points de vie
-//pb: on efface pas le bon monstre

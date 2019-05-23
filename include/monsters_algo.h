@@ -46,7 +46,7 @@ public:
 }Monster;
 
 
-void new_wave(int &life, bool &wave, int &numberWave, GLuint texture, int x, int y, vector<Monster*> &monsters);
+void new_wave(bool &wave, int &numberWave, GLuint texture, int x, int y, vector<Monster*> &monsters);
 
 
 #endif 
