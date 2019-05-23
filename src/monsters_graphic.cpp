@@ -104,5 +104,7 @@ void rid_monsters(int &i, Monster* monster, vector<Monster*> &monsters, vector<M
         supr.push_back(monster);
         monsters.erase(monsters.begin() + i);
     }
-    i++;
+    //only move on if the monster isn't dead
+    //if he is, his successor will take his place in the list and i needs to stay the same
+    else i++;
 }

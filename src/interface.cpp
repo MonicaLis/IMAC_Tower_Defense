@@ -1,5 +1,10 @@
 #include "interface.h"
+#include "towers_algo.h"
+#include "buildings_algo.h"
+#include "monsters_algo.h"
 
+
+#include <vector>
 #include <cmath>
 #include <stdlib.h>
 #include <stdio.h>
@@ -170,4 +175,20 @@ void drawGO(GLuint texture)
         glPopMatrix();
     // Unbind texture
     glBindTexture(GL_TEXTURE_2D, 0); 
+}
+
+void delete_all(vector<Tower*> &towers, vector<Monster*> &monsters, vector<Monster*> &supr, vector<Building*> &buildings)
+{
+    for (Tower* tower : towers) {
+        delete tower;
+    }
+    for (Monster* monster : monsters) {
+        delete monster;
+    }
+    for (Monster* toSupr : supr) {
+        delete toSupr;
+    }
+    for (Building* building : buildings) {
+        delete building;
+    }
 }

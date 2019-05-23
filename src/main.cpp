@@ -106,7 +106,7 @@ int main(int argc, char **argv) {
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
-        int time=0;
+        int time = 0;
         bool valid_zone;
         bool success = false;
 
@@ -126,74 +126,53 @@ int main(int argc, char **argv) {
         
         if(monsters.size()>0){
             /*Update Monster*/
-         for (Monster* monster : monsters) {
+            for (Monster* monster : monsters) {
         
-            if (monster->get_life_points() > 0) monster->drawMonster();
+                if (monster->get_life_points() > 0) monster->drawMonster();
 
-            if (monster->get_path() == 0)
-            { 
-                //to go from the entrance to P3
-                monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
-                //go to N2 and finally the exit
-                monster->move(node_2_x, 1, 0, 1, 0, node_2_x, exit_x);
-            }
-            else 
-            {
-                //to go from the entrance to N4 and then N2
-                monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
-                //go to N2 and finally the exit
-                monster->move(node_2_x-20, 1, 0, 1, 0, node_2_x-20, exit_x-20);
-            }
+                if (monster->get_path() == 0)
+                { 
+                    //to go from the entrance to P3
+                    monster->move(enter_x, 2, 1, 1, 0, node_3_x-30, node_2_x);
+                    //go to N2 and finally the exit
+                    monster->move(node_2_x, 1, 0, 1, 0, node_2_x, exit_x);
+                }
+                else 
+                {
+                    //to go from the entrance to N4 and then N2
+                    monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
+                    //go to N2 and finally the exit
+                    monster->move(node_2_x-20, 1, 0, 1, 0, node_2_x-20, exit_x-20);
+                }
 
-            /*GAME OVER*/
-            if (monster->get_x() == exit_x)
-            { 
-                drawGO(textureGO);
-
-                     if(tempGO<35){
-                    tempGO++;
+                /*GAME OVER*/
+                if (monster->get_x() == exit_x)
+                { 
+                    drawGO(textureGO);
+                    if(tempGO<35){
+                        tempGO++;
                     }
                     else{
-                        for (Tower* tower : towers) {
-                        delete tower;
-                        }
-                        for (Monster* monster : monsters) {
-                            delete monster;
-                        }
-                        for (Monster* toSupr : supr) {
-                            delete toSupr;
-                        }
+                        delete_all(towers, monsters, supr, buildings);
                         glDeleteTextures(1, &textureMoney);
                         goto BEGIN;
                     }   
-            }
+                }
+            }  
         }  
-    }  
        
         
        //WIN CONDITION
-       if(numberWave==3 && wave==false && monsters.size()<=0){            
-             drawWin(textureWin);
-
-             if(tempGO<35){
-                    tempGO++;
-                    }
-                    else{
-                        for (Tower* tower : towers) {
-                        delete tower;
-                    }
-                    for (Monster* monster : monsters) {
-                        delete monster;
-                    }
-                    for (Monster* toSupr : supr) {
-                        delete toSupr;
-                    }
-                    glDeleteTextures(1, &textureMoney);
-                    goto BEGIN;
-                    }     
-                    for (Building* building : buildings) {
-                        delete building;
-                    }  
+        if(numberWave==3 && wave==false && monsters.size()==0){            
+            drawWin(textureWin);
+            if(tempGO<35){
+                tempGO++;
+            }
+            else{
+                delete_all(towers, monsters, supr, buildings);
+                glDeleteTextures(1, &textureMoney);
+                goto BEGIN;
+            }     
        }
         
         //TOWER ATTACK MONSTER
@@ -219,13 +198,14 @@ int main(int argc, char **argv) {
             wave=false;
         }
        
-       //Delete monsters who are dead
-        if(!supr.empty()){
-                for (Monster* toSupr : supr) {
-                supr.erase(supr.begin(), supr.end());
-                delete toSupr;
-            }
-        }
+       //DO WE REALLY NEED TO DELETE THIS LIST WHEN WE DELETE IT AT THE END?
+    //    //Delete monsters who are dead
+    //     if(!supr.empty()){
+    //             for (Monster* toSupr : supr) {
+    //             supr.erase(supr.begin(), supr.end());
+    //             delete toSupr;
+    //         }
+    //     }
 
         /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
@@ -345,22 +325,7 @@ int main(int argc, char **argv) {
         }
     }
 
-
-    // for (Tower* tower : towers) {
-    //     delete tower;
-    // }
-
-    // for (Monster* monster : monsters) {
-    //     delete monster;
-    // }
-
-    // for (Monster* toSupr : supr) {
-    //     delete toSupr;
-    // }
-
-    for (Building* building : buildings) {
-        delete building;
-    }
+    //delete_all(towers, monsters, supr, buildings);
      /* Free SDL resources */
     SDL_DestroyWindow(window);
     delete_image(img_map);

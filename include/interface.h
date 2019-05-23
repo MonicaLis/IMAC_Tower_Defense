@@ -1,9 +1,15 @@
 #ifndef INTERFACE_H
 #define INTERFACE_H
-
+ 
 #include <stdlib.h>
 #include <stdio.h>
 #include <iostream>
+#include "towers_algo.h"
+#include "buildings_algo.h"
+#include "monsters_algo.h"
+
+
+#include <vector>
 
 using namespace std;
 
@@ -19,7 +25,8 @@ GLuint display_win();
 void drawWin(GLuint texture);
 GLuint display_gameover();
 void drawGO(GLuint texture);
+void delete_all(vector<Tower*> &towers, vector<Monster*> &monsters, vector<Monster*> &supr, vector<Building*> &buildings);
 
 
-
+ 
 #endif 
