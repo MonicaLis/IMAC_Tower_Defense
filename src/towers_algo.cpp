@@ -43,7 +43,8 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
         {
             if ( sqrt( i*i + j*j ) <= 11 )
             {
-                if ( type_position(Cx + i, Cy + j, I) < 1 ) 
+                if ( ( type_position(Cx + i, Cy + j, I) != 1) || ( type_position(Cx - i, Cy + j, I) != 1) 
+                        || ( type_position(Cx + i, Cy - j, I) != 1) ) 
                 {
                     valid_zone = false;
                     break;
@@ -53,9 +54,8 @@ Tower::Tower(int Cx, int Cy, GLuint newTexture, Image* I, bool &valid_zone)
         }
     }
 
-
     //check if the tower isn't outside of the map
-    if (Cx > 500  || Cy > 300) valid_zone = false;
+    if (Cx > 495  || Cy > 295 || Cx < 5 || Cy < 5) valid_zone = false;
 
     if (valid_zone)
     {
@@ -109,25 +109,25 @@ void Tower::set_type(int type)
 {
     switch(type) 
     { 
-        case 0: //high power and low pace (so higher number because 0.8sec is slow)
+        case 0: //high power and low pace 
             power = 4;
-            pace = 800;
+            pace = 6;
             range = 60;
             break; 
         case 1: //low range, low power, high pace
             range = 40;
             power = 1;
-            pace = 150;
+            pace = 1;
             break; 
         case 2: //low power, low range, high pace
             power = 1;
             range = 30;
-            pace = 300;
+            pace = 6;
             break; 
         case 3: //high range, high pace, low power
             power = 2;
             range = 60;
-            pace = 250;
+            pace = 7;
             break; 
     }
 }
@@ -198,10 +198,9 @@ void to_sdl_coordinates(int &x, int &y)
 }
 
 //where towers kill monsters based on: their range, monsters' resistance, monsters' life points
-void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonster, Tower* tower, 
+void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loopMonster, Tower* tower, 
     Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave)
 {
-    time+=1;
     success = false;
     int tower_power = tower->get_power();
     int range = tower->get_range();
@@ -209,22 +208,18 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
 
     int monster_x = monster->get_x();
     int monster_y = monster->get_y();
-    //to_sdl_coordinates(monster_x, monster_y);
 
     int compareX= tower->get_x()- monster_x;
     int compareY= tower->get_y()- monster_y;
-
-    //delay time for <pace> milliseconds
-    Uint32 startTime = SDL_GetTicks();
-    while ( startTime - SDL_GetTicks() < tower->get_pace() ) //cout<<"waiting"<<endl;
 
     //if there's a monster in the tower's range 
     if(monsters.size()>0 && compareX<range && compareY<range){
 
         success = true;
+        times_shot++;
         
         //first we need to shoot the monster until he loses all resistance
-        if (time >= resistance_monster && resistance_monster > 0) 
+        if (times_shot < resistance_monster && resistance_monster > 0) 
         {
             monster->set_resistance(resistance_monster - 1);
         }
@@ -235,15 +230,13 @@ void tower_attacks_monsters(bool &success, int &money, int &time, int &loopMonst
                 int life = monster->get_life_points() - tower_power;
                 if (life <= 0) life = 0;
                 monster->set_life_points(life);
-                time=0;
+                times_shot=0;
             }
             if (monster->get_life_points() == 0){
                 cout<<"Monster killed!"<<endl;
                 money = player.get_money() + 2*nb_wave;
                 player.set_money(money);
                 monster->set_life_points(-1);
-                //supr.push_back(monster);
-                //monsters.erase(monsters.begin() + loopMonster);
             }
         }
     }

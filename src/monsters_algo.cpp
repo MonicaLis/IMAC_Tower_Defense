@@ -111,7 +111,7 @@ void new_wave(bool &wave, int &numberWave, GLuint texture, int x, int y, vector<
     numberWave+=1;
     cout<<"New wave no "<<numberWave<<endl;
     int random, i;
-    for (i=0; i<10; i++)
+    for (i=0; i<6; i++)
     {
         Monster* newMonster= new Monster(x +rand()%20, y+ rand()%15, texture, numberWave);
         monsters.push_back(newMonster);

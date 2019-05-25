@@ -180,6 +180,7 @@ int main(int argc, char **argv) {
             
             for (Tower* tower : towers) {
                 int loopMonster = 0; 
+                //SDL_Delay( tower->get_pace());
                 for (Monster* monster : monsters) 
                 {
                     tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);

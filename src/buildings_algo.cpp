@@ -26,27 +26,28 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
             range = 220;
             cost = 2;
             break;
-        case 2: //munitions
+        case 2: //munitions 
             range = 180;
             cost = 4;
     }
     texture = texture_t;
 
     int i, j;
-    Pixel color = create_pixel(130, 50, 100);
+    Pixel color = create_pixel(110, 0, 110);
     to_ppm_coordinates(x_t, y_t);
     valid_zone = true;
 
     //checking whether the building is far enough from other elements
     //to do this we check if a slightly larger circle's perimeter is in a constructible zone
     //when i=j=0 we're checking whether the centre is in a constructible zone
-    for (i=-15; i<15; i=i+15)
+    for (i=-18; i<18; i=i+18)
     {
-        for (j=-15; j<15; j=j+15)
+        for (j=-18; j<18; j=j+18)
         {
-            if ( sqrt( i*i + j*j ) <= 15 )
+            if ( sqrt( i*i + j*j ) <= 18 )
             {
-                if ( type_position(x_t + i, y_t +j, I) < 1 )
+                if ( ( type_position(x_t + i, y_t + j, I) != 1) || ( type_position(x_t - i, y_t + j, I) != 1) 
+                        || ( type_position(x_t + i, y_t - j, I) != 1) ) 
                 {
                     valid_zone = false;
                     break;
@@ -57,7 +58,7 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
     }
 
     //check if the building isn't outside of the map
-    if (x_t > 500  || y_t > 300) valid_zone = false;
+    if (x_t > 495  || y_t > 295 || x_t < 5 || y_t < 5) valid_zone = false;
 
     if (valid_zone)
     {
