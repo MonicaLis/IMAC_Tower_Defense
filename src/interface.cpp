@@ -65,7 +65,7 @@ void drawMoney(GLuint texture)
 {
      glBindTexture(GL_TEXTURE_2D, texture);
         glPushMatrix();
-            glTranslated(150,30,0);
+            glTranslated(200, 30,0);
             glScalef(242,20,0);
             glRotatef(180,1,0,0);
             glBegin(GL_QUADS);
