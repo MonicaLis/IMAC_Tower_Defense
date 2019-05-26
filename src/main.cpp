@@ -9,10 +9,12 @@ using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
 
+
 #include <stb_image/stb_image.h>
 #include <vector>
 #include <sstream>
 
+#include <SDL2_ttf/SDL_ttf.h>
 #include "init.h"
 #include "map_algo.h"
 #include "map_graphic.h"
@@ -30,10 +32,13 @@ static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
 int main(int argc, char **argv) {
 
-    /* Init SDL, OpenGL, Debug and Glad */
     SDL_Window* window = init();
     if (window == nullptr) {
         cout << "Error window init" << endl;
+    }
+
+    if (TTF_Init() < 0) {
+        cout << "Error TTF init" << endl;
     }
     
     /*loading and verifying the map*/
@@ -66,7 +71,6 @@ int main(int argc, char **argv) {
    /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
-    GLuint textureMoney=display_money(10);
 
     /*INIT ENTITIES LISTS*/
     vector<Tower*> towers;
@@ -96,12 +100,14 @@ int main(int argc, char **argv) {
     int node_2_x = map.get_node(2).get_coordinates().get_p_x();
     int node_2_y = map.get_node(2).get_coordinates().get_p_y();
 
+    SDL_Surface* text = get_font();
+
     while (loop) {
-       
+
         glClear(GL_COLOR_BUFFER_BIT);
 
         drawMap(textureMap);
-        drawMoney(textureMoney);
+        displayMoney(text);
 
         /*INIT VARIABLE*/
         float x = 0;
@@ -154,7 +160,6 @@ int main(int argc, char **argv) {
                     }
                     else{
                         delete_all(towers, monsters, supr, buildings);
-                        glDeleteTextures(1, &textureMoney);
                         goto BEGIN;
                     }   
                 }
@@ -170,7 +175,6 @@ int main(int argc, char **argv) {
             }
             else{
                 delete_all(towers, monsters, supr, buildings);
-                glDeleteTextures(1, &textureMoney);
                 goto BEGIN;
             }     
        }
@@ -184,7 +188,6 @@ int main(int argc, char **argv) {
                 for (Monster* monster : monsters) 
                 {
                     tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);
-                    textureMoney=display_money(player.get_money());
                     //if the tower shot, draw fire
                     if (success) tower->drawFire(textureFire); 
                 }
@@ -198,15 +201,6 @@ int main(int argc, char **argv) {
         if(monsters.size()<=0){
             wave=false;
         }
-       
-       //DO WE REALLY NEED TO DELETE THIS LIST WHEN WE DELETE IT AT THE END?
-    //    //Delete monsters who are dead
-    //     if(!supr.empty()){
-    //             for (Monster* toSupr : supr) {
-    //             supr.erase(supr.begin(), supr.end());
-    //             delete toSupr;
-    //         }
-    //     }
 
         /* Swap front and back buffers */
         SDL_GL_SwapWindow(window);
@@ -251,8 +245,6 @@ int main(int argc, char **argv) {
                             towers.push_back(newTower);
                             cout<<"Tower built of type "<<newTower->get_type()<<endl;
                             money = player.get_money() - newTower->get_cost();
-                          //  glDeleteTextures(1, &textureMoney);
-                             textureMoney=display_money(money);
                             player.set_money(money);
                             cout << "Available money : "<<money<<endl;
                         }
@@ -266,7 +258,6 @@ int main(int argc, char **argv) {
                         {
                             add_building(buildings, towers, newBuilding);
                         } 
-                        textureMoney=display_money(player.get_money());
                     }
                     /*FACTORY*/
                     if( (money>0) && (!wave) && (typeBuilding == 1))
@@ -276,7 +267,6 @@ int main(int argc, char **argv) {
                         if ( after_chose_building(newBuilding, valid_zone, &player, money) ){
                             add_building(buildings, towers, newBuilding);   
                         } 
-                        textureMoney=display_money(player.get_money());
                     }
                     /*MUNITIONS*/
                     if( (money>0) && (!wave) && (typeBuilding == 2))
@@ -286,7 +276,6 @@ int main(int argc, char **argv) {
                         if ( after_chose_building(newBuilding, valid_zone, &player, money) ){
                             add_building(buildings, towers, newBuilding);
                         } 
-                        textureMoney=display_money(player.get_money());
                     }
                     
                     if(wave==true){
@@ -329,6 +318,7 @@ int main(int argc, char **argv) {
     //delete_all(towers, monsters, supr, buildings);
      /* Free SDL resources */
     SDL_DestroyWindow(window);
+    SDL_FreeSurface(text);
     delete_image(img_map);
     glDeleteTextures(1, &textureFire);
     glDeleteTextures(1, &textureTower);
@@ -339,8 +329,8 @@ int main(int argc, char **argv) {
     glDeleteTextures(1, &textureMap);
     glDeleteTextures(1, &textureWin);
     glDeleteTextures(1, &textureGO);
-    glDeleteTextures(1, &textureMoney);
     SDL_Quit();
+    TTF_Quit();
 
     return EXIT_SUCCESS;
 }
