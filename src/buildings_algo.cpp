@@ -145,5 +145,5 @@ void add_building(vector<Building*> &buildings, vector<Tower*> &towers, Building
     buildings.push_back(newBuilding);
     for (Tower* tower : towers) {
         newBuilding->impact(tower);
-    }
+    } 
 }

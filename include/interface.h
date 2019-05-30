@@ -19,8 +19,6 @@ using namespace std;
 #include <GL/glu.h>
 #include <stb_image/stb_image.h>
 
-SDL_Surface* get_font();
-void displayMoney(SDL_Surface* surface);
 GLuint display_win();
 void drawWin(GLuint texture);
 GLuint display_gameover();

@@ -1,4 +1,5 @@
 #include "player.h"
+#include "interface.h"
 
 #include <stdlib.h>
 #include <iostream>

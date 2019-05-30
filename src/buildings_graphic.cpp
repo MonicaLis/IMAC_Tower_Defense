@@ -91,7 +91,7 @@ bool after_chose_building(Building* building, bool valid_zone, Player* player, i
         cout<<"You don't have enough money"<<endl;
         valid_zone = false;
     }
-    if (valid_zone)
+    else if (valid_zone)
     {     
         cout<<"=== Building built ==="<<endl;
         money = money- building->get_cost();

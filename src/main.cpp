@@ -8,13 +8,12 @@
 using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
-
+#include <GL/glut.h>
 
 #include <stb_image/stb_image.h>
 #include <vector>
 #include <sstream>
 
-#include <SDL2_ttf/SDL_ttf.h>
 #include "init.h"
 #include "map_algo.h"
 #include "map_graphic.h"
@@ -32,15 +31,13 @@ static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
 int main(int argc, char **argv) {
 
+    glutInit(&argc, argv);
+
     SDL_Window* window = init();
     if (window == nullptr) {
         cout << "Error window init" << endl;
     }
 
-    if (TTF_Init() < 0) {
-        cout << "Error TTF init" << endl;
-    }
-    
     /*loading and verifying the map*/
     bool verify_map = load_map("data/carte.itd");
     cout << verify_map << endl;
@@ -100,15 +97,13 @@ int main(int argc, char **argv) {
     int node_2_x = map.get_node(2).get_coordinates().get_p_x();
     int node_2_y = map.get_node(2).get_coordinates().get_p_y();
 
-    SDL_Surface* text = get_font();
 
     while (loop) {
 
         glClear(GL_COLOR_BUFFER_BIT);
 
         drawMap(textureMap);
-        displayMoney(text);
-
+        
         /*INIT VARIABLE*/
         float x = 0;
         float y = 0;
@@ -265,7 +260,7 @@ int main(int argc, char **argv) {
                         Building* newBuilding = new Building(textureFactory, 1, e.button.x, e.button.y, img_map, valid_zone);
                         after_chose_building(newBuilding, valid_zone, &player, money);
                         if ( after_chose_building(newBuilding, valid_zone, &player, money) ){
-                            add_building(buildings, towers, newBuilding);   
+                            add_building(buildings, towers, newBuilding);  
                         } 
                     }
                     /*MUNITIONS*/
@@ -284,6 +279,8 @@ int main(int argc, char **argv) {
                     if(money<=0){
                         cout << "No money available"<<endl;
                     }
+
+                    //PRESS RESTART
                     if( (e.button.x>=825) && (e.button.x<=990) && (e.button.y>=658) && (e.button.y<=695)){
                         goto BEGIN;
                     }
@@ -318,7 +315,6 @@ int main(int argc, char **argv) {
     //delete_all(towers, monsters, supr, buildings);
      /* Free SDL resources */
     SDL_DestroyWindow(window);
-    SDL_FreeSurface(text);
     delete_image(img_map);
     glDeleteTextures(1, &textureFire);
     glDeleteTextures(1, &textureTower);
@@ -330,7 +326,6 @@ int main(int argc, char **argv) {
     glDeleteTextures(1, &textureWin);
     glDeleteTextures(1, &textureGO);
     SDL_Quit();
-    TTF_Quit();
 
     return EXIT_SUCCESS;
 }
