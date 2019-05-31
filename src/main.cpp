@@ -284,7 +284,7 @@ int main(int argc, char **argv) {
                         goto BEGIN;
                     }
                      //NEW WAVE : create monster
-                    if( (e.button.x>=10) && (e.button.x<=240) && (e.button.y>=560) && (e.button.y<=600)){
+                    if(!wave &&(e.button.x>=10) && (e.button.x<=240) && (e.button.y>=560) && (e.button.y<=600)){
                         new_wave(wave, numberWave, textureMonster, enter_x, enter_y, monsters);
                      }
                 
