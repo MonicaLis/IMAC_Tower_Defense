@@ -234,7 +234,7 @@ void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loo
             }
             if (monster->get_life_points() == 0){
                 cout<<"Monster killed!"<<endl;
-                money = player.get_money() + 2*nb_wave;
+                money = player.get_money() + 1.5*nb_wave;
                 player.set_money(money);
                 monster->set_life_points(-1);
             }

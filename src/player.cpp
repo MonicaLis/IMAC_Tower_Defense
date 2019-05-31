@@ -14,7 +14,7 @@ using namespace std;
 
 Player::Player()
 {
-    money=10;
+    money=6;
 }
 
 Player::~Player()
