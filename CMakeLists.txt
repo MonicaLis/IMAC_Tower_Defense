@@ -5,7 +5,6 @@ set(EXECUTABLE_OUTPUT_PATH bin/${CMAKE_BUILD_TYPE})
 
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
-find_package(GLUT REQUIRED)
 
 #----------------------------------DEBUG
 if (SDL2_LIBRARIES)
@@ -14,15 +13,12 @@ endif()
 if (OPENGL_LIBRARIES)
     message("Found OpenGL: " ${OPENGL_LIBRARIES})
 endif()
-if (GLUT_LIBRARIES)
-    message("Found GLUT: " ${GLUT_LIBRARIES})
-endif()
+
 
 # include
 include_directories(
 	${SDL2_INCLUDE_DIRS}
 	${OPENGL_INCLUDE_DIRS}
-	${GLUT_INCLUDE_DIRS}
 	include
 	src
 	lib
@@ -38,7 +34,6 @@ target_link_libraries(
 	${PROJECT_NAME} 
 	${OPENGL_LIBRARIES} 
 	${SDL2_LIBRARIES}
-	${GLUT_LIBRARIES}
 	STB_IMAGE 
 	-ldl
 )

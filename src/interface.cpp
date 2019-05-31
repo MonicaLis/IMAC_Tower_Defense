@@ -11,7 +11,6 @@
 #include <iostream>
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GL/glut.h>
 #include <stb_image/stb_image.h>
 #include <SDL2/SDL.h>
 #include <sstream>

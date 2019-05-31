@@ -8,7 +8,6 @@
 using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
-#include <GL/glut.h>
 
 #include <stb_image/stb_image.h>
 #include <vector>
@@ -31,7 +30,7 @@ static const Uint32 FRAMERATE_MILLISECONDS = 1000 / 60;
 
 int main(int argc, char **argv) {
 
-    glutInit(&argc, argv);
+
 
     SDL_Window* window = init();
     if (window == nullptr) {
