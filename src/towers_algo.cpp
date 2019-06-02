@@ -109,25 +109,25 @@ void Tower::set_type(int type)
 {
     switch(type) 
     { 
-        case 0: //high power and low pace 
+        case 0: //high power and low pace (=high nb)
             power = 4;
-            pace = 6;
-            range = 60;
+            pace = 13;
+            range = 40;
             break; 
         case 1: //low range, low power, high pace
-            range = 40;
+            range = 20;
             power = 1;
-            pace = 1;
+            pace = 8;
             break; 
         case 2: //low power, low range, high pace
             power = 1;
-            range = 30;
-            pace = 6;
+            range = 20;
+            pace = 9;
             break; 
         case 3: //high range, high pace, low power
             power = 2;
-            range = 60;
-            pace = 7;
+            range = 30;
+            pace = 9;
             break; 
     }
 }
@@ -198,8 +198,8 @@ void to_sdl_coordinates(int &x, int &y)
 }
 
 //where towers kill monsters based on: their range, monsters' resistance, monsters' life points
-void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loopMonster, Tower* tower, 
-    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave)
+void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loopMonster, Tower* &tower, 
+    Monster* &monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave)
 {
     success = false;
     int tower_power = tower->get_power();
@@ -208,6 +208,7 @@ void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loo
 
     int monster_x = monster->get_x();
     int monster_y = monster->get_y();
+    to_sdl_coordinates(monster_x, monster_y);
 
     int compareX= tower->get_x()- monster_x;
     int compareY= tower->get_y()- monster_y;

@@ -48,8 +48,8 @@ public:
 
 void to_ppm_coordinates(int &x, int &y);
 void to_sdl_coordinates(int &x, int &y);
-void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loopMonster, Tower* tower, 
-    Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave);
+void tower_attacks_monsters(bool &success, int &money, int &times_shot, int &loopMonster, Tower* &tower, 
+    Monster* &monster, vector<Monster*> &monsters, vector<Monster*> &supr, Player &player, int &nb_wave);
 
 
 #endif 

@@ -49,8 +49,7 @@ int main(int argc, char **argv) {
     /*Variables*/
     int typeBuilding = 5; //to mean that the player hasn't chosen yet
     int pos_x, pos_y;
-    int life;
-    int tempGO=0;
+    int life, random;
 
     /*INIT TEXTURE*/
     GLuint textureTower=initTextureTower();
@@ -67,6 +66,7 @@ int main(int argc, char **argv) {
    /*INIT PLAYER*/
     Player player;
     int money = player.get_money();
+    int tempGO=0;
 
     /*INIT ENTITIES LISTS*/
     vector<Tower*> towers;
@@ -109,6 +109,7 @@ int main(int argc, char **argv) {
         int time = 0;
         bool valid_zone;
         bool success = false;
+        bool won = true;
 
         if(towers.size()>0){
              /* Update towers */
@@ -142,35 +143,41 @@ int main(int argc, char **argv) {
                     //to go from the entrance to N4 and then N2
                     monster->move(enter_x, 2, 3, 1, -2, node_4_x-15, node_2_x-20);
                     //go to N2 and finally the exit
-                    monster->move(node_2_x-20, 1, 0, 1, 0, node_2_x-20, exit_x-20);
+                    monster->move(node_2_x-20, 1, 0, 1, 0, node_2_x-20, exit_x);
                 }
 
-                /*GAME OVER*/
-                if (monster->get_x() == exit_x)
+                /*GAME OVER (when a monster reaches the end)*/
+                if (monster->get_x() == 453)
                 { 
-                    drawGO(textureGO);
-                    if(tempGO<35){
-                        tempGO++;
-                    }
-                    else{
-                        delete_all(towers, monsters, supr, buildings);
-                        goto BEGIN;
-                    }   
+                    won = false;
+                    break;
                 }
-            }  
+            }
+            if (!won)
+            {
+                cout<<"=====GAME OVER====="<<endl;
+                while(tempGO<200){
+                    tempGO++;
+                    drawGO(textureGO);
+                    SDL_GL_SwapWindow(window);
+                }
+                delete_all(towers, monsters, supr, buildings);
+                goto BEGIN;
+            }
+
         }  
        
         
        //WIN CONDITION
-        if(numberWave==5 && wave==false && monsters.size()==0){            
-            drawWin(textureWin);
-            if(tempGO<35){
+        if(numberWave==3 && wave==false && monsters.size()==0){  
+            cout<<"=====YOU WON !!!====="<<endl;          
+            while(tempGO<200){
                 tempGO++;
+                drawWin(textureWin);
+                SDL_GL_SwapWindow(window);
             }
-            else{
-                delete_all(towers, monsters, supr, buildings);
-                goto BEGIN;
-            }     
+            delete_all(towers, monsters, supr, buildings);
+            goto BEGIN;   
        }
         
         //TOWER ATTACK MONSTER
@@ -178,16 +185,20 @@ int main(int argc, char **argv) {
             
             for (Tower* tower : towers) {
                 int loopMonster = 0; 
-                //SDL_Delay( tower->get_pace());
                 for (Monster* monster : monsters) 
                 {
+                    //SDL_Delay(tower->get_pace());
                     tower_attacks_monsters(success, money, time, loopMonster, tower, monster, monsters, supr, player, numberWave);
                     //if the tower shot, draw fire
-                    if (success) tower->drawFire(textureFire); 
+                    if (success) 
+                    {
+                        tower->drawFire(textureFire); 
+                        break;
+                    }
                 }
             }
         }
-        //doing this inside the first FOR causes memory issues
+        //doing this for memory issues
         int i = 0;
         for (Monster* monster : monsters) rid_monsters(i, monster, monsters, supr);
 
@@ -257,7 +268,6 @@ int main(int argc, char **argv) {
                     if( (money>0) && (!wave) && (typeBuilding == 1))
                     {
                         Building* newBuilding = new Building(textureFactory, 1, e.button.x, e.button.y, img_map, valid_zone);
-                        after_chose_building(newBuilding, valid_zone, &player, money);
                         if ( after_chose_building(newBuilding, valid_zone, &player, money) ){
                             add_building(buildings, towers, newBuilding);  
                         } 
@@ -266,7 +276,6 @@ int main(int argc, char **argv) {
                     if( (money>0) && (!wave) && (typeBuilding == 2))
                     {
                         Building* newBuilding = new Building(textureMunitions, 2, e.button.x, e.button.y, img_map, valid_zone);
-                        after_chose_building(newBuilding, valid_zone, &player, money);
                         if ( after_chose_building(newBuilding, valid_zone, &player, money) ){
                             add_building(buildings, towers, newBuilding);
                         } 

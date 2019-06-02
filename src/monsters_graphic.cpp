@@ -97,6 +97,7 @@ void Monster::move(int initial_pos_x, int before_x, int before_y, int after_x, i
     }
 }
 
+//if the monster is dead, put him in the supr list
 void rid_monsters(int &i, Monster* monster, vector<Monster*> &monsters, vector<Monster*> &supr)
 {
     if (monster->get_life_points() == -1)
