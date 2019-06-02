@@ -117,16 +117,28 @@ void drawGO(GLuint texture)
 
 void delete_all(vector<Tower*> &towers, vector<Monster*> &monsters, vector<Monster*> &supr, vector<Building*> &buildings)
 {
-    for (Tower* tower : towers) {
-        delete tower;
+    if (!towers.empty())
+    {
+        for (Tower* tower : towers) {
+            delete tower;
+        }
     }
-    for (Monster* monster : monsters) {
-        delete monster;
+    if (!monsters.empty())
+    {
+        for (Monster* monster : monsters) {
+            delete monster;
+        }
     }
-    for (Monster* toSupr : supr) {
-        delete toSupr;
+    if (!supr.empty())
+    {
+        for (Monster* toSupr : supr) {
+            delete toSupr;
+        }
     }
-    for (Building* building : buildings) {
-        delete building;
+    if (!buildings.empty())
+    {
+        for (Building* building : buildings) {
+            delete building;
+        }
     }
 }

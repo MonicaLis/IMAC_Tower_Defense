@@ -12,7 +12,7 @@ using namespace std;
 Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
 {
     life_points = 1;
-    resistance = 1 + n_wave;
+    resistance = 35 + 10*n_wave;
     xM=Cx;
     yM=Cy;
     textureM=newTexture;

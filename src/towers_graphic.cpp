@@ -9,6 +9,7 @@
 using namespace std;
 #include <GL/gl.h>
 #include <GL/glu.h>
+#include <vector>
 #include <stb_image/stb_image.h>
 
 #include "map_algo.h"
@@ -105,3 +106,4 @@ void Tower::drawFire(GLuint texture){
     // Unbind texture
     glBindTexture(GL_TEXTURE_2D, 0); 
 }
+
