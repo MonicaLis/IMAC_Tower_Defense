@@ -12,11 +12,10 @@ using namespace std;
 Monster::Monster(int Cx, int Cy,GLuint newTexture, int n_wave)
 {
     life_points = 1;
-    resistance = 35 + 10*n_wave;
+    resistance = 30 + 10*n_wave;
     xM=Cx;
     yM=Cy;
     textureM=newTexture;
-    cout << "Monster created ! wave ("<< n_wave << ")" << endl;
     int random = rand() % 5;
     if (random % 2 == 0) choose_path = 1;
     else choose_path = 0;

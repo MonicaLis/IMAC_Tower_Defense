@@ -169,7 +169,7 @@ int main(int argc, char **argv) {
        
         
        //WIN CONDITION
-        if(numberWave==3 && wave==false && monsters.size()==0){  
+        if(numberWave==5 && wave==false && monsters.size()==0){  
             cout<<"=====YOU WON !!!====="<<endl;          
             while(tempGO<200){
                 tempGO++;
@@ -292,7 +292,7 @@ int main(int argc, char **argv) {
                     if( (e.button.x>=825) && (e.button.x<=990) && (e.button.y>=658) && (e.button.y<=695)){
                         goto BEGIN;
                     }
-                     //NEW WAVE : create monster
+                    //NEW WAVE : create monster
                     if(!wave &&(e.button.x>=10) && (e.button.x<=240) && (e.button.y>=560) && (e.button.y<=600)){
                         new_wave(wave, numberWave, textureMonster, enter_x, enter_y, monsters);
                      }

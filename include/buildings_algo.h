@@ -29,7 +29,7 @@ public:
     int get_cost();
     void set_cost(int cost_t);
     void drawBuilding();
-    void impact(Tower* tower);
+    void impact(Tower* tower); 
     
 }Building;
 

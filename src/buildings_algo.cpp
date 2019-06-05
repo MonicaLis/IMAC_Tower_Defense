@@ -19,15 +19,15 @@ Building::Building(GLuint texture_t, int type_t, int x_t, int y_t, Image* I, boo
     switch(type)
     {
         case 0: //radar
-            range = 200;
+            range = 50;
             cost = 5;
             break; 
         case 1: //factory
-            range = 220;
+            range = 40;
             cost = 2;
             break;
         case 2: //munitions 
-            range = 180;
+            range = 40;
             cost = 4;
     }
     texture = texture_t;
